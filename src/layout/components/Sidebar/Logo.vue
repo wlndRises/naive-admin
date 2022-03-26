@@ -1,0 +1,56 @@
+<template>
+  <div class="sidebar-logo-container" :class="{ collapse: collapse }">
+    <transition name="sidebarLogoFade">
+      <div v-if="collapse" key="collapse" class="h-full flex items-center justify-center">
+        <svg-icon class="w-28px h-28px text-blue-300" iconClass="logo" />
+      </div>
+      <div v-else key="expand" class="h-full flex items-center justify-between">
+        <svg-icon class="w-28px h-28px text-blue-300" iconClass="logo" />
+        <h1 class="sidebar-title mr-30px">{{ title }}</h1>
+      </div>
+    </transition>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'SidebarLogo',
+  props: {
+    collapse: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data() {
+    return {
+      title: 'Naive Cli'
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.sidebarLogoFade-enter-active {
+  transition: opacity 1.5s;
+}
+
+.sidebarLogoFade-enter,
+.sidebarLogoFade-leave-to {
+  opacity: 0;
+}
+
+.sidebar-logo-container {
+  position: relative;
+  width: 80%;
+  height: 50px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  & .sidebar-title {
+    display: inline-block;
+    color: #fff;
+    font-size: 16px;
+    font-family: Fira Code;
+  }
+}
+</style>
