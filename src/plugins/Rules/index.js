@@ -18,14 +18,14 @@ const Rules = {
                 }
               },
               {
-                immediate: true
+                immediate: true,
               }
             )
           })
         }
-      }
+      },
     })
-  }
+  },
 }
 
 export default Rules

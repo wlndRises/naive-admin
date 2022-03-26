@@ -1,25 +1,25 @@
 const BASIC_OPTION = {
   tooltip: {
-    position: 'top'
+    position: 'top',
   },
   animation: false,
   grid: {
     height: '80%',
-    top: 0
+    top: 0,
   },
   xAxis: {
     type: 'category',
     data: [],
     splitArea: {
-      show: true
-    }
+      show: true,
+    },
   },
   yAxis: {
     type: 'category',
     data: [],
     splitArea: {
-      show: true
-    }
+      show: true,
+    },
   },
   visualMap: {
     min: 0,
@@ -27,22 +27,22 @@ const BASIC_OPTION = {
     calculable: true,
     orient: 'horizontal',
     left: 'center',
-    bottom: '0'
+    bottom: '0',
   },
   series: {
     name: 'Punch Card',
     type: 'heatmap',
     data: [],
     label: {
-      show: true
+      show: true,
     },
     emphasis: {
       itemStyle: {
         shadowBlur: 10,
-        shadowColor: 'rgba(0, 0, 0, 0.5)'
-      }
-    }
-  }
+        shadowColor: 'rgba(0, 0, 0, 0.5)',
+      },
+    },
+  },
 }
 
 export { BASIC_OPTION }

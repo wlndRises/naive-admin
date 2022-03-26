@@ -28,8 +28,8 @@ export default {
 
     return {
       title,
-      toggleDark
+      toggleDark,
     }
-  }
+  },
 }
 </script>

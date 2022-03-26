@@ -11,7 +11,7 @@ export function postParamsRequest(url, params = {}) {
     url,
     {},
     {
-      params
+      params,
     }
   )
 }

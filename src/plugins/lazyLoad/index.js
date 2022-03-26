@@ -15,7 +15,7 @@ const LazyLoad = {
         } else {
           LazyLoad.listenerScroll(el)
         }
-      }
+      },
     })
   },
   // 初始化
@@ -57,7 +57,7 @@ const LazyLoad = {
         window.removeEventListener('scroll', el._handler)
       }
     }
-  }
+  },
 }
 
 export default LazyLoad

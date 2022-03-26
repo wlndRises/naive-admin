@@ -12,15 +12,15 @@ import dayjs from 'dayjs'
 export default {
   name: 'Dashboard',
   directives: {
-    copy
+    copy,
   },
   data() {
     return {
-      text: null
+      text: null,
     }
   },
   computed: {
-    ...mapGetters(['name'])
+    ...mapGetters(['name']),
   },
   mounted() {
     const hour = dayjs().hour(),
@@ -37,6 +37,6 @@ export default {
     } else {
       this.text = '晚上好~ 周末了 记得休息欧'
     }
-  }
+  },
 }
 </script>

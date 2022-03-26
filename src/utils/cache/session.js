@@ -6,8 +6,8 @@ class Storage {
     const _data = {
       data,
       keyInfo: Object.assign(options, {
-        timestamp: new Date().getTime()
-      })
+        timestamp: new Date().getTime(),
+      }),
     }
 
     return JSON.stringify(_data)
@@ -103,7 +103,7 @@ class Storage {
     const _data = this._getInputData(
       data,
       Object.assign(options, {
-        isOnce: true
+        isOnce: true,
       })
     )
 

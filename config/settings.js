@@ -1,5 +1,4 @@
 module.exports = {
-
   title: 'Naive Cli',
 
   /**
@@ -12,5 +11,5 @@ module.exports = {
    * @type {boolean} true | false
    * @description 是否在侧边栏显示 logo
    */
-  sidebarLogo: true
+  sidebarLogo: true,
 }

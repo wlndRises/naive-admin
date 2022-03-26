@@ -45,7 +45,7 @@ export function downloadByBlob(data, filename, mime, bom) {
   // 返回一个 DOMString 表示指定的 File 对象或 Blob 对象的URL
   // 这个 URL 的生命周期和创建它的窗口中的 document 绑定
   // 可以提前使用 URL.revokeObjectURL 解绑
-  const blobURL = window.URL.createObjectURL(blob) 
+  const blobURL = window.URL.createObjectURL(blob)
   downloadByUrl(blobURL, filename, '_self')
   window.URL.revokeObjectURL(blobURL)
 }
@@ -62,6 +62,7 @@ export function downloadByUrl(url, filename, target = '_blank') {
   const link = document.createElement('a')
   link.href = url
   link.target = target
-  link.download = filename || url.substring(url.lastIndexOf('/') + 1, url.length)
+  link.download =
+    filename || url.substring(url.lastIndexOf('/') + 1, url.length)
   link.click()
 }

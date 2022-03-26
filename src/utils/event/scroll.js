@@ -3,7 +3,7 @@ import { requestAnimationFrame } from '@/utils/polyfill/requestAnimationFrame'
 
 export function addScrollWatch(callback) {
   let beforeScrollTop = window.pageYOffset
-  addScrollListener(() => {
+  window.addScrollListener(() => {
     let direction = 'up'
     const afterScrollTop = window.pageYOffset
     const delta = afterScrollTop - beforeScrollTop
@@ -32,7 +32,8 @@ Math.easeInOutQuad = function (t, b, c, d) {
  */
 export function scrollTo(end, duration = 500, callback) {
   const { documentElement, body } = document
-  const start = documentElement.scrollTop || body.parentNode.scrollTop || body.scrollTop
+  const start =
+    documentElement.scrollTop || body.parentNode.scrollTop || body.scrollTop
   const change = end - start
   const increment = 20
   let currentTime = 0

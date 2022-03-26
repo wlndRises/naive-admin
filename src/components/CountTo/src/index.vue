@@ -7,7 +7,7 @@
 import { isNumOrNumStr } from '@/utils/is'
 import {
   requestAnimationFrame,
-  cancelAnimationFrame
+  cancelAnimationFrame,
 } from '@/utils/polyfill/requestAnimationFrame'
 export default {
   name: 'CountTo',
@@ -15,22 +15,22 @@ export default {
     startVal: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     endVal: {
       type: Number,
       required: false,
-      default: 2017
+      default: 2017,
     },
     duration: {
       type: Number,
       required: false,
-      default: 3000
+      default: 3000,
     },
     autoplay: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     decimals: {
       type: Number,
@@ -38,39 +38,39 @@ export default {
       default: 0,
       validator(value) {
         return value >= 0
-      }
+      },
     },
     decimal: {
       type: String,
       required: false,
-      default: '.'
+      default: '.',
     },
     separator: {
       type: String,
       required: false,
-      default: ','
+      default: ',',
     },
     prefix: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     suffix: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     useEasing: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     easingFn: {
       type: Function,
       default(t, b, c, d) {
         return (c * (-Math.pow(2, (-10 * t) / d) + 1) * 1024) / 1023 + b
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -82,13 +82,13 @@ export default {
       startTime: null,
       timestamp: null,
       remaining: null,
-      rAF: null
+      rAF: null,
     }
   },
   computed: {
     countDown() {
       return this.startVal > this.endVal
-    }
+    },
   },
   watch: {
     startVal() {
@@ -100,7 +100,7 @@ export default {
       if (this.autoplay) {
         this.start()
       }
-    }
+    },
   },
   mounted() {
     if (this.autoplay) {
@@ -149,7 +149,12 @@ export default {
         if (this.countDown) {
           this.printVal =
             this.localStartVal -
-            this.easingFn(progress, 0, this.localStartVal - this.endVal, this.localDuration)
+            this.easingFn(
+              progress,
+              0,
+              this.localStartVal - this.endVal,
+              this.localDuration
+            )
         } else {
           this.printVal = this.easingFn(
             progress,
@@ -170,9 +175,11 @@ export default {
         }
       }
       if (this.countDown) {
-        this.printVal = this.printVal < this.endVal ? this.endVal : this.printVal
+        this.printVal =
+          this.printVal < this.endVal ? this.endVal : this.printVal
       } else {
-        this.printVal = this.printVal > this.endVal ? this.endVal : this.printVal
+        this.printVal =
+          this.printVal > this.endVal ? this.endVal : this.printVal
       }
 
       this.displayValue = this.formatNumber(this.printVal)
@@ -195,10 +202,10 @@ export default {
         }
       }
       return this.prefix + x1 + x2 + this.suffix
-    }
+    },
   },
   destroyed() {
     cancelAnimationFrame(this.rAF)
-  }
+  },
 }
 </script>

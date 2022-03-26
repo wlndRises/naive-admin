@@ -10,13 +10,13 @@ export default {
   props: {
     iconClass: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     iconName() {
       return `#icon-${this.iconClass}`
-    }
-  }
+    },
+  },
 }
 </script>

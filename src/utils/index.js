@@ -61,7 +61,7 @@ export const cloneDeep = function (val) {
   if (isDate(val)) return new Date(val)
   const newVal = new val.constructor() //保持继承链
   for (const key in val) {
-    if (val.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(val, key)) {
       //不遍历其原型链上的属性
       const element = val[key]
       newVal[key] = isObject(element) ? arguments.callee(val) : val // 使用arguments.callee解除与函数名的耦合
@@ -108,10 +108,10 @@ export const throttle = (fn, delay) => {
 }
 
 export const merge = function (target) {
-  for (const i = 1, j = arguments.length; i < j; i++) {
+  for (let i = 1, j = arguments.length; i < j; i++) {
     const source = arguments[i] || {}
     for (const prop in source) {
-      if (source.hasOwnProperty(prop)) {
+      if (Object.prototype.hasOwnProperty.call(source, prop)) {
         const value = source[prop]
         if (isDef(value)) {
           target[prop] = value

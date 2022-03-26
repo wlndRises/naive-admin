@@ -24,13 +24,13 @@ export default {
   name: 'Breadcrumb',
   data() {
     return {
-      levelList: null
+      levelList: null,
     }
   },
   watch: {
     $route() {
       this.getBreadcrumb()
-    }
+    },
   },
   created() {
     this.getBreadcrumb()
@@ -38,11 +38,15 @@ export default {
   methods: {
     getBreadcrumb() {
       // 只显示带有meta.title的路由
-      let matched = this.$route.matched.filter((item) => item.meta && item.meta.title)
+      let matched = this.$route.matched.filter(
+        (item) => item.meta && item.meta.title
+      )
       const first = matched[0]
 
       if (!this.isDashboard(first)) {
-        matched = [{ path: '/dashboard', meta: { title: 'Dashboard' } }].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: 'Dashboard' } }].concat(
+          matched
+        )
       }
 
       this.levelList = matched.filter(
@@ -69,8 +73,8 @@ export default {
         return
       }
       this.$router.push(this.pathCompile(path))
-    }
-  }
+    },
+  },
 }
 </script>
 

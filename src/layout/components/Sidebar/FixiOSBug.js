@@ -2,7 +2,7 @@ export default {
   computed: {
     device() {
       return this.$store.state.app.device
-    }
+    },
   },
   mounted() {
     // 为了修复在ios设备上点击菜单会触发mouseleave的bug
@@ -21,6 +21,6 @@ export default {
           handleMouseleave(e)
         }
       }
-    }
-  }
+    },
+  },
 }

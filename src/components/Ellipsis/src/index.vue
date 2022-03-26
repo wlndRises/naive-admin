@@ -10,7 +10,7 @@
       :class="{ 'ellipsis--line-clamp': lineClamp != 1 }"
       :style="{
         '-webkit-line-clamp': lineClamp,
-        textOverflow: lineClamp == 1 ? 'ellipsis' : ''
+        textOverflow: lineClamp == 1 ? 'ellipsis' : '',
       }"
     >
       <slot></slot>
@@ -23,7 +23,7 @@
     :style="{
       '-webkit-line-clamp': lineClamp,
       textOverflow: lineClamp == 1 ? 'ellipsis' : '',
-      cursor: expandTrigger ? 'pointer' : ''
+      cursor: expandTrigger ? 'pointer' : '',
     }"
     @click="expandTrigger && handleClick()"
   >
@@ -37,22 +37,22 @@ export default {
   props: {
     lineElips: {
       type: [String, Number],
-      default: 1
+      default: 1,
     },
     // 默认关闭展开收起功能
     expandTrigger: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 默认显示tooltip
     tooltip: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
-      lineClamp: undefined
+      lineClamp: undefined,
     }
   },
   methods: {
@@ -62,16 +62,16 @@ export default {
       } else {
         this.lineClamp = this.lineElips
       }
-    }
+    },
   },
   watch: {
     lineElips: {
       handler(newVal) {
         this.lineClamp = newVal
       },
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 }
 </script>
 

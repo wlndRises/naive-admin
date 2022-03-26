@@ -33,13 +33,13 @@ export const constantRoutes = [
   {
     path: '/login',
     component: () => import('@/views/login/index'),
-    hidden: true
+    hidden: true,
   },
 
   {
     path: '/404',
     component: () => import('@/views/404'),
-    hidden: true
+    hidden: true,
   },
 
   {
@@ -51,9 +51,9 @@ export const constantRoutes = [
         path: 'dashboard',
         name: 'Dashboard',
         component: () => import('@/views/dashboard/index'),
-        meta: { title: 'Dashboard', icon: 'dashboard' }
-      }
-    ]
+        meta: { title: 'Dashboard', icon: 'dashboard' },
+      },
+    ],
   },
 
   {
@@ -64,9 +64,9 @@ export const constantRoutes = [
         path: 'index',
         name: 'Chart',
         component: () => import('@/views/chart/index'),
-        meta: { title: 'Chart', icon: 'el-icon-s-platform' }
-      }
-    ]
+        meta: { title: 'Chart', icon: 'el-icon-s-platform' },
+      },
+    ],
   },
 
   {
@@ -80,15 +80,15 @@ export const constantRoutes = [
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: 'Table', icon: 'table' },
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
+        meta: { title: 'Tree', icon: 'tree' },
+      },
+    ],
   },
 
   {
@@ -99,9 +99,9 @@ export const constantRoutes = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
-      }
-    ]
+        meta: { title: 'Form', icon: 'form' },
+      },
+    ],
   },
 
   {
@@ -111,7 +111,7 @@ export const constantRoutes = [
     name: 'Nested',
     meta: {
       title: 'Nested',
-      icon: 'nested'
+      icon: 'nested',
     },
     children: [
       {
@@ -124,7 +124,7 @@ export const constantRoutes = [
             path: 'menu1-1',
             component: () => import('@/views/nested/menu1/menu1-1'),
             name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
+            meta: { title: 'Menu1-1' },
           },
           {
             path: 'menu1-2',
@@ -134,33 +134,35 @@ export const constantRoutes = [
             children: [
               {
                 path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+                component: () =>
+                  import('@/views/nested/menu1/menu1-2/menu1-2-1'),
                 name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
+                meta: { title: 'Menu1-2-1' },
               },
               {
                 path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+                component: () =>
+                  import('@/views/nested/menu1/menu1-2/menu1-2-2'),
                 name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
+                meta: { title: 'Menu1-2-2' },
+              },
+            ],
           },
           {
             path: 'menu1-3',
             component: () => import('@/views/nested/menu1/menu1-3'),
             name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+            meta: { title: 'Menu1-3' },
+          },
+        ],
       },
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
         name: 'Menu2',
-        meta: { title: 'menu2' }
-      }
-    ]
+        meta: { title: 'menu2' },
+      },
+    ],
   },
 
   {
@@ -171,22 +173,22 @@ export const constantRoutes = [
         path: 'index',
         name: 'Composition',
         component: () => import('@/views/composition/index'),
-        meta: { title: 'composition api', icon: 'el-icon-apple' }
-      }
-    ]
+        meta: { title: 'composition api', icon: 'el-icon-apple' },
+      },
+    ],
   },
 
   {
-    path: '/langtext',
+    path: '/ellipsis',
     component: Layout,
     children: [
       {
         path: 'index',
-        name: 'LangText',
-        component: () => import('@/views/langtext/index'),
-        meta: { title: 'langtext', icon: 'el-icon-collection-tag' }
-      }
-    ]
+        name: 'Ellipsis',
+        component: () => import('@/views/ellipsis/index'),
+        meta: { title: 'ellipsis', icon: 'el-icon-collection-tag' },
+      },
+    ],
   },
 
   {
@@ -197,9 +199,9 @@ export const constantRoutes = [
         path: 'index',
         name: 'DownLoad',
         component: () => import('@/views/download/index'),
-        meta: { title: 'Download', icon: 'el-icon-download' }
-      }
-    ]
+        meta: { title: 'Download', icon: 'el-icon-download' },
+      },
+    ],
   },
 
   {
@@ -208,28 +210,28 @@ export const constantRoutes = [
     children: [
       {
         path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
+        meta: { title: 'External Link', icon: 'link' },
+      },
+    ],
   },
 
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true },
 ]
 
 const createRouter = () =>
   new Router({
     // mode: 'history', // require service support
     scrollBehavior: () => ({ y: 0 }),
-    routes: constantRoutes
+    routes: constantRoutes,
   })
 
 const router = createRouter()
 
 // 当我们A帐号退出之后 B帐号登录进来 也会执行 addRoutes() 这个方法 会一直累加上去
-// 然后控制台上也会有警告 出现了重复的路由 
-// 然后我们访问A帐号有 B帐号没有的路由时 发现是可以进行访问的 
-// 这显然是不合理的 
+// 然后控制台上也会有警告 出现了重复的路由
+// 然后我们访问A帐号有 B帐号没有的路由时 发现是可以进行访问的
+// 这显然是不合理的
 // 已经注入的路由 没办法在通过官方给的api删除掉(当然，目前官方也没有提供相应的api)
 // 所以有了以下解决方法
 // 在用户退出的时候，重新执行下 resetRouter() 这个方法就可以重新初始化静态路由表

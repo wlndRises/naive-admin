@@ -23,7 +23,6 @@ import '@/router/permission' // permission control
 import cdnConfig from '/config/cdn'
 
 import { cdnLoad } from './utils'
-
 ;(async function bootstrap() {
   await cdnLoad(cdnConfig)
 
@@ -40,6 +39,6 @@ import { cdnLoad } from './utils'
     el: '#app',
     router,
     store,
-    render: (h) => h(App)
+    render: (h) => h(App),
   })
 })()

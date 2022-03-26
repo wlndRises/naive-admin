@@ -6,5 +6,7 @@ export const getUrlQuery = (url) => {
 
 export function setUrlQuery(url, obj) {
   const parameters = qs.stringify(obj)
-  return /\?$/.test(url) ? url + parameters : url.replace(/\/?$/, '?') + parameters
+  return /\?$/.test(url)
+    ? url + parameters
+    : url.replace(/\/?$/, '?') + parameters
 }

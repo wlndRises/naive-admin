@@ -27,7 +27,11 @@ export const getRowSpanList = function (data, contentList) {
       pos = 0
     } else {
       //不是第一项时，就根据标识去存储
-      if (contentList.every((content) => data[index][content] === data[index - 1][content])) {
+      if (
+        contentList.every(
+          (content) => data[index][content] === data[index - 1][content]
+        )
+      ) {
         // if (data[index][contentList] === data[index - 1][contentList]) {
         // 查找到符合条件的数据时每次要把之前存储的数据+1
         rowSpanList[pos] += 1

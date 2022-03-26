@@ -3,8 +3,8 @@
  * @Version: 1.0
  * @Autor: Elk
  * @Date: 2021-12-23 16:50:01
- * @LastEditors: Elk
- * @LastEditTime: 2022-02-14 16:55:34
+ * @LastEditors: zhangyf
+ * @LastEditTime: 2022-03-27 03:22:13
  */
 import _ from 'lodash'
 const toString = Object.prototype.toString
@@ -64,10 +64,10 @@ export function isEmpty(val) {
 export const isEqual = _.isEqual
 
 // tip：与lodash的 isNumber 的区别
-// NaN 可以通过lodash.isNumber 
+// NaN 可以通过lodash.isNumber
 // 此方法等价于isFinite https://www.lodashjs.com/docs/lodash.isFinite#_isfinitevalue
 export function isNumber(val) {
-  if(!is(val, 'Number')) {
+  if (!is(val, 'Number')) {
     return false
   }
   if (!_.isNaN(val)) {
@@ -111,7 +111,13 @@ export function isBoolean(val) {
 }
 
 export function isBase(val) {
-  return isString(val) || isNumber(val) || isBoolean(val) || isNil(val) || isSymbol(val)
+  return (
+    isString(val) ||
+    isNumber(val) ||
+    isBoolean(val) ||
+    isNil(val) ||
+    isSymbol(val)
+  )
 }
 
 export function isReference(val) {
@@ -123,7 +129,12 @@ export function isRegExp(val) {
 }
 
 export function isPromise(val) {
-  return is(val, 'Promise') && isObject(val) && isFunction(val.then) && isFunction(val.catch)
+  return (
+    is(val, 'Promise') &&
+    isObject(val) &&
+    isFunction(val.then) &&
+    isFunction(val.catch)
+  )
 }
 
 export function isDate(val) {
@@ -144,7 +155,7 @@ export function isElement(val) {
 
 export function isUrl(path) {
   const reg =
-    /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/
+    /(((^https?:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[\w]*))?)$/
   return reg.test(path)
 }
 
@@ -152,9 +163,11 @@ export const isServer = typeof window === 'undefined'
 
 export const isClient = !isServer
 
-export const isChrome = window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
+export const isChrome =
+  window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
 
-export const isSafari = window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
+export const isSafari =
+  window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
 
 /**
  * @description element是否在视口范围
@@ -166,7 +179,8 @@ export const isVisibleInViewport = (el, isFullyVisible) => {
   const { top, left, right, bottom } = el.getBoundingClienRect()
   const { innerHeight, innerWidth } = window
   return isFullyVisible
-    ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
+    ? ((top > 0 && top < innerHeight) ||
+        (bottom > 0 && bottom < innerHeight)) &&
         ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
     : top > 0 && left > 0 && bottom < innerHeight && right < innerWidth
 }

@@ -7,6 +7,6 @@
 <script>
 //props - > methods - > data - > computed - > watch
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>

@@ -63,7 +63,7 @@ class Validator {
       transform(value) {
         value = value === '' ? null : Number(value)
         return value
-      }
+      },
     }
   }
 
@@ -80,7 +80,7 @@ class Validator {
       transform(value) {
         value = value === '' ? null : Number(value)
         return value
-      }
+      },
     }
   }
 
@@ -97,7 +97,7 @@ class Validator {
       transform(value) {
         value = value === '' ? null : Number(value)
         return value
-      }
+      },
     }
   }
 
@@ -130,7 +130,7 @@ class Validator {
             callback()
           }
         }
-      }
+      },
     }
   }
 
@@ -162,7 +162,7 @@ class Validator {
             callback()
           }
         }
-      }
+      },
     }
   }
 
@@ -180,7 +180,7 @@ class Validator {
       transform(value) {
         value = value === '' ? null : Number(value)
         return value
-      }
+      },
     }
     if (min !== undefined && max !== undefined) {
       tempMap.min = min
@@ -206,7 +206,7 @@ class Validator {
   rangeString(min, max, trigger = this.trigger) {
     const tempMap = {
       type: 'string',
-      trigger
+      trigger,
     }
     if (min !== undefined && max !== undefined) {
       tempMap.min = min
@@ -233,7 +233,7 @@ class Validator {
       type: 'string',
       message: `请输入一个等于${len}的字符`,
       trigger,
-      len
+      len,
     }
   }
 
@@ -247,7 +247,7 @@ class Validator {
       type: 'enum',
       enum: array,
       message: `输入的字符必须包含在 ${JSON.stringify(array)} 中！`,
-      trigger
+      trigger,
     }
   }
 
@@ -260,7 +260,7 @@ class Validator {
     return {
       type: 'url',
       message: `请输入一个正确的链接地址！（例如：https://www.baidu.com/）`,
-      trigger
+      trigger,
     }
   }
 
@@ -273,7 +273,7 @@ class Validator {
     return {
       type: 'hex',
       message: `请输入一个正确的16进制数！`,
-      trigger
+      trigger,
     }
   }
 
@@ -295,7 +295,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -306,7 +306,7 @@ class Validator {
    * @returns {{type: string, message: string, trigger: string, validator(*, *=, *): undefined}}
    */
   isAlpha(trigger = this.trigger) {
-    const that = this;
+    const that = this
     return {
       type: 'string',
       message: `请输入正确的英文字母！`,
@@ -321,7 +321,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -350,7 +350,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -379,7 +379,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -404,7 +404,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -429,7 +429,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -454,7 +454,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -479,7 +479,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -504,7 +504,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -529,7 +529,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -554,7 +554,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -579,7 +579,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -604,7 +604,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -629,7 +629,7 @@ class Validator {
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -651,13 +651,15 @@ class Validator {
         }
         const currDate = dateFormat(value, 'yyyy-mm-dd')
         const befDate =
-          typeof beforeDate === 'string' ? beforeDate : dateFormat(beforeDate, 'yyyy-mm-dd')
+          typeof beforeDate === 'string'
+            ? beforeDate
+            : dateFormat(beforeDate, 'yyyy-mm-dd')
         if (that.validatorJs.isAfter(currDate, befDate)) {
           callback()
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 
@@ -680,13 +682,15 @@ class Validator {
         }
         const currDate = dateFormat(value, 'yyyy-mm-dd')
         const aftDate =
-          typeof afterDate === 'string' ? afterDate : dateFormat(afterDate, 'yyyy-mm-dd')
+          typeof afterDate === 'string'
+            ? afterDate
+            : dateFormat(afterDate, 'yyyy-mm-dd')
         if (that.validatorJs.isBefore(currDate, aftDate)) {
           callback()
         } else {
           callback(new Error())
         }
-      }
+      },
     }
   }
 

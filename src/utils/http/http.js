@@ -3,7 +3,7 @@ import axios from 'axios'
 const http = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 15000,
-  withCredentials: false // 当前请求为跨域类型时是否在请求中协带cookie
+  withCredentials: false, // 当前请求为跨域类型时是否在请求中协带cookie
 })
 
 //请求拦截
@@ -11,8 +11,8 @@ http.interceptors.request.use(
   (config) => {
     if (config.method === 'post') {
       config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-    } else if (config.method === 'get') {
     }
+
     return config
   },
   (err) => {

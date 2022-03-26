@@ -5,47 +5,47 @@
 import { Progress } from 'element-ui'
 import {
   requestAnimationFrame,
-  cancelAnimationFrame
+  cancelAnimationFrame,
 } from '@/utils/polyfill/requestAnimationFrame'
 export default {
   name: 'ElProgress',
   components: {
-    Progress
+    Progress,
   },
   props: {
     startVal: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     endVal: {
       type: Number,
       required: false,
-      default: 100
+      default: 100,
     },
     duration: {
       type: Number,
       required: false,
-      default: 3000
+      default: 3000,
     },
     autoplay: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     // 使用缓和功能
     useEasing: {
       type: Boolean,
       required: false,
-      default: true
+      default: true,
     },
     // 缓和回调函数
     easingFn: {
       type: Function,
       default(t, b, c, d) {
         return (c * (-Math.pow(2, (-10 * t) / d) + 1) * 1024) / 1023 + b
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -57,13 +57,13 @@ export default {
       startTime: null,
       timestamp: null,
       remaining: null,
-      rAF: null
+      rAF: null,
     }
   },
   computed: {
     countDown() {
       return this.startVal > this.endVal
-    }
+    },
   },
   watch: {
     startVal() {
@@ -75,7 +75,7 @@ export default {
       if (this.autoplay) {
         this.start()
       }
-    }
+    },
   },
   mounted() {
     if (this.autoplay) {
@@ -124,7 +124,12 @@ export default {
         if (this.countDown) {
           this.printVal =
             this.localStartVal -
-            this.easingFn(progress, 0, this.localStartVal - this.endVal, this.localDuration)
+            this.easingFn(
+              progress,
+              0,
+              this.localStartVal - this.endVal,
+              this.localDuration
+            )
         } else {
           this.printVal = this.easingFn(
             progress,
@@ -145,9 +150,11 @@ export default {
         }
       }
       if (this.countDown) {
-        this.printVal = this.printVal < this.endVal ? this.endVal : this.printVal
+        this.printVal =
+          this.printVal < this.endVal ? this.endVal : this.printVal
       } else {
-        this.printVal = this.printVal > this.endVal ? this.endVal : this.printVal
+        this.printVal =
+          this.printVal > this.endVal ? this.endVal : this.printVal
       }
 
       this.displayValue = parseInt(this.printVal)
@@ -156,10 +163,10 @@ export default {
       } else {
         this.$emit('callback')
       }
-    }
+    },
   },
   destroyed() {
     cancelAnimationFrame(this.rAF)
-  }
+  },
 }
 </script>
