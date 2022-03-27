@@ -1,7 +1,7 @@
 <template>
   <div class="m-20px flex flex-col">
     <div class="my-20px">Hi~ {{ name }} {{ text }}</div>
-    <el-button type="primary" v-copy:dblclick="text">双击复制</el-button>
+    <el-button v-copy:dblclick="text" type="primary">双击复制</el-button>
   </div>
 </template>
 

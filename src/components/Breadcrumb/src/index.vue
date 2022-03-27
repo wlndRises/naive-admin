@@ -2,9 +2,9 @@
   <el-breadcrumb separator="/">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item
-        class="inline-block text-14px leading-50px ml-8px"
         v-for="(item, index) in levelList"
         :key="item.path"
+        class="inline-block text-14px leading-50px ml-8px"
       >
         <span
           v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"

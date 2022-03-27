@@ -52,10 +52,8 @@
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center" width="200">
-        <template>
-          <el-button size="mini">Edit</el-button>
-          <el-button size="mini" type="danger">Delete</el-button>
-        </template>
+        <el-button size="mini">Edit</el-button>
+        <el-button size="mini" type="danger">Delete</el-button>
       </el-table-column>
     </el-table>
     <el-pagination

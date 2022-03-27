@@ -1,9 +1,9 @@
 <template>
   <div class="p-20px">
     <el-form
+      ref="ruleForm"
       :model="ruleForm"
       :rules="rules"
-      ref="ruleForm"
       label-width="100px"
     >
       <el-form-item label="活动名称" prop="name">
@@ -19,9 +19,9 @@
         <el-col :span="11">
           <el-form-item prop="date1">
             <el-date-picker
+              v-model="ruleForm.date1"
               type="date"
               placeholder="选择日期"
-              v-model="ruleForm.date1"
               style="width: 100%"
             ></el-date-picker>
           </el-form-item>
@@ -30,8 +30,8 @@
         <el-col :span="11">
           <el-form-item prop="date2">
             <el-time-picker
-              placeholder="选择时间"
               v-model="ruleForm.date2"
+              placeholder="选择时间"
               style="width: 100%"
             ></el-time-picker>
           </el-form-item>
@@ -55,7 +55,7 @@
         </el-radio-group>
       </el-form-item>
       <el-form-item label="活动形式" prop="desc">
-        <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        <el-input v-model="ruleForm.desc" type="textarea"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')"

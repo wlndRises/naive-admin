@@ -108,6 +108,9 @@ export default {
     }
     this.$emit('mountedCallback')
   },
+  destroyed() {
+    cancelAnimationFrame(this.rAF)
+  },
   methods: {
     start() {
       this.localStartVal = this.startVal
@@ -203,9 +206,6 @@ export default {
       }
       return this.prefix + x1 + x2 + this.suffix
     },
-  },
-  destroyed() {
-    cancelAnimationFrame(this.rAF)
   },
 }
 </script>

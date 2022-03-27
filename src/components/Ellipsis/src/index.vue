@@ -55,6 +55,14 @@ export default {
       lineClamp: undefined,
     }
   },
+  watch: {
+    lineElips: {
+      handler(newVal) {
+        this.lineClamp = newVal
+      },
+      immediate: true,
+    },
+  },
   methods: {
     handleClick() {
       if (this.lineClamp) {
@@ -62,14 +70,6 @@ export default {
       } else {
         this.lineClamp = this.lineElips
       }
-    },
-  },
-  watch: {
-    lineElips: {
-      handler(newVal) {
-        this.lineClamp = newVal
-      },
-      immediate: true,
     },
   },
 }

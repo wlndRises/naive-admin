@@ -41,6 +41,9 @@ export default {
       isheatSeriesEmpty: false,
     }
   },
+  mounted() {
+    this.getheatSeriesData()
+  },
   methods: {
     getheatSeriesData() {
       const hours = [
@@ -275,9 +278,6 @@ export default {
 
       this.heatSeriesData = seriesData
     },
-  },
-  mounted() {
-    this.getheatSeriesData()
   },
 }
 </script>
