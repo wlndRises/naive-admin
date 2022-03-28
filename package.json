@@ -1,7 +1,7 @@
 {
-  "name": "naivecli",
+  "name": "naive-admin",
   "version": "1.0.0",
-  "description": "vue cli",
+  "description": "vue admin",
   "author": "naive",
   "scripts": {
     "bootstrap": "npm install --registry=https://registry.npm.taobao.org",
@@ -22,11 +22,11 @@
     "axios": "^0.19.2",
     "core-js": "^3.21.1",
     "dayjs": "^1.10.6",
-    "echarts": "^4.6.0",
+    "echarts": "^5.3.1",
     "element-ui": "^2.15.6",
     "js-cookie": "2.2.0",
     "lodash": "^4.17.15",
-    "naive-charts": "^1.0.5",
+    "naive-charts": "^1.0.0",
     "naive-directives": "^2.1.2",
     "nprogress": "0.2.0",
     "path-to-regexp": "2.4.0",
