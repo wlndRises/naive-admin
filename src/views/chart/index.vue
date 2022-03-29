@@ -1,15 +1,7 @@
 <template>
   <div class="p-20px">
     <n-charts
-      ref="barChart"
-      class="w-4/5 min-w-1000px h-600px m-auto"
-      :default-options="barDefaultOption"
-      :is-empty="isbarEmpty"
-    >
-      <el-empty class="h-full" bg="white" />
-    </n-charts>
-    <n-charts
-      class="w-4/5 min-w-1000px h-500px pt-40px m-auto"
+      class="w-full h-500px pt-40px"
       :default-options="heatDefaultOption"
       :option="heatOption"
       :is-empty="isheatEmpty"
@@ -17,11 +9,14 @@
       <el-empty class="h-full" bg="white" />
     </n-charts>
     <n-charts
-      class="w-4/5 min-w-1000px h-500px pt-40px m-auto"
-      :is-empty="true"
+      ref="barChart"
+      class="w-full h-600px"
+      :default-options="barDefaultOption"
+      :is-empty="isbarEmpty"
     >
       <el-empty class="h-full" bg="white" />
     </n-charts>
+    <n-charts class="w-full h-500px pt-40px" />
   </div>
 </template>
 

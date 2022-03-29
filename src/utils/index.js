@@ -57,7 +57,7 @@ export const softBind = function (fn, obj) {
 
 /**
  * 深拷贝
- * json对象键必须加双引号 值不可以是方法函数、undefined以及NAN
+ * json对象键必须加双引号 value不可以是方法函数、undefined以及NAN
  */
 export const cloneDeep = function (val) {
   if (val === null) return null
@@ -74,6 +74,11 @@ export const cloneDeep = function (val) {
   }
   return newVal
 }
+
+export const cloneFunc = function (func) {
+  return new Function('return ' + func.toString())()
+}
+
 /**
  * 防抖函数(间隔时间内的持续触发只会触发最后一次，持续触发等于永远不会触发)
  * 例如 百度输入框一直输入时不会出现返回的列表数据
