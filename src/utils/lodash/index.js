@@ -1,3 +1,4 @@
+// https://www.lodashjs.com
 // babel-plugin-lodash 按需引入
 // 在你需要使用lodash时 在这里添加抛出 就不会打整包
 import _ from 'lodash'
@@ -37,3 +38,11 @@ export const random = _.random
 export const filterEmpty = (list) => list.filter(Boolean)
 
 export const size = _.size
+
+// 创建一个返回 value 的函数
+export const constant = _.constant
+
+// 这个方法返回 undefined
+export const noop = _.noop
+
+export const times = _.times

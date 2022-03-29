@@ -106,9 +106,7 @@ const BASIC_OPTION = {
       ],
       symbolSize: 10,
       itemStyle: {
-        normal: {
-          color: '#DDA0DD',
-        },
+        color: '#DDA0DD',
       },
     },
     {
@@ -129,9 +127,7 @@ const BASIC_OPTION = {
       ],
       symbolSize: 10,
       itemStyle: {
-        normal: {
-          color: '#87CEFA',
-        },
+        color: '#87CEFA',
       },
     },
     {
@@ -152,9 +148,7 @@ const BASIC_OPTION = {
       ],
       symbolSize: 10,
       itemStyle: {
-        normal: {
-          color: '#CD5C5C',
-        },
+        color: '#CD5C5C',
       },
     },
   ],

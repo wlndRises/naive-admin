@@ -1,4 +1,5 @@
 // 放一些不确定分类的工具
+import { isString } from './is'
 
 import { isDate, isJson, isObject, isDef } from './is'
 
@@ -20,18 +21,22 @@ export const cdnLoad = (cdnConfig) => {
 }
 
 /**
- * @description: 不会改变原数组的reverse
- * @param {Array} 源数组
- * @return {Array} 反转后的新数组
+ * @description: 字符串、数组的reverse 这个方法不会改变原数组
+ * @param {String|Array} 源数组
+ * @return {String|Array}
  * @author: Elk
  */
 export function reverse(source) {
-  const arr = []
-  for (let i = source.length - 1; i > -1; i--) {
-    const element = source[i]
-    arr.push(element)
+  if (isString) {
+    return source.split('').reverse().join('')
+  } else {
+    const arr = []
+    for (let i = source.length - 1; i > -1; i--) {
+      const element = source[i]
+      arr.push(element)
+    }
+    return arr
   }
-  return arr
 }
 
 /**

@@ -9,7 +9,7 @@
     "build:stage": "vue-cli-service build --mode staging",
     "dev": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "prettier": "prettier --write ./src/.",
+    "prettier": "prettier --write ./**/*.{js,css,sass,vue,md}",
     "server": "http-server dist --cors --gzip -c-1",
     "start": "vue-cli-service serve",
     "preview": "node build/index.js --preview",

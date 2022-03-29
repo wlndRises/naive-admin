@@ -3,17 +3,22 @@
     <n-charts
       ref="barChart"
       class="w-4/5 min-w-1000px h-600px m-auto"
-      :default-option="barDefaultOption"
-      :is-series-empty="isbarSeriesEmpty"
+      :default-options="barDefaultOption"
+      :is-empty="isbarEmpty"
     >
       <el-empty class="h-full" bg="white" />
     </n-charts>
     <n-charts
       class="w-4/5 min-w-1000px h-500px pt-40px m-auto"
-      :default-option="heatDefaultOption"
-      :series-data="heatSeriesData"
-      :extra-option="heatExtraOption"
-      :is-series-empty="isheatSeriesEmpty"
+      :default-options="heatDefaultOption"
+      :option="heatOption"
+      :is-empty="isheatEmpty"
+    >
+      <el-empty class="h-full" bg="white" />
+    </n-charts>
+    <n-charts
+      class="w-4/5 min-w-1000px h-500px pt-40px m-auto"
+      :is-empty="true"
     >
       <el-empty class="h-full" bg="white" />
     </n-charts>
@@ -33,12 +38,11 @@ export default {
     return {
       // 柱状图
       barDefaultOption: Object.freeze(BAR_OPTION),
-      isbarSeriesEmpty: false,
+      isbarEmpty: false,
       // 热力图
       heatDefaultOption: Object.freeze(HEAT_OPTION),
-      heatSeriesData: [],
-      heatExtraOption: {},
-      isheatSeriesEmpty: false,
+      heatOption: {},
+      isheatEmpty: false,
     }
   },
   mounted() {
@@ -259,7 +263,12 @@ export default {
           return 0
         }
       })
-      this.heatExtraOption = {
+
+      const seriesData = data.map(function (item) {
+        return [item[1], item[0], item[2] || '-']
+      })
+
+      this.heatOption = {
         visualMap: {
           min: Math.min(...mapData),
           max: Math.max(...mapData),
@@ -270,13 +279,10 @@ export default {
         yAxis: {
           data: days,
         },
+        series: {
+          data: seriesData,
+        },
       }
-
-      const seriesData = data.map(function (item) {
-        return [item[1], item[0], item[2] || '-']
-      })
-
-      this.heatSeriesData = seriesData
     },
   },
 }
