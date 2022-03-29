@@ -26,7 +26,7 @@
     "element-ui": "^2.15.6",
     "js-cookie": "2.2.0",
     "lodash": "^4.17.15",
-    "naive-charts": "^1.0.0",
+    "naive-charts": "^2.0.0",
     "naive-directives": "^2.1.2",
     "nprogress": "0.2.0",
     "path-to-regexp": "2.4.0",
