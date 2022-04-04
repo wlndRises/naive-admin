@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      title: 'Naive Cli',
+      title: 'Naive Admin',
     }
   },
 }

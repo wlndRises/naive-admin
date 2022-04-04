@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'naive_cli_token'
+const TokenKey = 'naive_admin_token'
 
 export function getToken() {
   return Cookies.get(TokenKey)

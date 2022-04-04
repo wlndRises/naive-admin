@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Naive Cli',
+  title: 'Naive Admin',
 
   /**
    * @type {boolean} true | false

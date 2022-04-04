@@ -1,7 +1,7 @@
 <template>
   <el-form
     ref="ruleForm"
-    :model="formData"
+    :model="formValue"
     :rules="rules"
     :inline="inline"
     :inline-message="inlineMessage"
@@ -9,25 +9,28 @@
     :label-width="labelWidth"
     :label-position="labelPosition"
     :hide-required-asterisk="hideRequiredAsterisk"
+    :disabled="disabled"
   >
     <el-row>
       <el-col
-        v-for="(data, index) in formDataList"
+        v-for="(formData, index) in formDataList"
         :key="index"
-        :span="24 / layoutColumn"
+        :span="formData.span || 12"
       >
-        <el-form-item
-          :prop="rules ? data.code : rules"
-          :disabled="data.disabled"
-        >
+        <el-form-item class="px-30px" :prop="formData.code">
           <template #label>
-            <slot :name="data.code + '_label'" :data="data">{{
-              data.label
+            <slot :name="`${formData.code}_label`" :data="formData">{{
+              formData.label
             }}</slot>
           </template>
-          <slot :name="data.code" :data="data">
-            <form-item v-model="FormData[data.code]" :info="data"></form-item>
-          </slot>
+          <template #default>
+            <slot :name="formData.code" :data="formData">
+              <form-item
+                :form-value="FormValue"
+                :form-data="formData"
+              ></form-item>
+            </slot>
+          </template>
         </el-form-item>
       </el-col>
       <el-col :span="24">
@@ -43,7 +46,7 @@
 </template>
 
 <script>
-import FormItem from '@/components/FormItem'
+import FormItem from './FormItem.vue'
 
 export default {
   components: {
@@ -70,22 +73,27 @@ export default {
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     labelWidth: {
       type: String,
       default: '100px',
     },
     labelPosition: {
       type: String,
-      default: 'right',
+      default: 'left',
     },
-    // ---------------------------------------------
-    formData: {
+    // --------------------------------------------------------------
+    formDataList: {
+      type: Array,
+      require: true,
+      default: () => [],
+    },
+    formValue: {
       type: Object,
       default: () => ({}),
-    },
-    layoutColumn: {
-      type: Number,
-      default: 3,
     },
     submitText: {
       type: String,
@@ -96,51 +104,15 @@ export default {
       default: '重置',
     },
   },
-  data() {
-    return {
-      formDataList: [
-        {
-          code: 'name',
-          label: '名字',
-          type: 'input',
-        },
-        {
-          code: 'desc',
-          label: '活动区域',
-          type: 'select',
-          data: [
-            {
-              label: '区域一',
-              value: '01',
-            },
-            {
-              label: '区域二',
-              value: '02',
-            },
-          ],
-        },
-        {
-          code: 'name1',
-          label: '名字',
-          type: 'input',
-        },
-        {
-          code: 'name2',
-          label: '名字',
-          type: 'input',
-        },
-      ],
-    }
-  },
   computed: {
-    FormData() {
-      return this.formData
+    FormValue() {
+      return this.formValue
     },
   },
   methods: {
     submitForm() {
       // 没有传入校验规则时
-      if (this.rules) {
+      if (!this.rules) {
         this.$emit('submit-form', null)
       } else {
         this.$refs.ruleForm.validate((valid, error) => {

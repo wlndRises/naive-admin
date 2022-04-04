@@ -29,7 +29,7 @@ class Storage {
 
   // 特殊处理key
   _getKey(key) {
-    return `_naive_cli_${key}__`
+    return `_naive_admin_${key}__`
   }
 
   _remove(_key) {

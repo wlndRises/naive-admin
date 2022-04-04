@@ -6,7 +6,7 @@ import { Message } from 'element-ui'
 import { getToken } from '@/utils/auth' // get token from cookie
 import defaultSettings from '/config/settings'
 
-const title = defaultSettings.title || 'Naive Cli'
+const title = defaultSettings.title || 'Naive Admin'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 

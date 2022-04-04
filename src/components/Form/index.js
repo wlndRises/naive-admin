@@ -1,3 +1,3 @@
-import Form from './src/index.vue'
+import Form from './src/Form.vue'
 
 export default Form
