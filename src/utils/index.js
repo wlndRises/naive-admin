@@ -132,3 +132,22 @@ export const merge = function (target) {
 
   return target
 }
+
+export const errorCaptured = async (asyncFunc) => {
+  try {
+    const res = await asyncFunc()
+    return [null, res]
+  } catch (err) {
+    return [err, null]
+  }
+}
+
+// eg:
+// let [err, res] = await errorCaptured(asyncFunc)
+// if (err) {
+//     //... 错误捕获
+// }
+// //... 其他逻辑
+// 如果你想在出现错误时什么也不干 那么你可以
+// const res = await asyncFunc().catch(noop)
+// if (!res) return
