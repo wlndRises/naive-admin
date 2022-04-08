@@ -13,6 +13,8 @@
       class="w-full h-600px"
       :default-options="barDefaultOption"
       :is-empty="isbarEmpty"
+      :events="['click']"
+      @on-click="handleBarClick"
     >
       <el-empty class="h-full" bg="white" />
     </n-charts>
@@ -278,6 +280,9 @@ export default {
           data: seriesData,
         },
       }
+    },
+    handleBarClick(params) {
+      console.log(params)
     },
   },
 }
