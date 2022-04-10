@@ -1,14 +1,14 @@
 <template>
   <div class="p-20px">
-    <n-charts
+    <n-chart
       class="w-full h-500px pt-40px"
       :default-options="heatDefaultOption"
       :option="heatOption"
       :is-empty="isheatEmpty"
     >
       <el-empty class="h-full" bg="white" />
-    </n-charts>
-    <n-charts
+    </n-chart>
+    <n-chart
       ref="barChart"
       class="w-full h-600px"
       :default-options="barDefaultOption"
@@ -17,19 +17,19 @@
       @on-click="handleBarClick"
     >
       <el-empty class="h-full" bg="white" />
-    </n-charts>
-    <n-charts class="w-full h-500px pt-40px" />
+    </n-chart>
+    <n-chart class="w-full h-500px pt-40px" />
   </div>
 </template>
 
 <script>
-import { NCharts } from 'naive-echarts'
+import { NChart } from 'naive-echarts'
 import { BASIC_OPTION as BAR_OPTION } from './bar_default_option'
 import { BASIC_OPTION as HEAT_OPTION } from './heat_default_option'
 import { isNumber } from '@/utils/is'
 export default {
   components: {
-    NCharts,
+    NChart,
   },
   data() {
     return {
