@@ -19,9 +19,9 @@
       >
         <el-form-item class="px-30px" :prop="formData.code">
           <template #label>
-            <slot :name="`${formData.code}_label`" :data="formData">{{
-              formData.label
-            }}</slot>
+            <slot :name="`${formData.code}_label`" :data="formData">
+              {{ formData.formLabel }}
+            </slot>
           </template>
           <template #default>
             <slot :name="formData.code" :data="formData">
@@ -33,11 +33,11 @@
           </template>
         </el-form-item>
       </el-col>
-      <el-col :span="24">
+      <el-col v-if="!footerHide" :span="24">
         <el-form-item>
-          <el-button type="primary" @click="submitForm">{{
-            submitText
-          }}</el-button>
+          <el-button type="primary" @click="submitForm">
+            {{ submitText }}
+          </el-button>
           <el-button @click="resetForm">{{ resetText }}</el-button>
         </el-form-item>
       </el-col>
@@ -102,6 +102,10 @@ export default {
     resetText: {
       type: String,
       default: '重置',
+    },
+    footerHide: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {

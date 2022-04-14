@@ -1,12 +1,12 @@
 export default [
   {
     code: 'input',
-    label: '输入框',
+    formLabel: '输入框',
     formType: 'input',
   },
   {
     code: 'select',
-    label: '下拉框',
+    formLabel: '下拉框',
     formType: 'select',
     data: [
       {
@@ -22,17 +22,17 @@ export default [
   },
   {
     code: 'customLabel',
-    label: '自定义标签',
+    formLabel: '自定义标签',
     formType: 'input',
   },
   {
     code: 'customForm',
-    label: '自定义表单',
+    formLabel: '自定义表单',
     formType: 'input',
   },
   {
     code: 'radio',
-    label: '单选框',
+    formLabel: '单选框',
     formType: 'radio',
     data: [
       {
@@ -47,7 +47,7 @@ export default [
   },
   {
     code: 'checkbox',
-    label: '多选框',
+    formLabel: '多选框',
     formType: 'checkbox',
     data: [
       {
@@ -63,7 +63,7 @@ export default [
   {
     code: 'treeSelect',
     formType: 'treeSelect',
-    label: 'treeSelect',
+    formLabel: 'treeSelect',
     multiple: true,
     options: [
       {
@@ -93,11 +93,11 @@ export default [
   {
     code: 'switch',
     formType: 'switch',
-    label: '开关',
+    formLabel: '开关',
   },
   {
     code: 'textarea',
-    label: '文本域',
+    formLabel: '文本域',
     formType: 'textarea',
     span: 24,
   },
