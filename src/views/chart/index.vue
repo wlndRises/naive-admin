@@ -24,8 +24,8 @@
 
 <script>
 import { NChart } from 'naive-echarts'
-import { BASIC_OPTION as BAR_OPTION } from './bar_default_option'
-import { BASIC_OPTION as HEAT_OPTION } from './heat_default_option'
+import BAR_OPTION from './option/bar_option'
+import HEAT_OPTION from './option/heat_option'
 import { isNumber } from '@/utils/is'
 export default {
   components: {

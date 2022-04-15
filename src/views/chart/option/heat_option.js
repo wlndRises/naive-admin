@@ -1,4 +1,4 @@
-const BASIC_OPTION = {
+const option = {
   tooltip: {
     position: 'top',
   },
@@ -45,4 +45,4 @@ const BASIC_OPTION = {
   },
 }
 
-export { BASIC_OPTION }
+export default option

@@ -1,4 +1,4 @@
-const BASIC_OPTION = {
+const option = {
   tooltip: {
     trigger: 'axis',
     formatter: '{a}:{c}',
@@ -139,4 +139,4 @@ const BASIC_OPTION = {
   ],
 }
 
-export { BASIC_OPTION }
+export default option
