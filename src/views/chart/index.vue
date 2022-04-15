@@ -1,24 +1,17 @@
 <template>
   <div class="p-20px">
-    <n-chart
-      class="w-full h-500px pt-40px"
-      :default-options="heatDefaultOption"
-      :option="heatOption"
-      :is-empty="isheatEmpty"
-    >
+    <n-chart class="w-full h-500px" :default-options="heatDefaultOption" :option="heatOption">
       <el-empty class="h-full" bg="white" />
     </n-chart>
     <n-chart
-      ref="barChart"
-      class="w-full h-600px"
+      class="w-full h-600px mt-40px"
       :default-options="barDefaultOption"
-      :is-empty="isbarEmpty"
       :events="['click']"
       @on-click="handleBarClick"
     >
       <el-empty class="h-full" bg="white" />
     </n-chart>
-    <n-chart class="w-full h-500px pt-40px" />
+    <n-chart class="w-full h-500px mt-40px" is-empty />
   </div>
 </template>
 
@@ -35,11 +28,9 @@ export default {
     return {
       // 柱状图
       barDefaultOption: Object.freeze(BAR_OPTION),
-      isbarEmpty: false,
       // 热力图
       heatDefaultOption: Object.freeze(HEAT_OPTION),
       heatOption: {},
-      isheatEmpty: false,
     }
   },
   mounted() {
