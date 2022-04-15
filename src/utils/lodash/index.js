@@ -35,7 +35,7 @@ export const sum = _.sum
 export const random = _.random
 
 // 去空值
-export const filterEmpty = (list) => list.filter(Boolean)
+export const filterEmpty = list => list.filter(Boolean)
 
 export const size = _.size
 

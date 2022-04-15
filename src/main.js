@@ -41,6 +41,6 @@ import { cdnLoad } from './utils'
     el: '#app',
     router,
     store,
-    render: (h) => h(App),
+    render: h => h(App),
   })
 })()

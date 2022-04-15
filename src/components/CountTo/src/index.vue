@@ -5,10 +5,7 @@
 </template>
 <script>
 import { isNumOrNumStr } from '@/utils/is'
-import {
-  requestAnimationFrame,
-  cancelAnimationFrame,
-} from '@/utils/polyfill/requestAnimationFrame'
+import { requestAnimationFrame, cancelAnimationFrame } from '@/utils/polyfill/requestAnimationFrame'
 export default {
   name: 'CountTo',
   props: {
@@ -152,12 +149,7 @@ export default {
         if (this.countDown) {
           this.printVal =
             this.localStartVal -
-            this.easingFn(
-              progress,
-              0,
-              this.localStartVal - this.endVal,
-              this.localDuration
-            )
+            this.easingFn(progress, 0, this.localStartVal - this.endVal, this.localDuration)
         } else {
           this.printVal = this.easingFn(
             progress,
@@ -178,11 +170,9 @@ export default {
         }
       }
       if (this.countDown) {
-        this.printVal =
-          this.printVal < this.endVal ? this.endVal : this.printVal
+        this.printVal = this.printVal < this.endVal ? this.endVal : this.printVal
       } else {
-        this.printVal =
-          this.printVal > this.endVal ? this.endVal : this.printVal
+        this.printVal = this.printVal > this.endVal ? this.endVal : this.printVal
       }
 
       this.displayValue = this.formatNumber(this.printVal)

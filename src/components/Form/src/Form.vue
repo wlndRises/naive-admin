@@ -12,11 +12,7 @@
     :disabled="disabled"
   >
     <el-row>
-      <el-col
-        v-for="(formData, index) in formDataList"
-        :key="index"
-        :span="formData.span || 12"
-      >
+      <el-col v-for="(formData, index) in formDataList" :key="index" :span="formData.span || 12">
         <el-form-item class="px-30px" :prop="formData.code">
           <template #label>
             <slot :name="`${formData.code}_label`" :data="formData">
@@ -25,10 +21,7 @@
           </template>
           <template #default>
             <slot :name="formData.code" :data="formData">
-              <form-item
-                :form-value="FormValue"
-                :form-data="formData"
-              ></form-item>
+              <form-item :form-value="FormValue" :form-data="formData"></form-item>
             </slot>
           </template>
         </el-form-item>

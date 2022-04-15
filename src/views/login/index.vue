@@ -43,9 +43,7 @@
           @keyup.enter.native="handleLogin"
         />
         <span class="show-pwd" @click="showPwd">
-          <svg-icon
-            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-          />
+          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
 
@@ -54,12 +52,13 @@
         type="primary"
         style="width: 100%; margin-bottom: 30px"
         @click.native.prevent="handleLogin"
-        >Login</el-button
       >
+        Login
+      </el-button>
 
       <div class="tips">
         <span style="margin-right: 20px">username: admin</span>
-        <span> password: any</span>
+        <span>password: any</span>
       </div>
     </el-form>
   </div>
@@ -91,12 +90,8 @@ export default {
         password: '111111',
       },
       loginRules: {
-        username: [
-          { required: true, trigger: 'blur', validator: validateUsername },
-        ],
-        password: [
-          { required: true, trigger: 'blur', validator: validatePassword },
-        ],
+        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+        password: [{ required: true, trigger: 'blur', validator: validatePassword }],
       },
       loading: false,
       passwordType: 'password',
@@ -123,7 +118,7 @@ export default {
       })
     },
     handleLogin() {
-      this.$refs.loginForm.validate((valid) => {
+      this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
           this.$store

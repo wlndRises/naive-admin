@@ -21,8 +21,7 @@ if (isServer) {
       break
     }
     const prefix = prefixes[i]
-    requestAnimationFrame =
-      requestAnimationFrame || window[prefix + 'RequestAnimationFrame']
+    requestAnimationFrame = requestAnimationFrame || window[prefix + 'RequestAnimationFrame']
     cancelAnimationFrame =
       cancelAnimationFrame ||
       window[prefix + 'CancelAnimationFrame'] ||

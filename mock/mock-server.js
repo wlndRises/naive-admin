@@ -10,7 +10,7 @@ const mockDir = path.join(process.cwd(), 'mock')
 function registerRoutes(app) {
   let mockLastIndex
   const { mocks } = require('./index.js')
-  const mocksForServer = mocks.map((route) => {
+  const mocksForServer = mocks.map(route => {
     return responseFake(route.url, route.type, route.response)
   })
   for (const mock of mocksForServer) {
@@ -25,7 +25,7 @@ function registerRoutes(app) {
 }
 
 function unregisterRoutes() {
-  Object.keys(require.cache).forEach((i) => {
+  Object.keys(require.cache).forEach(i => {
     if (i.includes(mockDir)) {
       delete require.cache[require.resolve(i)]
     }
@@ -39,14 +39,12 @@ const responseFake = (url, type, respond) => {
     type: type || 'get',
     response(req, res) {
       console.log('request invoke:' + req.path)
-      res.json(
-        Mock.mock(respond instanceof Function ? respond(req, res) : respond)
-      )
+      res.json(Mock.mock(respond instanceof Function ? respond(req, res) : respond))
     },
   }
 }
 
-module.exports = (app) => {
+module.exports = app => {
   // parse app.body
   // https://expressjs.com/en/4x/api.html#req.body
   app.use(bodyParser.json())
@@ -79,11 +77,7 @@ module.exports = (app) => {
           mockRoutesLength = mockRoutes.mockRoutesLength
           mockStartIndex = mockRoutes.mockStartIndex
 
-          console.log(
-            chalk.magentaBright(
-              `\n > Mock Server hot reload success! changed  ${path}`
-            )
-          )
+          console.log(chalk.magentaBright(`\n > Mock Server hot reload success! changed  ${path}`))
         } catch (error) {
           console.log(chalk.redBright(error))
         }

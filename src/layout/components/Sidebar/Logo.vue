@@ -1,11 +1,7 @@
 <template>
   <div class="sidebar-logo-container" :class="{ collapse: collapse }">
     <transition name="sidebarLogoFade">
-      <div
-        v-if="collapse"
-        key="collapse"
-        class="h-full flex items-center justify-center"
-      >
+      <div v-if="collapse" key="collapse" class="h-full flex items-center justify-center">
         <svg-icon class="w-28px h-28px text-blue-300" icon-class="logo" />
       </div>
       <div v-else key="expand" class="h-full flex items-center justify-between">

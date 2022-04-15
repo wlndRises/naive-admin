@@ -1,10 +1,6 @@
 <template>
   <div class="p-20px">
-    <el-input
-      v-model="filterText"
-      placeholder="Filter keyword"
-      style="margin-bottom: 30px"
-    />
+    <el-input v-model="filterText" placeholder="Filter keyword" style="margin-bottom: 30px" />
 
     <el-tree
       ref="tree2"

@@ -7,11 +7,11 @@ const Rules = {
           // Object.values(_rules).forEach(({ validator, message }) => {
           //   console.log(validator, message)
           // })
-          Object.keys(_rules).forEach((key) => {
+          Object.keys(_rules).forEach(key => {
             const { validator, message } = _rules[key]
             this.$watch(
               key,
-              (newVal) => {
+              newVal => {
                 const flag = validator(newVal)
                 if (!flag) {
                   console.log(message)

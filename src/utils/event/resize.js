@@ -12,7 +12,7 @@ function resizeHandler(entries) {
   for (const entry of entries) {
     const listeners = entry.target.__resizeListeners__ || []
     if (listeners.length) {
-      listeners.forEach((fn) => {
+      listeners.forEach(fn => {
         fn()
       })
     }

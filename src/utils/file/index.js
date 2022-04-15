@@ -10,7 +10,7 @@ import { base64ToBlob, urlToBase64 } from './base64Conver'
  * @author: Elk
  */
 export function downloadByOnlineUrl(url, filename, mime, bom) {
-  urlToBase64(url).then((base64) => {
+  urlToBase64(url).then(base64 => {
     downloadByBase64(base64, filename, mime, bom)
   })
 }
@@ -62,7 +62,6 @@ export function downloadByUrl(url, filename, target = '_blank') {
   const link = document.createElement('a')
   link.href = url
   link.target = target
-  link.download =
-    filename || url.substring(url.lastIndexOf('/') + 1, url.length)
+  link.download = filename || url.substring(url.lastIndexOf('/') + 1, url.length)
   link.click()
 }

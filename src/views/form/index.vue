@@ -1,12 +1,6 @@
 <template>
   <el-tabs v-model="tabsValue" type="card">
-    <el-tab-pane
-      v-for="item in tabs"
-      :key="item.name"
-      lazy
-      :label="item.title"
-      :name="item.name"
-    >
+    <el-tab-pane v-for="item in tabs" :key="item.name" lazy :label="item.title" :name="item.name">
       <component :is="item.components"></component>
     </el-tab-pane>
   </el-tabs>

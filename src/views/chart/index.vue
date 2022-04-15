@@ -73,15 +73,7 @@ export default {
         '10p',
         '11p',
       ]
-      const days = [
-        'Saturday',
-        'Friday',
-        'Thursday',
-        'Wednesday',
-        'Tuesday',
-        'Monday',
-        'Sunday',
-      ]
+      const days = ['Saturday', 'Friday', 'Thursday', 'Wednesday', 'Tuesday', 'Monday', 'Sunday']
 
       const data = [
         [0, 0, 5],
@@ -253,7 +245,7 @@ export default {
         [6, 22, 2],
         [6, 23, 6],
       ]
-      const mapData = data.map((item) => {
+      const mapData = data.map(item => {
         if (isNumber(item[2])) {
           return item[2]
         } else {

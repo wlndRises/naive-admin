@@ -15,15 +15,8 @@
   ></el-input>
 
   <!-- radio -->
-  <el-radio-group
-    v-else-if="formData.formType === 'radio'"
-    v-model="FormValue[formData.code]"
-  >
-    <el-radio
-      v-for="item in formData.data"
-      :key="item[optionValue]"
-      :label="item[optionValue]"
-    >
+  <el-radio-group v-else-if="formData.formType === 'radio'" v-model="FormValue[formData.code]">
+    <el-radio v-for="item in formData.data" :key="item[optionValue]" :label="item[optionValue]">
       {{ item[optionLabel] }}
     </el-radio>
   </el-radio-group>
@@ -33,8 +26,7 @@
     v-else-if="formData.formType === 'date'"
     v-model="FormValue[formData.code]"
     v-bind="formData"
-  >
-  </el-date-picker>
+  ></el-date-picker>
 
   <!-- select -->
   <el-select
@@ -48,8 +40,7 @@
       :key="item[optionValue]"
       :label="item[optionLabel]"
       :value="item[optionValue]"
-    >
-    </el-option>
+    ></el-option>
   </el-select>
 
   <!-- checkbox -->

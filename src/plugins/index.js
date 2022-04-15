@@ -3,7 +3,7 @@ import LazyLoad from './lazyLoad'
 
 const plugins = [LazyLoad]
 
-plugins.forEach((plugin) => {
+plugins.forEach(plugin => {
   Vue.use(plugin, Object.create(null))
 })
 

@@ -58,7 +58,7 @@ module.exports = {
       })
       .end()
 
-    config.when(isPro, (config) => {
+    config.when(isPro, config => {
       config
         .plugin('ScriptExtHtmlWebpackPlugin')
         .after('html')

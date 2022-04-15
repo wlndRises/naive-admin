@@ -27,7 +27,7 @@ const LazyLoad = {
   },
   // 利用IntersectionObserver监听el
   observe(el) {
-    el._observer = new IntersectionObserver((entries) => {
+    el._observer = new IntersectionObserver(entries => {
       const realSrc = el.dataset.src
       if (entries[0].isIntersecting) {
         if (realSrc) {

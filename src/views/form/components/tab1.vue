@@ -1,11 +1,6 @@
 <template>
   <div class="p-20px">
-    <el-form
-      ref="ruleForm"
-      :model="ruleForm"
-      :rules="rules"
-      label-width="100px"
-    >
+    <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="100px">
       <el-form-item label="活动名称" prop="name">
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
@@ -58,9 +53,7 @@
         <el-input v-model="ruleForm.desc" type="textarea"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')"
-          >立即创建</el-button
-        >
+        <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -86,9 +79,7 @@ export default {
           { required: true, message: '请输入活动名称', trigger: 'blur' },
           { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
         ],
-        region: [
-          { required: true, message: '请选择活动区域', trigger: 'change' },
-        ],
+        region: [{ required: true, message: '请选择活动区域', trigger: 'change' }],
         date1: [
           {
             type: 'date',
@@ -113,16 +104,14 @@ export default {
             trigger: 'change',
           },
         ],
-        resource: [
-          { required: true, message: '请选择活动资源', trigger: 'change' },
-        ],
+        resource: [{ required: true, message: '请选择活动资源', trigger: 'change' }],
         desc: [{ required: true, message: '请填写活动形式', trigger: 'blur' }],
       },
     }
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(valid => {
         if (valid) {
           alert('submit!')
         } else {

@@ -6,8 +6,7 @@ function trim(string) {
 
 export function hasClass(el, cls) {
   if (!el || !cls) return false
-  if (cls.indexOf(' ') !== -1)
-    throw new Error('className should not contain space.')
+  if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.')
   if (el.classList) {
     return el.classList.contains(cls)
   } else {
@@ -85,12 +84,7 @@ export function getViewportOffset(element) {
 
   const box = getBoundingClientRect(element)
 
-  const {
-    left: retLeft,
-    top: rectTop,
-    width: rectWidth,
-    height: rectHeight,
-  } = box
+  const { left: retLeft, top: rectTop, width: rectWidth, height: rectHeight } = box
 
   const scrollLeft = (pageXOffset || docScrollLeft) - (docClientLeft || 0)
   const scrollTop = (pageYOffset || docScrollTop) - (docClientTop || 0)
@@ -117,7 +111,7 @@ export function hackCss(attr, value) {
 
   const styleObj = {}
   // upperFirst 字符串首字母转大写
-  prefix.forEach((item) => {
+  prefix.forEach(item => {
     styleObj[`${item}${_.upperFirst(attr)}`] = value
   })
   return {

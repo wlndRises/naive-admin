@@ -651,9 +651,7 @@ class Validator {
         }
         const currDate = dateFormat(value, 'yyyy-mm-dd')
         const befDate =
-          typeof beforeDate === 'string'
-            ? beforeDate
-            : dateFormat(beforeDate, 'yyyy-mm-dd')
+          typeof beforeDate === 'string' ? beforeDate : dateFormat(beforeDate, 'yyyy-mm-dd')
         if (that.validatorJs.isAfter(currDate, befDate)) {
           callback()
         } else {
@@ -682,9 +680,7 @@ class Validator {
         }
         const currDate = dateFormat(value, 'yyyy-mm-dd')
         const aftDate =
-          typeof afterDate === 'string'
-            ? afterDate
-            : dateFormat(afterDate, 'yyyy-mm-dd')
+          typeof afterDate === 'string' ? afterDate : dateFormat(afterDate, 'yyyy-mm-dd')
         if (that.validatorJs.isBefore(currDate, aftDate)) {
           callback()
         } else {

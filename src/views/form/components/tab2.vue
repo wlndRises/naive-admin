@@ -7,12 +7,9 @@
       @submit-form="submitForm"
       @reset-form="resetForm"
     >
-      <template #customLabel_label> 自定义标签 </template>
+      <template #customLabel_label>自定义标签</template>
       <template #customForm="{ data }">
-        <el-input
-          v-model="formValue[data.code]"
-          placeholder="自定义表单"
-        ></el-input>
+        <el-input v-model="formValue[data.code]" placeholder="自定义表单"></el-input>
       </template>
     </Form>
     {{ formValue }}

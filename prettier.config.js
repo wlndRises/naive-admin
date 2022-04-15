@@ -1,6 +1,7 @@
 module.exports = {
-  // 尾随分号
+  printWidth: 100,
   semi: false,
-  // 单引号代替双引号
   singleQuote: true,
+  htmlWhitespaceSensitivity: 'ignore',
+  arrowParens: 'avoid',
 }

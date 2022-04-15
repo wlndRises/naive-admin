@@ -32,12 +32,11 @@ Math.easeInOutQuad = function (t, b, c, d) {
  */
 export function scrollTo(end, duration = 500, callback) {
   const { documentElement, body } = document
-  const start =
-    documentElement.scrollTop || body.parentNode.scrollTop || body.scrollTop
+  const start = documentElement.scrollTop || body.parentNode.scrollTop || body.scrollTop
   const change = end - start
   const increment = 20
   let currentTime = 0
-  const move = (amount) => {
+  const move = amount => {
     documentElement.scrollTop = amount
     body.parentNode.scrollTop = amount
     body.scrollTop = amount

@@ -8,23 +8,23 @@ const http = axios.create({
 
 //请求拦截
 http.interceptors.request.use(
-  (config) => {
+  config => {
     if (config.method === 'post') {
       config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
     }
 
     return config
   },
-  (err) => {
+  err => {
     return Promise.reject(err)
   }
 )
 //响应拦截
 http.interceptors.response.use(
-  (response) => {
+  response => {
     return response.data
   },
-  (err) => {
+  err => {
     return Promise.reject(err.response)
   }
 )

@@ -111,13 +111,7 @@ export function isBoolean(val) {
 }
 
 export function isBase(val) {
-  return (
-    isString(val) ||
-    isNumber(val) ||
-    isBoolean(val) ||
-    isNil(val) ||
-    isSymbol(val)
-  )
+  return isString(val) || isNumber(val) || isBoolean(val) || isNil(val) || isSymbol(val)
 }
 
 export function isReference(val) {
@@ -129,12 +123,7 @@ export function isRegExp(val) {
 }
 
 export function isPromise(val) {
-  return (
-    is(val, 'Promise') &&
-    isObject(val) &&
-    isFunction(val.then) &&
-    isFunction(val.catch)
-  )
+  return is(val, 'Promise') && isObject(val) && isFunction(val.then) && isFunction(val.catch)
 }
 
 export function isDate(val) {
@@ -163,11 +152,9 @@ export const isServer = typeof window === 'undefined'
 
 export const isClient = !isServer
 
-export const isChrome =
-  window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
+export const isChrome = window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
 
-export const isSafari =
-  window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
+export const isSafari = window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
 
 /**
  * @description element是否在视口范围
@@ -179,8 +166,7 @@ export const isVisibleInViewport = (el, isFullyVisible) => {
   const { top, left, right, bottom } = el.getBoundingClienRect()
   const { innerHeight, innerWidth } = window
   return isFullyVisible
-    ? ((top > 0 && top < innerHeight) ||
-        (bottom > 0 && bottom < innerHeight)) &&
+    ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
         ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
     : top > 0 && left > 0 && bottom < innerHeight && right < innerWidth
 }
@@ -190,7 +176,7 @@ export const isVisibleInViewport = (el, isFullyVisible) => {
  * @param {HTMLElement} el
  * @returns {boolean}
  */
-export const isEllipsis = (el) => {
+export const isEllipsis = el => {
   if (!el) return
   const cloneDom = el.cloneNode()
   const { style } = cloneDom

@@ -3,6 +3,6 @@ import SvgIcon from './SvgIcon'
 
 const components = [SvgIcon]
 
-components.forEach((component) => {
+components.forEach(component => {
   Vue.component(component.name, component)
 })

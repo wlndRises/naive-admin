@@ -3,8 +3,8 @@ import { isString } from './is'
 
 import { isDate, isJson, isObject, isDef } from './is'
 
-export const cdnLoad = (cdnConfig) => {
-  const cdnInject = (url) => {
+export const cdnLoad = cdnConfig => {
+  const cdnInject = url => {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script')
       script.src = url
@@ -17,7 +17,7 @@ export const cdnLoad = (cdnConfig) => {
       document.head.appendChild(script)
     })
   }
-  return Promise.all(cdnConfig.map((url) => cdnInject(url)))
+  return Promise.all(cdnConfig.map(url => cdnInject(url)))
 }
 
 /**
@@ -133,7 +133,7 @@ export const merge = function (target) {
   return target
 }
 
-export const errorCaptured = async (asyncFunc) => {
+export const errorCaptured = async asyncFunc => {
   try {
     const res = await asyncFunc()
     return [null, res]
