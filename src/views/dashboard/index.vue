@@ -1,19 +1,14 @@
 <template>
   <div class="m-20px flex flex-col">
     <div class="my-20px">Hi~ {{ name }} {{ text }}</div>
-    <el-button v-copy:dblclick="text" type="primary">双击复制</el-button>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import { copy } from 'naive-directives'
 import dayjs from 'dayjs'
 export default {
   name: 'Dashboard',
-  directives: {
-    copy,
-  },
   data() {
     return {
       text: null,
