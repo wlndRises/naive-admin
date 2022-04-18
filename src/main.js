@@ -10,8 +10,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUI)
 
-import './echarts.all'
-
 import '@/styles/index.scss' // global scss
 
 import '@/components' // global components

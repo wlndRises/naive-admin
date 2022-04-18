@@ -57,19 +57,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/chart',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Chart',
-        component: () => import('@/views/chart/index'),
-        meta: { title: 'Chart', icon: 'el-icon-s-platform' },
-      },
-    ],
-  },
-
-  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
