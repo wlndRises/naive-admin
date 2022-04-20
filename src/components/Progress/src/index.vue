@@ -1,14 +1,10 @@
 <template>
-  <Progress :percentage="displayValue" v-bind="$attrs"></Progress>
+  <el-progress :percentage="displayValue" v-bind="$attrs" />
 </template>
 <script>
-import { Progress } from 'element-ui'
 import { requestAnimationFrame, cancelAnimationFrame } from '@/utils/polyfill/requestAnimationFrame'
 export default {
   name: 'ElProgress',
-  components: {
-    Progress,
-  },
   props: {
     startVal: {
       type: Number,
