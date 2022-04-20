@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col p-30px pl-100px">
+  <div class="flex flex-col p-20px pl-100px">
     <n-ellipsis class="w-220px">
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>

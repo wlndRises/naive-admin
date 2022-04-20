@@ -79,19 +79,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' },
-      },
-    ],
-  },
-
-  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
@@ -159,6 +146,32 @@ export const constantRoutes = [
         name: 'Ellipsis',
         component: () => import('@/views/ellipsis/index'),
         meta: { title: 'Ellipsis', icon: 'el-icon-collection-tag' },
+      },
+    ],
+  },
+
+  {
+    path: '/form',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Form',
+        component: () => import('@/views/form/index'),
+        meta: { title: 'Form', icon: 'form' },
+      },
+    ],
+  },
+
+  {
+    path: '/echarts',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Echarts',
+        component: () => import('@/views/echarts/index'),
+        meta: { title: 'Echarts', icon: 'el-icon-s-platform' },
       },
     ],
   },
