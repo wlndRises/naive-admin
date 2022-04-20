@@ -4,7 +4,7 @@
  * @Autor: Elk
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: zhangyf
- * @LastEditTime: 2022-03-27 03:22:13
+ * @LastEditTime: 2022-04-20 12:01:05
  */
 import _ from 'lodash'
 const toString = Object.prototype.toString
@@ -44,7 +44,7 @@ export function isNil(val) {
 }
 
 // tip：与lodash的 isEmpty 的区别
-// lodash判断的依据是 是否有枚举属性 Boolean 返回true
+// lodash判断的依据是 是否有枚举属性 Boolean Number 返回true
 export function isEmpty(val) {
   if (isArray(val) || isString(val)) {
     return val.length === 0
