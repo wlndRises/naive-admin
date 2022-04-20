@@ -1,5 +1,5 @@
 <template>
-  <el-tooltip v-if="tooltip" v-bind="$attrs">
+  <el-tooltip v-if="!expandTrigger" v-bind="$attrs">
     <template #content>
       <slot name="tooltip">
         <slot></slot>
@@ -43,11 +43,6 @@ export default {
     expandTrigger: {
       type: Boolean,
       default: false,
-    },
-    // 默认显示tooltip
-    tooltip: {
-      type: Boolean,
-      default: true,
     },
   },
   data() {

@@ -1,42 +1,34 @@
 <template>
-  <div class="flex p-30px">
-    <n-ellipsis class="w-220px h-48px">
-      住在我心里孤独的 孤独的海怪 痛苦之王
-      <br />
-      开始厌倦 深海的光 停滞的海浪
+  <div class="flex flex-col p-30px pl-100px">
+    <n-ellipsis class="w-220px">
+      我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px h-48px ml-30px" line-elips="2">
-      电灯熄灭 物换星移 泥牛入海
+    <n-ellipsis class="w-220px mt-80px">
+      我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
       <br />
-      黑暗好像 一颗巨石 按在胸口
-      <br />
-      独脚大盗 百万富翁 摸爬滚打
-      <br />
-      黑暗好像 一颗巨石 按在胸口
+      我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px ml-30px" expand-trigger line-elips="3" :tooltip="false">
-      电灯熄灭 物换星移 泥牛入海
-      <br />
-      黑暗好像 一颗巨石 按在胸口
-      <br />
-      独脚大盗 百万富翁 摸爬滚打
-      <br />
-      黑暗好像 一颗巨石 按在胸口
+    <n-ellipsis class="w-220px mt-80px" line-elips="2">
+      我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px ml-30px">
-      住在我心里孤独的 孤独的海怪 痛苦之王 开始厌倦 深海的光 停滞的海浪
+    <n-ellipsis class="w-220px mt-80px" line-elips="2" expand-trigger>
+      我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
+    </n-ellipsis>
+
+    <n-ellipsis class="w-220px mt-80px">
+      我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
       <template #tooltip>
-        <div style="text-align: center">
-          《秦皇岛》
+        <div class="text-center">
+          《起风了》
           <br />
-          住在我心里孤独的
+          我曾难自拔于世界之大
           <br />
-          孤独的海怪 痛苦之王
+          也沉溺于其中梦话
           <br />
-          开始厌倦 深海的光 停滞的海浪
+          不得真假 不做挣扎 不惧笑话
         </div>
       </template>
     </n-ellipsis>

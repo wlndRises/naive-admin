@@ -151,19 +151,6 @@ export const constantRoutes = [
   },
 
   {
-    path: '/composition',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Composition',
-        component: () => import('@/views/composition/index'),
-        meta: { title: 'composition api', icon: 'el-icon-apple' },
-      },
-    ],
-  },
-
-  {
     path: '/ellipsis',
     component: Layout,
     children: [
@@ -171,7 +158,7 @@ export const constantRoutes = [
         path: 'index',
         name: 'Ellipsis',
         component: () => import('@/views/ellipsis/index'),
-        meta: { title: 'ellipsis', icon: 'el-icon-collection-tag' },
+        meta: { title: 'Ellipsis', icon: 'el-icon-collection-tag' },
       },
     ],
   },
