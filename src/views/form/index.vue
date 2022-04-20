@@ -7,6 +7,7 @@
 </template>
 <script>
 export default {
+  name: 'Form',
   components: {
     tab1: () => import('./components/tab1.vue'),
     tab2: () => import('./components/tab2.vue'),

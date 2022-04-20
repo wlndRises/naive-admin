@@ -1,6 +1,6 @@
 <template>
-  <div class="m-20px flex flex-col">
-    <div class="my-20px">Hi~ {{ name }} {{ text }}</div>
+  <div class="p-20px">
+    <span>Hi~ {{ name }} {{ text }}</span>
   </div>
 </template>
 
