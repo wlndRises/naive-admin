@@ -4,7 +4,7 @@
 <script>
 import { requestAnimationFrame, cancelAnimationFrame } from '@/utils/polyfill/requestAnimationFrame'
 export default {
-  name: 'ElProgress',
+  name: 'Progress',
   props: {
     startVal: {
       type: Number,

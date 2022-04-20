@@ -75,17 +75,6 @@ export default {
 }
 </script>
 
-<style>
-/*修改tooltip的背景颜色*/
-.el-tooltip__popper {
-  background-color: #585e6b !important;
-}
-/*修改tooltip的箭头颜色*/
-.el-tooltip__popper .popper__arrow::after {
-  border-top-color: #585e6b !important;
-}
-</style>
-
 <style scoped>
 .ellipsis {
   overflow: hidden;

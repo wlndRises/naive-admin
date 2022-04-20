@@ -1,3 +1,3 @@
-import ElProgress from './src/index.vue'
+import Progress from './src/index.vue'
 
-export default ElProgress
+export default Progress
