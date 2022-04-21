@@ -11,9 +11,8 @@ const users = {
   'admin-token': {
     roles: ['admin'],
     introduction: 'I am a super administrator',
-    avatar:
-      'https://img0.baidu.com/it/u=1491798261,3357676182&fm=253&fmt=auto&app=138&f=JPEG?w=500h=500',
-    name: 'zhangyunfeng',
+    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    name: 'Super Admin',
   },
   'editor-token': {
     roles: ['editor'],
