@@ -190,6 +190,19 @@ export const constantRoutes = [
   },
 
   {
+    path: '/directives',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Directives',
+        component: () => import('@/views/directives/index'),
+        meta: { title: 'Directives', icon: 'el-icon-data-analysis' },
+      },
+    ],
+  },
+
+  {
     path: '/external-link',
     component: Layout,
     children: [
