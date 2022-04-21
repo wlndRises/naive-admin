@@ -1,14 +1,26 @@
 <template>
   <div class="p-20px">
     <n-chart
-      class="w-full h-500px"
+      class="h-500px"
       autoresize
-      :define-option="heatDefineOption"
+      :define-option="defineHeatOption"
       :option="heatOption"
     ></n-chart>
-    <n-chart class="w-full h-600px mt-40px" autoresize :define-option="barDefineOption"></n-chart>
-    <n-chart class="w-full h-500px mt-40px" is-empty>
+    <n-chart class="h-600px mt-40px" autoresize :define-option="defineBarOption"></n-chart>
+    <n-chart
+      class="h-500px mt-40px"
+      autoresize
+      :define-option="definePieOption"
+      :option="pieOption"
+      :is-empty="isPieEmpty"
+    >
+      <template #image>
+        <i class="el-icon-chat-dot-square text-50px" />
+      </template>
       <template #text>暂时没有数据哦</template>
+      <template #default>
+        <el-button type="primary" @click="getPieSeriesData">来点数据</el-button>
+      </template>
     </n-chart>
   </div>
 </template>
@@ -17,6 +29,7 @@
 import { NChart } from 'naive-echarts'
 import BAR_OPTION from './option/bar_option'
 import HEAT_OPTION from './option/heat_option'
+import PIE_OPTION from './option/pie_option'
 import { isNumber } from '@/utils/is'
 export default {
   name: 'Echarts',
@@ -24,17 +37,26 @@ export default {
   data() {
     return {
       // 柱状图
-      barDefineOption: BAR_OPTION,
+      defineBarOption: BAR_OPTION,
       // 热力图
-      heatDefineOption: HEAT_OPTION,
+      defineHeatOption: HEAT_OPTION,
       heatOption: {},
+      // 饼图
+      definePieOption: PIE_OPTION,
+      pieOption: {},
     }
   },
+  computed: {
+    isPieEmpty() {
+      const seriesData = this.pieOption.series ? this.pieOption.series[0].data : []
+      return !seriesData.length || seriesData.every(item => !item.value)
+    },
+  },
   mounted() {
-    this.getheatSeriesData()
+    this.getHeatSeriesData()
   },
   methods: {
-    getheatSeriesData() {
+    getHeatSeriesData() {
       const hours = [
         '12a',
         '1a',
@@ -259,6 +281,18 @@ export default {
         series: {
           data: seriesData,
         },
+      }
+    },
+    getPieSeriesData() {
+      this.pieOption = {
+        series: [
+          {
+            data: [
+              { value: 1048, name: '待执行' },
+              { value: 735, name: '已完成' },
+            ],
+          },
+        ],
       }
     },
   },
