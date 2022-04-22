@@ -11,11 +11,10 @@
     "lint-staged": "lint-staged",
     "lint:js": "eslint --ext \".js,.ts,.vue\"",
     "lint:style": "stylelint \"**/*.{css,scss,html,vue}\" --ignore-path .gitignore",
-    "lint:prettier": "prettier --check .",
+    "lint:prettier": "prettier --check ./**/*.{css,scss,html,vue,js,md}",
     "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
-    "lintfix": "prettier --write --list-different . && npm run lint:js --fix && npm run lint:style --fix",
+    "lintfix": "prettier --write ./**/*.{css,scss,html,vue,js,md} && npm run lint:js --fix && npm run lint:style --fix",
     "prepare": "husky install",
-    "prettier": "prettier --write ./**/*.{js,css,sass,vue,md}",
     "test:gzip": "npx http-server dist --cors --gzip -c-1",
     "test:br": "npx http-server dist --cors --brotli -c-1",
     "start": "vue-cli-service serve",
@@ -87,7 +86,7 @@
     "not dead"
   ],
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint --cache",
+    "*.{js,ts,vue}": "eslint",
     "*.{css,scss,html,vue}": "stylelint",
     "*.**": "prettier --check --ignore-unknown"
   }
