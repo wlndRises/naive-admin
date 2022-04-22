@@ -9,7 +9,7 @@
     "build:stage": "vue-cli-service build --mode staging",
     "dev": "vue-cli-service serve",
     "lint-staged": "lint-staged",
-    "lint:js": "eslint --ext \".js,.ts,.vue\"",
+    "lint:js": "eslint --ext \".js,.vue\"",
     "lint:style": "stylelint \"**/*.{css,scss,html,vue}\" --ignore-path .gitignore",
     "lint:prettier": "prettier --check ./**/*.{css,scss,html,vue,js,md}",
     "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
