@@ -86,8 +86,25 @@
     "not dead"
   ],
   "lint-staged": {
-    "*.{js,vue}": "eslint",
-    "*.{css,scss,html,vue}": "stylelint",
-    "*.**": "prettier --check --ignore-unknown"
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add ."
+    ],
+    "*.{css,scss,html}": [
+      "stylelint --fix",
+      "prettier --write",
+      "git add ."
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "stylelint --fix",
+      "prettier --write",
+      "git add ."
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add ."
+    ]
   }
 }
