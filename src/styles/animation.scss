@@ -139,8 +139,7 @@ class:
 }
 
 .scale-up-center {
-  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-    both;
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
@@ -171,8 +170,7 @@ class:
 }
 
 .scale-down-center {
-  -webkit-animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+  -webkit-animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -203,8 +201,7 @@ class:
 }
 
 .scale-up-hor-center {
-  -webkit-animation: scale-up-hor-center 0.4s
-    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  -webkit-animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
@@ -235,10 +232,8 @@ class:
 }
 
 .scale-down-hor-center {
-  -webkit-animation: scale-down-hor-center 0.4s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: scale-down-hor-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+  -webkit-animation: scale-down-hor-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-down-hor-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /**
@@ -268,8 +263,7 @@ class:
 }
 
 .scale-up-ver-center {
-  -webkit-animation: scale-up-ver-center 0.4s
-    cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  -webkit-animation: scale-up-ver-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-ver-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
@@ -300,10 +294,8 @@ class:
 }
 
 .scale-down-ver-center {
-  -webkit-animation: scale-down-ver-center 0.4s
-    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: scale-down-ver-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+  -webkit-animation: scale-down-ver-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-down-ver-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 /**

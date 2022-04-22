@@ -25,6 +25,7 @@ export default {
   position: relative;
   overflow: hidden;
 }
+
 .fixed-header + .app-main {
   min-height: 100vh;
   padding-top: 50px;

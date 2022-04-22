@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 .sub-el-icon {
-  color: currentColor;
+  color: currentcolor;
   width: 1em !important;
   height: 1em;
 }
