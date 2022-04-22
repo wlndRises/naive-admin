@@ -6,11 +6,11 @@
       </slot>
     </template>
     <div
-      class="ellipsis"
-      :class="{ 'ellipsis--line-clamp': lineClamp != 1 }"
+      class="n-ellipsis"
+      :class="{ 'ellipsis-line-clamp': lineClamp != 1 }"
       :style="{
         '-webkit-line-clamp': lineClamp,
-        textOverflow: lineClamp == 1 ? 'ellipsis' : '',
+        textOverflow: lineClamp == 1 ? 'n-ellipsis' : '',
       }"
     >
       <slot></slot>
@@ -18,11 +18,11 @@
   </el-tooltip>
   <div
     v-else
-    class="ellipsis"
-    :class="{ 'ellipsis--line-clamp': lineClamp != 1 }"
+    class="n-ellipsis"
+    :class="{ 'ellipsis-line-clamp': lineClamp != 1 }"
     :style="{
       '-webkit-line-clamp': lineClamp,
-      textOverflow: lineClamp == 1 ? 'ellipsis' : '',
+      textOverflow: lineClamp == 1 ? 'n-ellipsis' : '',
       cursor: expandTrigger ? 'pointer' : '',
     }"
     @click="expandTrigger && handleClick()"
@@ -71,16 +71,18 @@ export default {
 </script>
 
 <style scoped>
-.ellipsis {
+.n-ellipsis {
   overflow: hidden;
 }
-.ellipsis:not(.ellipsis--line-clamp) {
+
+.n-ellipsis:not(.ellipsis-line-clamp) {
   white-space: nowrap;
   display: inline-block;
   vertical-align: bottom;
 }
-.ellipsis.ellipsis--line-clamp {
-  display: -webkit-inline-box;
+
+.n-ellipsis.ellipsis-line-clamp {
+  display: inline-box;
   -webkit-box-orient: vertical;
 }
 </style>
