@@ -18,7 +18,7 @@
 
 <script>
 import Form from '@/components/Form'
-import formDataList from '../src/formDataList'
+import formDataList from '../options/formDataList'
 export default {
   components: {
     Form,
