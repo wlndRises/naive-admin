@@ -86,7 +86,7 @@
     "not dead"
   ],
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint",
+    "*.{js,vue}": "eslint",
     "*.{css,scss,html,vue}": "stylelint",
     "*.**": "prettier --check --ignore-unknown"
   }
