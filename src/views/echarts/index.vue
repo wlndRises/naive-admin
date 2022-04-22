@@ -27,9 +27,9 @@
 
 <script>
 import { NChart } from 'naive-echarts'
-import BAR_OPTION from './option/bar_option'
-import HEAT_OPTION from './option/heat_option'
-import PIE_OPTION from './option/pie_option'
+import BAR_OPTION from './options/bar_option'
+import HEAT_OPTION from './options/heat_option'
+import PIE_OPTION from './options/pie_option'
 import { isNumber } from '@/utils/is'
 export default {
   name: 'Echarts',
