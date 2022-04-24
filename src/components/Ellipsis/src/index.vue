@@ -76,8 +76,8 @@ export default {
 }
 
 .n-ellipsis:not(.ellipsis-line-clamp) {
-  white-space: nowrap;
   display: inline-block;
+  white-space: nowrap;
   vertical-align: bottom;
 }
 

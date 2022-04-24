@@ -1,8 +1,7 @@
 module.exports = {
   customSyntax: 'postcss-html',
   extends: [
-    'stylelint-config-standard',
-    'stylelint-config-recommended-vue',
+    'stylelint-config-recommended',
     'stylelint-config-prettier',
     'stylelint-config-recess-order',
   ],
