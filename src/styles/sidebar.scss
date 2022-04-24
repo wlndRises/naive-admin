@@ -126,12 +126,15 @@
       }
     }
 
-    .el-menu--collapse .el-submenu > .el-submenu__title span {
-      display: inline-block;
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      visibility: hidden;
+    .el-menu--collapse {
+      width: 100%;
+      .el-submenu > .el-submenu__title span {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+      }
     }
   }
 
