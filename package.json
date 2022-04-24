@@ -92,22 +92,22 @@
     "*.js": [
       "eslint --fix",
       "prettier --write",
-      "git add ."
+      "git add"
     ],
     "*.{css,scss,html}": [
       "stylelint --fix",
       "prettier --write",
-      "git add ."
+      "git add"
     ],
     "*.vue": [
       "eslint --fix",
       "stylelint --fix",
       "prettier --write",
-      "git add ."
+      "git add"
     ],
     "*.{json,md}": [
       "prettier --write",
-      "git add ."
+      "git add"
     ]
   }
 }
