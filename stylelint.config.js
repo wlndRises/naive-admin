@@ -1,16 +1,14 @@
 module.exports = {
   customSyntax: 'postcss-html',
-  plugin: ['stylelint-order'],
   extends: [
     'stylelint-config-standard',
     'stylelint-config-recommended-vue',
     'stylelint-config-prettier',
+    'stylelint-config-recess-order',
   ],
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
   rules: {
-    // Urls must always be quoted
-    'function-url-quotes': 'always',
     // Specify the order of properties within declaration blocks
     'order/properties-order': [
       'position',
