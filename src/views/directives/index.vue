@@ -3,7 +3,7 @@
     <el-button v-copy:dblclick="text" type="primary">双击复制</el-button>
     <el-button v-screenfull.icon type="primary">全屏</el-button>
     <el-button v-clickOutSide="handleClickOutSide" type="primary">clickOutSide</el-button>
-    <el-button v-longPress="handlelongPress" type="primary">longPress</el-button>
+    <el-button v-longPress="handleLongPress" type="primary">longPress</el-button>
   </div>
 </template>
 
@@ -31,8 +31,8 @@ export default {
     handleClickOutSide() {
       console.log('click handleClickOutSide')
     },
-    handlelongPress() {
-      console.log('click handlelongPress')
+    handleLongPress() {
+      console.log('click handleLongPress')
     },
   },
 }

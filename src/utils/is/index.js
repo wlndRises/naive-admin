@@ -1,10 +1,10 @@
 /*
- * @Description: is函数
+ * @Description: is/can/has
  * @Version: 1.0
  * @Autor: Elk
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: zhangyf
- * @LastEditTime: 2022-04-20 12:01:05
+ * @LastEditTime: 2022-04-24 10:07:36
  */
 import _ from 'lodash'
 const toString = Object.prototype.toString
