@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import LazyLoad from './lazyLoad'
+import permission from './permission'
 
-const plugins = [LazyLoad]
+const plugins = [LazyLoad, permission]
 
 plugins.forEach(plugin => {
   Vue.use(plugin, Object.create(null))
