@@ -6,20 +6,20 @@
 </template>
 
 <script>
-import { downloadByUrl, downloadByOnlineUrl } from '@/utils/file'
+import { downloadByOnlineUrl, downloadByUrl } from '@/utils/file'
 export default {
   name: 'DownLoad',
   setup() {
     const handleClick1 = () => {
       downloadByOnlineUrl(
-        'https://img0.baidu.com/it/u=1491798261,3357676182&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-        '小姐姐.png'
+        'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F6e41bd4e7a39526f221ee25b7ad625f63e3d6a8d.png&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653553508&t=7f604e28ca6b93a550f4338501b3fe70',
+        '天空之城.png'
       )
     }
     const handleClick2 = () => {
       downloadByUrl(
-        'https://img0.baidu.com/it/u=1491798261,3357676182&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-        '小姐姐'
+        'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F6e41bd4e7a39526f221ee25b7ad625f63e3d6a8d.png&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653553508&t=7f604e28ca6b93a550f4338501b3fe70',
+        '天空之城'
       )
     }
     return {
