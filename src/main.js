@@ -2,13 +2,14 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import router from './router'
+import VueCompositionAPI from '@vue/composition-api'
 
 import 'windi.css'
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-Vue.use(ElementUI)
+Vue.use(ElementUI).use(VueCompositionAPI)
 
 import './echarts.all' // tree-shaking echarts
 
