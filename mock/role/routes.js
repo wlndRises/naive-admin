@@ -18,11 +18,6 @@ const constantRoutes = [
     hidden: true,
   },
   {
-    path: '/auth-redirect',
-    component: 'views/login/auth-redirect',
-    hidden: true,
-  },
-  {
     path: '/404',
     component: 'views/error-page/404',
     hidden: true,
