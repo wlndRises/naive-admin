@@ -2,9 +2,10 @@ const Mock = require('mockjs')
 const qs = require('qs')
 
 const user = require('./user')
+const role = require('./role')
 const table = require('./table')
 
-const mocks = [...user, ...table]
+const mocks = [...user, ...role, ...table]
 
 // for front mock
 // please use it cautiously, it will redefine XMLHttpRequest,

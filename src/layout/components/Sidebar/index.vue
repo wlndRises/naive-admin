@@ -13,7 +13,7 @@
         mode="vertical"
       >
         <sidebar-item
-          v-for="route in routes"
+          v-for="route in permission_routes"
           :key="route.path"
           :item="route"
           :base-path="route.path"
@@ -32,14 +32,11 @@ import variables from '@/styles/variables.scss'
 export default {
   components: { SidebarItem, Logo },
   computed: {
-    ...mapGetters(['sidebar']),
-    routes() {
-      return this.$router.options.routes
-    },
+    ...mapGetters(['permission_routes', 'sidebar']),
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
-      // 如果设置了path，侧边栏将突出显示您设置的路径
+      // if set path, the sidebar will highlight the path you set
       if (meta.activeMenu) {
         return meta.activeMenu
       }

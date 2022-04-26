@@ -3,7 +3,19 @@ module.exports = {
 
   /**
    * @type {boolean} true | false
-   * @description 是否固定 header
+   * @description Whether show the settings right-panel
+   */
+  showSettings: true,
+
+  /**
+   * @type {boolean} true | false
+   * @description Whether need tagsView
+   */
+  tagsView: true,
+
+  /**
+   * @type {boolean} true | false
+   * @description 是否固定 header 不跟随滚动条滑动
    */
   fixedHeader: true,
 

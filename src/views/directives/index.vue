@@ -1,5 +1,5 @@
 <template>
-  <div v-waterMarker="waterMarker" class="h-220px m-20px">
+  <div v-waterMarker="waterMarker" class="h-220px p-20px">
     <el-button v-copy:dblclick="text" type="primary">双击复制</el-button>
     <el-button v-screenfull.icon type="primary">全屏</el-button>
     <el-button v-clickOutSide="handleClickOutSide" type="primary">clickOutSide</el-button>

@@ -40,8 +40,17 @@ router.beforeEach(async (to, from, next) => {
       else {
         // 如果Token没有过期获取到了userInfo则正常跳转
         try {
-          await store.dispatch('user/getInfo')
-          next()
+          const { roles } = await store.dispatch('user/getInfo')
+
+          // 根据角色生成可访问路由表
+          const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
+
+          // 动态添加可访问路由
+          router.addRoutes(accessRoutes)
+
+          // hack method to ensure that addRoutes is complete
+          // set the replace: true, so the navigation will not leave a history record
+          next({ ...to, replace: true })
         } catch {
           // 过期则删除Token令牌，进入登录页面重新登录
           await store.dispatch('user/resetToken')

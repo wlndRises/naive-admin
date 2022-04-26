@@ -64,7 +64,7 @@ export default {
   },
   data() {
     // To fix https://github.com/PanJiaChen/vue-admin-template/issues/237
-    // todo: 使用渲染函数进行重构
+    // TODO: refactor with render function
     this.onlyOneChild = null
     return {}
   },
@@ -74,18 +74,18 @@ export default {
         if (item.hidden) {
           return false
         } else {
-          // 临时设置(当只有一个显示子对象时使用)
+          // Temp set(will be used if only has one showing child)
           this.onlyOneChild = item
           return true
         }
       })
 
-      // 当只有一个子路由器时，缺省显示子路由器
+      // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {
         return true
       }
 
-      // 如果没有要显示的子路由器，则显示parent
+      // Show parent if there are no child router to display
       if (showingChildren.length === 0) {
         this.onlyOneChild = { ...parent, path: '', noShowingChildren: true }
         return true
