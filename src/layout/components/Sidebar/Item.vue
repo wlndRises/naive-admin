@@ -31,11 +31,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.sub-el-icon {
-  width: 1em;
-  height: 1em;
-  color: currentColor;
-}
-</style>
