@@ -1,5 +1,5 @@
 const Mock = require('mockjs')
-const { cloneDeep } = require('lodash')
+const cloneDeep = require('lodash/cloneDeep')
 const { asyncRoutes, constantRoutes } = require('./routes.js')
 
 const routes = cloneDeep([...constantRoutes, ...asyncRoutes])
