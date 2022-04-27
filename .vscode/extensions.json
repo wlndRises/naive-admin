@@ -3,8 +3,7 @@
     "octref.vetur",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "stylelint.vscode-stylelint",
     "voorjaar.windicss-intellisense",
-    "editorconfig.editorconfig",
+    "editorconfig.editorconfig"
   ]
 }
