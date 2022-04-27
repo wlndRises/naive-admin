@@ -7,7 +7,7 @@ import VueCompositionAPI from '@vue/composition-api'
 import 'windi.css'
 
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+import '@/styles/element-variables.scss'
 
 Vue.use(ElementUI).use(VueCompositionAPI)
 

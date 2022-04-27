@@ -15,6 +15,7 @@
           <item
             :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)"
             :title="onlyOneChild.meta.title"
+            :badge="onlyOneChild.meta.badge"
           />
         </el-menu-item>
       </app-link>

@@ -34,6 +34,18 @@ export function filterAsyncRoutes(routes, roles) {
   return res
 }
 
+export function setMenuBadge(routes, badge) {
+  routes.find(item => {
+    if (item.name === badge.name) {
+      item.meta.badge = badge
+      return true
+    }
+    if (item.children?.length) {
+      setMenuBadge(item.children, badge)
+    }
+  })
+}
+
 const state = {
   routes: [],
   addRoutes: [],
@@ -43,6 +55,9 @@ const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes
     state.routes = constantRoutes.concat(routes)
+  },
+  SET_ROUTES_BADGE(state, badge) {
+    setMenuBadge(state.routes, badge)
   },
 }
 

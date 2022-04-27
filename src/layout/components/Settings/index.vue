@@ -5,7 +5,7 @@
 
       <div class="drawer-item">
         <span>Theme Color</span>
-        <theme-picker class="float-right h-26px mt--3px mr-8px" @change="themeChange" />
+        <theme-picker class="float-right h-26px -mt-3px mr-8px" @change="themeChange" />
       </div>
 
       <div class="drawer-item">
