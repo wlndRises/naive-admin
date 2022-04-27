@@ -1,5 +1,5 @@
 import { isFunction } from '@/utils/is'
-import { requestAnimationFrame } from '@/utils/polyfill/requestAnimationFrame'
+import { requestAnimationFrame } from '@/utils/animation/requestAnimationFrame'
 
 export function addScrollWatch(callback) {
   let beforeScrollTop = window.pageYOffset
