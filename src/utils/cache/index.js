@@ -1,4 +1,4 @@
-import { createStorage } from './Storage'
+import { createStorage } from './storage'
 
 export const createSessionStorage = prefixkey => {
   return createStorage(sessionStorage, prefixkey)

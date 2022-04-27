@@ -83,6 +83,7 @@ const actions = {
         .then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
+          commit('permission/SET_MENU_BADGES', [], { root: true })
           removeToken()
           resetRouter()
 
