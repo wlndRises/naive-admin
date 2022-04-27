@@ -19,7 +19,7 @@
  * 基于 validator.js 对表单验证扩展 https://github.com/chriso/validator.js
  */
 import validatorJs from 'validator'
-import dateFormat from 'dateformat'
+import dayjs from 'dayjs'
 import { isNumber } from '@/utils/lodash'
 
 class Validator {
@@ -38,7 +38,7 @@ class Validator {
    * @returns {{required: boolean, message: string, trigger: (*|string)}}
    */
   required(name, type = 'string', trigger = this.trigger) {
-    return { required: true, type, message: `${name}不能为空！`, trigger }
+    return { required: true, type, message: `${name}不能为空`, trigger }
   }
 
   /**
@@ -47,7 +47,7 @@ class Validator {
    * @returns {{type: string, message: string, trigger: (*|string)}}
    */
   mail(trigger = this.trigger) {
-    return { type: 'email', message: `E-mail格式不正确！`, trigger }
+    return { type: 'email', message: `E-mail格式不正确`, trigger }
   }
 
   /**
@@ -58,7 +58,7 @@ class Validator {
   number(trigger = this.trigger) {
     return {
       type: 'number',
-      message: `请输入正确的数字！`,
+      message: `请输入正确的数字`,
       trigger,
       transform(value) {
         value = value === '' ? null : Number(value)
@@ -75,7 +75,7 @@ class Validator {
   integer(trigger = this.trigger) {
     return {
       type: 'integer',
-      message: `请输入整数！`,
+      message: `请输入整数`,
       trigger,
       transform(value) {
         value = value === '' ? null : Number(value)
@@ -92,7 +92,7 @@ class Validator {
   float(trigger = this.trigger) {
     return {
       type: 'float',
-      message: `请输入正确的浮点数！`,
+      message: `请输入正确的浮点数`,
       trigger,
       transform(value) {
         value = value === '' ? null : Number(value)
@@ -107,10 +107,9 @@ class Validator {
    * @returns {*}
    */
   positiveNumber(trigger = this.trigger) {
-    const that = this
     return {
       type: 'number',
-      message: `请输入一个正数！`,
+      message: `请输入一个正数`,
       trigger,
       transform(value) {
         value = value === '' ? null : Number(value)
@@ -121,7 +120,7 @@ class Validator {
           callback()
           return
         }
-        if (!that.isRealNum(value)) {
+        if (!isNumber(value)) {
           callback(new Error())
         } else {
           if (value < 0) {
@@ -142,7 +141,7 @@ class Validator {
   negativeNumber(trigger = this.trigger) {
     return {
       type: 'number',
-      message: `请输入一个负数！`,
+      message: `请输入一个负数`,
       trigger,
       transform(value) {
         value = value === '' ? null : Number(value)
@@ -185,13 +184,13 @@ class Validator {
     if (min !== undefined && max !== undefined) {
       tempMap.min = min
       tempMap.max = max
-      tempMap.message = `请输入一个大于等于${min}小于等于${max}的数字！`
+      tempMap.message = `请输入一个大于等于${min}小于等于${max}的数字`
     } else if (min !== undefined) {
       tempMap.min = min
-      tempMap.message = `请输入大于等于${min}的数字！`
+      tempMap.message = `请输入大于等于${min}的数字`
     } else if (max !== undefined) {
       tempMap.max = max
-      tempMap.message = `请输入小于等于${max}的数字！`
+      tempMap.message = `请输入小于等于${max}的数字`
     }
     return tempMap
   }
@@ -211,13 +210,13 @@ class Validator {
     if (min !== undefined && max !== undefined) {
       tempMap.min = min
       tempMap.max = max
-      tempMap.message = `请输入一个长度大于等于${min}小于等于${max}的字符！`
+      tempMap.message = `请输入一个长度大于等于${min}小于等于${max}的字符`
     } else if (min !== undefined) {
       tempMap.min = min
-      tempMap.message = `请输入一个长度大于等于${min}的字符！`
+      tempMap.message = `请输入一个长度大于等于${min}的字符`
     } else if (max !== undefined) {
       tempMap.max = max
-      tempMap.message = `请输入一个长度小于等于${max}的字符！`
+      tempMap.message = `请输入一个长度小于等于${max}的字符`
     }
     return tempMap
   }
@@ -246,7 +245,7 @@ class Validator {
     return {
       type: 'enum',
       enum: array,
-      message: `输入的字符必须包含在 ${JSON.stringify(array)} 中！`,
+      message: `输入的字符必须包含在 ${JSON.stringify(array)} 中`,
       trigger,
     }
   }
@@ -259,7 +258,7 @@ class Validator {
   url(trigger = this.trigger) {
     return {
       type: 'url',
-      message: `请输入一个正确的链接地址！（例如：https://www.baidu.com/）`,
+      message: `请输入一个正确的链接地址（例如：https://www.baidu.com/）`,
       trigger,
     }
   }
@@ -272,7 +271,7 @@ class Validator {
   hex(trigger = this.trigger) {
     return {
       type: 'hex',
-      message: `请输入一个正确的16进制数！`,
+      message: `请输入一个正确的16进制数`,
       trigger,
     }
   }
@@ -287,7 +286,7 @@ class Validator {
   whitespace(trigger = this.trigger) {
     return {
       type: 'string',
-      message: `请输入一个不包含空格的字符！`,
+      message: `请输入一个不包含空格的字符`,
       trigger,
       validator(rule, value, callback) {
         if (value.indexOf(' ') === -1) {
@@ -309,7 +308,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: `请输入正确的英文字母！`,
+      message: `请输入正确的英文字母`,
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -334,7 +333,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: `请输入正确的小写英文字母！`,
+      message: `请输入正确的小写英文字母`,
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -363,7 +362,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: `请输入正确的大写英文字母！`,
+      message: `请输入正确的大写英文字母`,
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -392,7 +391,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: `请输入一个只包含英文字母和数字的字符！`,
+      message: `请输入一个只包含英文字母和数字的字符`,
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -417,7 +416,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确的银行卡号！',
+      message: '请输入正确的银行卡号',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -442,7 +441,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确的十进制数！',
+      message: '请输入正确的十进制数',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -467,7 +466,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确域名！（例如：baidu.com）',
+      message: '请输入正确域名（例如：baidu.com）',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -492,7 +491,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确IP！（例如：192.168.1.1）',
+      message: '请输入正确IP（例如：192.168.1.1）',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -517,7 +516,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确端口！（例如：8080）',
+      message: '请输入正确端口（例如：8080）',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -542,7 +541,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确MAC地址！（例如：9C-4E-36-C7-59-38）',
+      message: '请输入正确MAC地址（例如：9C-4E-36-C7-59-38）',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -567,7 +566,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确的16进制颜色值！',
+      message: '请输入正确的16进制颜色值',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -592,7 +591,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确的电话号码！',
+      message: '请输入正确的电话号码',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -617,7 +616,7 @@ class Validator {
     const that = this
     return {
       type: 'string',
-      message: '请输入正确的邮政编码！',
+      message: '请输入正确的邮政编码',
       trigger,
       validator(rule, value, callback) {
         if (value === '') {
@@ -642,16 +641,16 @@ class Validator {
     const that = this
     return {
       type: 'date',
-      message: message || '结束日期不能在起始日期之前！',
+      message: message || '结束日期不能在起始日期之前',
       trigger: 'blur',
       validator(rule, value, callback) {
         if (value === '' || beforeDate === '' || beforeDate === undefined) {
           callback()
           return
         }
-        const currDate = dateFormat(value, 'yyyy-mm-dd')
+        const currDate = dayjs(value).format('YYYY-MM-DD')
         const befDate =
-          typeof beforeDate === 'string' ? beforeDate : dateFormat(beforeDate, 'yyyy-mm-dd')
+          typeof beforeDate === 'string' ? beforeDate : dayjs(beforeDate).format('YYYY-MM-DD')
         if (that.validatorJs.isAfter(currDate, befDate)) {
           callback()
         } else {
@@ -671,40 +670,23 @@ class Validator {
     const that = this
     return {
       type: 'date',
-      message: message || '起始日期不能在结束日期之后！',
+      message: message || '起始日期不能在结束日期之后',
       trigger: 'blur',
       validator(rule, value, callback) {
         if (value === '' || afterDate === '' || afterDate === undefined) {
           callback()
           return
         }
-        const currDate = dateFormat(value, 'yyyy-mm-dd')
+
+        const currDate = dayjs(value).format('YYYY-MM-DD')
         const aftDate =
-          typeof afterDate === 'string' ? afterDate : dateFormat(afterDate, 'yyyy-mm-dd')
+          typeof afterDate === 'string' ? afterDate : dayjs(afterDate).format('YYYY-MM-DD')
         if (that.validatorJs.isBefore(currDate, aftDate)) {
           callback()
         } else {
           callback(new Error())
         }
       },
-    }
-  }
-
-  // 自定义工具类 ----------------------------------------------------------------------
-
-  /**
-   * 工具类 是否是数字的判断
-   * @param val
-   * @returns {boolean}
-   */
-  isRealNum(val) {
-    if (typeof val !== 'number') {
-      return false
-    }
-    if (!isNaN(val)) {
-      return true
-    } else {
-      return false
     }
   }
 }
