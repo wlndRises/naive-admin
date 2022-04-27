@@ -5,7 +5,8 @@
     "baseUrl": "./",
     "moduleResolution": "node",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "#/*": ["src/views/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable"]
   }

@@ -37,23 +37,23 @@ export const constantRoutes = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index'),
+        component: () => import('#/redirect/index'),
       },
     ],
   },
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
+    component: () => import('#/login/index'),
     hidden: true,
   },
   {
     path: '/404',
-    component: () => import('@/views/error-page/404'),
+    component: () => import('#/error-page/404'),
     hidden: true,
   },
   {
     path: '/401',
-    component: () => import('@/views/error-page/401'),
+    component: () => import('#/error-page/401'),
     hidden: true,
   },
   {
@@ -63,7 +63,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('#/dashboard/index'),
         name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'dashboard', affix: true },
       },
@@ -90,7 +90,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'page',
-        component: () => import('@/views/permission/page'),
+        component: () => import('#/permission/page'),
         name: 'PagePermission',
         meta: {
           title: 'Page Permission',
@@ -99,7 +99,7 @@ export const asyncRoutes = [
       },
       {
         path: 'directive',
-        component: () => import('@/views/permission/directive'),
+        component: () => import('#/permission/directive'),
         name: 'DirectivePermission',
         meta: {
           title: 'Directive Permission',
@@ -108,7 +108,7 @@ export const asyncRoutes = [
       },
       {
         path: 'role',
-        component: () => import('@/views/permission/role'),
+        component: () => import('#/permission/role'),
         name: 'RolePermission',
         meta: {
           title: 'Role Permission',
@@ -128,13 +128,13 @@ export const asyncRoutes = [
       {
         path: 'table',
         name: 'Table',
-        component: () => import('@/views/table/index'),
+        component: () => import('#/table/index'),
         meta: { title: 'Table', icon: 'table' },
       },
       {
         path: 'tree',
         name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        component: () => import('#/tree/index'),
         meta: { title: 'Tree', icon: 'tree' },
       },
     ],
@@ -152,31 +152,31 @@ export const asyncRoutes = [
     children: [
       {
         path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        component: () => import('#/nested/menu1/index'), // Parent router-view
         name: 'Menu1',
         meta: { title: 'Menu1' },
         children: [
           {
             path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
+            component: () => import('#/nested/menu1/menu1-1'),
             name: 'Menu1-1',
             meta: { title: 'Menu1-1' },
           },
           {
             path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
+            component: () => import('#/nested/menu1/menu1-2'),
             name: 'Menu1-2',
             meta: { title: 'Menu1-2' },
             children: [
               {
                 path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+                component: () => import('#/nested/menu1/menu1-2/menu1-2-1'),
                 name: 'Menu1-2-1',
                 meta: { title: 'Menu1-2-1' },
               },
               {
                 path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+                component: () => import('#/nested/menu1/menu1-2/menu1-2-2'),
                 name: 'Menu1-2-2',
                 meta: { title: 'Menu1-2-2' },
               },
@@ -184,7 +184,7 @@ export const asyncRoutes = [
           },
           {
             path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
+            component: () => import('#/nested/menu1/menu1-3'),
             name: 'Menu1-3',
             meta: { title: 'Menu1-3' },
           },
@@ -192,7 +192,7 @@ export const asyncRoutes = [
       },
       {
         path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('#/nested/menu2/index'),
         name: 'Menu2',
         meta: { title: 'menu2' },
       },
@@ -206,7 +206,7 @@ export const asyncRoutes = [
       {
         path: 'index',
         name: 'Ellipsis',
-        component: () => import('@/views/ellipsis/index'),
+        component: () => import('#/ellipsis/index'),
         meta: { title: 'Ellipsis', icon: 'el-icon-more' },
       },
     ],
@@ -219,7 +219,7 @@ export const asyncRoutes = [
       {
         path: 'index',
         name: 'Form',
-        component: () => import('@/views/form/index'),
+        component: () => import('#/form/index'),
         meta: { title: 'Form', icon: 'form' },
       },
     ],
@@ -232,7 +232,7 @@ export const asyncRoutes = [
       {
         path: 'index',
         name: 'Echarts',
-        component: () => import('@/views/echarts/index'),
+        component: () => import('#/echarts/index'),
         meta: { title: 'Echarts', icon: 'el-icon-s-data' },
       },
     ],
@@ -245,7 +245,7 @@ export const asyncRoutes = [
       {
         path: 'index',
         name: 'DownLoad',
-        component: () => import('@/views/download/index'),
+        component: () => import('#/download/index'),
         meta: { title: 'Download', icon: 'el-icon-download' },
       },
     ],
@@ -258,7 +258,7 @@ export const asyncRoutes = [
       {
         path: 'index',
         name: 'Directives',
-        component: () => import('@/views/directives/index'),
+        component: () => import('#/directives/index'),
         meta: { title: 'Directives', icon: 'el-icon-data-analysis' },
       },
     ],
