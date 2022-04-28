@@ -83,7 +83,6 @@ const actions = {
         .then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
-          commit('permission/SET_MENU_BADGES', [], { root: true })
           removeToken()
           resetRouter()
 
@@ -123,7 +122,8 @@ const actions = {
     // generate accessible routes map based on roles
     const accessRoutes = await dispatch('permission/generateRoutes', roles, { root: true })
     // dynamically add accessible routes
-    router.addRoutes(accessRoutes)
+    // router.addRoutes(accessRoutes)
+    accessRoutes.forEach(route => router.addRoute(route))
 
     // reset visited views and cached views
     dispatch('tagsView/delAllViews', null, { root: true })

@@ -1,5 +1,4 @@
 import { asyncRoutes, constantRoutes } from '@/router'
-import { createSessionStorage } from '@/utils/cache'
 
 /**
  * Use meta.role to determine if the current user has permission
@@ -35,24 +34,9 @@ export function filterAsyncRoutes(routes, roles) {
   return res
 }
 
-export function setMenuBadge(routes, badge) {
-  routes.find(item => {
-    if (item.name === badge.name) {
-      item.meta.badge = badge
-      return true
-    }
-    if (item.children?.length) {
-      setMenuBadge(item.children, badge)
-    }
-  })
-}
-
-const Storage = createSessionStorage()
-
 const state = {
   routes: [],
   addRoutes: [],
-  menuBadges: Storage.get('menuBadges') || [],
 }
 
 const mutations = {
@@ -60,20 +44,10 @@ const mutations = {
     state.addRoutes = routes
     state.routes = constantRoutes.concat(routes)
   },
-  SET_MENU_BADGES(state, badges) {
-    if (badges) {
-      state.menuBadges = badges
-      Storage.set('menuBadges', badges)
-    }
-    state.menuBadges.forEach(item => {
-      setMenuBadge(state.routes, item)
-    })
-  },
 }
 
 const actions = {
-  // TODO getMenuBadges
-  generateRoutes({ commit }, roles) {
+  generateRoutes({ commit, dispatch }, roles) {
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes('admin')) {
@@ -82,7 +56,7 @@ const actions = {
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
       }
       commit('SET_ROUTES', accessedRoutes)
-      commit('SET_MENU_BADGES')
+      dispatch('menuBadge/updataMenuBadgesView', undefined, { root: true })
       resolve(accessedRoutes)
     })
   },
