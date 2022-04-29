@@ -1,9 +1,11 @@
 <template>
   <div v-waterMarker="waterMarker" class="h-220px p-20px">
-    <el-button v-copy:dblclick="text" type="primary">双击复制</el-button>
-    <el-button v-screenfull.icon type="primary">全屏</el-button>
-    <el-button v-clickOutSide="handleClickOutSide" type="primary">clickOutSide</el-button>
-    <el-button v-longPress="handleLongPress" type="primary">longPress</el-button>
+    <el-button v-animation:dblclick v-copy:dblclick="text" type="primary">双击复制</el-button>
+    <el-button v-animation v-screenfull.icon type="primary">全屏</el-button>
+    <el-button v-animation v-clickOutSide="handleClickOutSide" type="primary">
+      clickOutSide
+    </el-button>
+    <el-button v-animation v-longPress="handleLongPress" type="primary">longPress</el-button>
   </div>
 </template>
 

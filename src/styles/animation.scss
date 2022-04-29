@@ -7,7 +7,7 @@ eg:
   <slot />
 </transition>
 class:
-  slide-right slide-right
+  slide-right slide-left
   slide-top slide-bottom
   scale-up-center scale-down-center
   scale-up-hor-center scale-down-hor-center
@@ -181,22 +181,30 @@ class:
  */
 @-webkit-keyframes scale-down-center {
   0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-  100% {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
+  }
+  80% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 @keyframes scale-down-center {
   0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-  100% {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
+  }
+  80% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
