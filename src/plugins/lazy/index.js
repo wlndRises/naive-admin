@@ -1,19 +1,19 @@
 import { isVisibleInViewport } from '@/utils/is'
 import { throttle } from '@/utils/lodash'
-const LazyLoad = {
+const lazy = {
   // install方法
   install(Vue, options) {
-    let defaultSrc = options.default || ''
+    let lazySrc = options.lazySrc || ''
     Vue.directive('lazy', {
       bind(el, binding) {
-        LazyLoad.init(el, binding.value, defaultSrc)
+        lazy.init(el, binding.value, lazySrc)
       },
       inserted(el) {
         // 兼容处理
         if (IntersectionObserver) {
-          LazyLoad.observe(el)
+          lazy.observe(el)
         } else {
-          LazyLoad.listenerScroll(el)
+          lazy.listenerScroll(el)
         }
       },
     })
@@ -42,9 +42,9 @@ const LazyLoad = {
   // 监听scroll事件
   listenerScroll(el) {
     el._handler = () => {
-      throttle(LazyLoad.load, 300)(el)
+      throttle(lazy.load, 300)(el)
     }
-    LazyLoad.load(el)
+    lazy.load(el)
     window.addEventListener('scroll', el._handler)
   },
   // 加载真实图片
@@ -60,4 +60,4 @@ const LazyLoad = {
   },
 }
 
-export default LazyLoad
+export default lazy

@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import animation from './animation'
-import LazyLoad from './lazyLoad'
+import lazy from './lazy'
 import permission from './permission'
+import resize from './resize'
 
-const plugins = [animation, LazyLoad, permission]
+const plugins = [animation, permission, resize]
 
-plugins.forEach(plugin => {
-  Vue.use(plugin, Object.create(null))
+plugins.forEach(plugin => Vue.use(plugin))
+
+Vue.use(lazy, {
+  lazySrc: '',
 })
 
 // 一个指令定义对象可以提供如下几个钩子函数 (均为可选)：

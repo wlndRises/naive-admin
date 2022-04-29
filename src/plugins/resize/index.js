@@ -2,19 +2,19 @@ import { isFunction } from '@/utils/is'
 import { throttle } from '@/utils/lodash'
 import { addResizeListener, removeResizeListener } from '@/utils/event/resize'
 
-const Resize = {
+const resize = {
   install(Vue, options) {
     const wait = options.wait || 200
     Vue.directive('resize', {
       inserted(el, binding) {
-        Resize.handleAddListener(el, binding, wait)
+        resize.handleAddListener(el, binding, wait)
       },
       update(el, binding) {
-        Resize.handleRemoveListener(el)
-        Resize.handleAddListener(el, binding, wait)
+        resize.handleRemoveListener(el)
+        resize.handleAddListener(el, binding, wait)
       },
       unbind(el) {
-        Resize.handleRemoveListener(el)
+        resize.handleRemoveListener(el)
       },
     })
   },
@@ -31,4 +31,4 @@ const Resize = {
   },
 }
 
-export default Resize
+export default resize

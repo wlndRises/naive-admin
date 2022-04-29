@@ -1,4 +1,4 @@
-const Rules = {
+const rules = {
   intall(App) {
     App.mixin({
       created() {
@@ -28,4 +28,4 @@ const Rules = {
   },
 }
 
-export default Rules
+export default rules
