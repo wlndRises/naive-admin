@@ -18,6 +18,34 @@ export const cdnLoad = cdnConfig => {
   return Promise.all(cdnConfig.map(url => cdnInject(url)))
 }
 
+const loadScripts = url => {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script')
+    script.src = url
+    document.head.appendChild(script)
+    script.onload = function () {
+      resolve(url)
+    }
+    script.onerror = function () {
+      reject(url)
+    }
+  })
+}
+
+export const cdnSequentialLoad = urls => {
+  return new Promise(resolve => {
+    async function doLoad(url) {
+      await loadScripts(url)
+      if (urls.length > 0) {
+        doLoad(urls.shift())
+      } else {
+        resolve()
+      }
+    }
+    doLoad(urls.shift())
+  })
+}
+
 /**
  * @description: 字符串、数组的reverse 这个方法不会改变原数组
  * @author: wind
