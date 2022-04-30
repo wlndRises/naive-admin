@@ -2,7 +2,7 @@
  * @description: base64 to blob
  * @param {String} base64Buf
  * @return {Blob}
- * @author: Elk
+ * @author: wind
  */
 export function base64ToBlob(base64Buf) {
   const arr = base64Buf.split(',')
@@ -22,7 +22,7 @@ export function base64ToBlob(base64Buf) {
  * @param {String} url
  * @param {String} mineType MDN
  * @return {Promise<string>}
- * @author: Elk
+ * @author: wind
  */
 export function urlToBase64(url, mineType) {
   return new Promise((resolve, reject) => {

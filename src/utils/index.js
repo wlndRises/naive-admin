@@ -1,7 +1,5 @@
 // 放一些不确定分类的工具
-import { isString } from './is'
-
-import { isDate, isJson, isObject, isDef } from './is'
+import { isString, isDef } from './is'
 
 export const cdnLoad = cdnConfig => {
   const cdnInject = url => {
@@ -22,9 +20,7 @@ export const cdnLoad = cdnConfig => {
 
 /**
  * @description: 字符串、数组的reverse 这个方法不会改变原数组
- * @param {String|Array} 源数组
- * @return {String|Array}
- * @author: Elk
+ * @author: wind
  */
 export function reverse(source) {
   if (isString) {
@@ -41,7 +37,7 @@ export function reverse(source) {
 
 /**
  * @description: 软绑定的bind
- * @author: Elk
+ * @author: wind
  */
 export const softBind = function (fn, obj) {
   const curried = Array.prototype.slice.call(arguments, 2)
@@ -55,66 +51,8 @@ export const softBind = function (fn, obj) {
   return bound
 }
 
-/**
- * 深拷贝
- * json对象键必须加双引号 value不可以是方法函数、undefined以及NAN
- */
-export const cloneDeep = function (val) {
-  if (val === null) return null
-  if (isJson(val)) return JSON.parse(JSON.stringify(val))
-  if (!isObject(val)) return val
-  if (isDate(val)) return new Date(val)
-  const newVal = new val.constructor() //保持继承链
-  for (const key in val) {
-    if (Object.prototype.hasOwnProperty.call(val, key)) {
-      //不遍历其原型链上的属性
-      const element = val[key]
-      newVal[key] = isObject(element) ? arguments.callee(val) : val // 使用arguments.callee解除与函数名的耦合
-    }
-  }
-  return newVal
-}
-
 export const cloneFunc = function (func) {
   return new Function('return ' + func.toString())()
-}
-
-/**
- * 防抖函数(间隔时间内的持续触发只会触发最后一次，持续触发等于永远不会触发)
- * 例如 百度输入框一直输入时不会出现返回的列表数据
- */
-export const debounce = (fn, delay) => {
-  let timeout = null // 创建一个标记用来存放定时器的返回值
-  // tip: 注意不能返回箭头函数 apply call bind无法改变箭头函数的this
-  return function () {
-    // 每当用户输入的时候把前一个 setTimeout clear 掉
-    clearTimeout(timeout)
-    // 然后又创建一个新的 setTimeout, 这样就能保证 interval 内持续触发，就不会执行 fn 函数
-    timeout = setTimeout(() => {
-      fn.apply(this, arguments)
-    }, delay)
-  }
-}
-
-/**
- * 节流函数(间隔时间内只会触发一次)
- * 例如 避免在scroll、resize时过分的更新
- */
-export const throttle = (fn, delay) => {
-  let canRun = true // 通过闭包保存一个标记
-  // 小知识: 箭头函数没有arguments 只能(...arg) => arg
-  return function () {
-    if (!canRun) return
-    canRun = false
-    fn.apply(this, arguments)
-    // 将外部传入的函数的执行放在setTimeout中
-    setTimeout(() => {
-      // 最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。
-      // 当定时器没有执行的时候标记永远是false，在开头被return掉
-      fn.apply(this, arguments)
-      canRun = true
-    }, delay)
-  }
 }
 
 export const merge = function (target) {
@@ -133,6 +71,14 @@ export const merge = function (target) {
   return target
 }
 
+/**
+ * eg:
+ * let [err, res] = await errorCaptured(asyncFunc)
+ * if (err) {
+ *   ... 错误捕获
+ * }
+ * ... 其他逻辑
+ */
 export const errorCaptured = async asyncFunc => {
   try {
     const res = await asyncFunc()
@@ -142,12 +88,16 @@ export const errorCaptured = async asyncFunc => {
   }
 }
 
-// eg:
-// let [err, res] = await errorCaptured(asyncFunc)
-// if (err) {
-//     //... 错误捕获
-// }
-// //... 其他逻辑
-// 如果你想在出现错误时什么也不干 那么你可以
+// 如果你想在出现错误时什么也不做 那么你可以
 // const res = await asyncFunc().catch(noop)
 // if (!res) return
+
+export const kebabCase = function (str) {
+  const hyphenateRE = /([^-])([A-Z])/g
+  return str.replace(hyphenateRE, '$1-$2').toLowerCase()
+}
+
+export const capitalize = function (str) {
+  if (!isString(str)) return str
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}

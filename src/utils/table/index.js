@@ -4,7 +4,7 @@ import { isString } from '../is'
  * @param {Array} 表格数据
  * @param {Array | String} 需要纵向合并的列字段组成的数组 也可以接收单个字段
  * @return {Array} 每行合并的格数组成的数组
- * @author: Elk
+ * @author: wind
  * eg:
  * const _row = this.rowSpanList[rowIndex]
  * const _col = _row > 0 ? 1 : 0

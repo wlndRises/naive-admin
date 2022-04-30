@@ -1,11 +1,3 @@
-/*
- * @Description: 事件
- * @Version: 1.0
- * @Autor: Elk
- * @Date: 2022-01-04 19:59:12
- * @LastEditors: Elk
- * @LastEditTime: 2022-01-21 14:03:42
- */
 export function on(element, event, handler) {
   if (element && event && handler) {
     element.addEventListener(event, handler, false)

@@ -1,11 +1,3 @@
-/*
- * @Description: ResizeObserver
- * @Version: 1.0
- * @Autor: Elk
- * @Date: 2022-01-04 20:04:27
- * @LastEditors: Elk
- * @LastEditTime: 2022-02-20 00:08:20
- */
 import ResizeObserver from 'resize-observer-polyfill'
 
 function resizeHandler(entries) {

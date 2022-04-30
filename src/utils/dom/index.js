@@ -123,7 +123,7 @@ export function hackCss(attr, value) {
  * @description: 获取ui挂载节点 没有父节点选择body
  * @param {HTMLElement} element
  * @return {HTMLElement}
- * @author: Elk
+ * @author: wind
  */
 export function getPopupContainer(element) {
   return element?.parentNode ?? document.body
