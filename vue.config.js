@@ -7,7 +7,10 @@ function resolve(dir) {
 const isDev = process.env.NODE_ENV == 'development'
 const isPro = !isDev
 
-// gzip 相关
+// cdn
+const cdn = require('/config/cdn.js')
+
+// gzip
 const CompressionPlugin = require('compression-webpack-plugin')
 const isGZIP = process.env.VUE_APP_GZIP == 'ON'
 
@@ -30,7 +33,17 @@ module.exports = {
   },
   chainWebpack(config) {
     config.resolve.alias.set('#', resolve('src/views'))
-    // 它可以提高首屏加载的速度，建议打开 预加载
+
+    // inject cdn
+    config.plugin('html').tap(args => {
+      args[0].cdn = cdn.cdnConfig
+      return args
+    })
+
+    // 不从 bundle 中引用依赖
+    config.externals = cdn.externals
+
+    // 它可以提高首屏加载的速 建议打开 预加载
     config.plugin('preload').tap(() => [
       {
         rel: 'preload',
@@ -41,7 +54,6 @@ module.exports = {
       },
     ])
 
-    // 当有很多页面时，忽略rust，会导致太多无意义的requestsntime.js
     config.plugins.delete('prefetch')
 
     // set svg-sprite-loader
@@ -92,6 +104,16 @@ module.exports = {
           },
         },
       })
+
+      // Webpack4.0 默认使用 terser-webpack-plugin 压缩插件
+      // https://github.com/terser/terser#compress-options
+      config.optimization.minimizer('terser').tap(args => {
+        Object.assign(args[0].terserOptions.compress, {
+          pure_funcs: ['console.log'],
+        })
+        return args
+      })
+
       // https:// webpack.js.org/configuration/optimization/#optimizationruntimechunk
       config.optimization.runtimeChunk('single')
     })
