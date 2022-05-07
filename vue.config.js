@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV == 'development'
 const isPro = !isDev
 
 // cdn
-const cdn = require('/config/cdn.js')
+const cdn = require('./config/cdn.js')
 
 // gzip
 const CompressionPlugin = require('compression-webpack-plugin')
