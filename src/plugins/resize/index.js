@@ -3,24 +3,23 @@ import { throttle } from '@/utils/lodash'
 import { addResizeListener, removeResizeListener } from '@/utils/event/resize'
 
 const resize = {
-  install(Vue, options) {
-    const wait = options.wait || 200
+  install(Vue) {
     Vue.directive('resize', {
       inserted(el, binding) {
-        resize.handleAddListener(el, binding, wait)
+        resize.handleAddListener(el, binding)
       },
       update(el, binding) {
         resize.handleRemoveListener(el)
-        resize.handleAddListener(el, binding, wait)
+        resize.handleAddListener(el, binding)
       },
       unbind(el) {
         resize.handleRemoveListener(el)
       },
     })
   },
-  handleAddListener(el, binding, wait) {
+  handleAddListener(el, binding) {
     if (isFunction(binding.value)) {
-      el.__handleResize__ = throttle(binding.value, +(binding.arg || wait))
+      el.__handleResize__ = throttle(binding.value, +(binding.arg || 200))
       addResizeListener(el, el.__handleResize__)
     }
   },
