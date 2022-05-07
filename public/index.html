@@ -8,6 +8,9 @@
       content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"
     />
     <link rel="icon" type="image/svg+xml" href="<%= BASE_URL %>icon.svg" />
+    <% for (var i; i< htmlWebpackPlugin.options.cdn.length; i++) { %>
+    <script src="<%= htmlWebpackPlugin.options.cdn[i] %>"></script>
+    <% } %>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>

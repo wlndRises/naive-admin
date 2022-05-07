@@ -23,20 +23,14 @@ import '@/plugins' // global plugins
 
 import '@/router/permission' // permission control
 
-import cdnConfig from '/config/cdn'
+// 如果您不想使用mock-server 想用MockJs来模拟api 可以执行：mockXHR()
+// 目前，MockJs将用于生产环境 请在上线前删除它！！！
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('/mock')
+  mockXHR()
+}
 
-import { cdnLoad } from './utils'
-
-async function bootstrap() {
-  await cdnLoad(cdnConfig)
-
-  // 如果您不想使用mock-server 想用MockJs来模拟api 可以执行：mockXHR()
-  // 目前，MockJs将用于生产环境 请在上线前删除它！！！
-  if (process.env.NODE_ENV === 'production') {
-    const { mockXHR } = require('/mock')
-    mockXHR()
-  }
-
+function bootstrap() {
   Vue.config.productionTip = false
 
   new Vue({
