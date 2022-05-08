@@ -2,7 +2,8 @@ import { on } from '@/utils/event'
 
 export default {
   inserted: (el, binding) => {
-    on(el, binding.arg || 'click', animate)
+    el.$eventName = binding.modifiers.dblclick ? 'dblclick' : 'click'
+    on(el, el.$eventName, animate)
     function animate() {
       if (el.__animatetimer__) return
       el.__animate__ = binding.expression || 'scale-down-center' // default spring

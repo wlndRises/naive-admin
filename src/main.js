@@ -9,13 +9,13 @@ import ElementUI from 'element-ui'
 import '@/styles/element-variables.scss'
 Vue.use(ElementUI)
 
+import '@/styles/index.scss' // global scss
+
 import VueCompositionAPI from '@vue/composition-api'
 Vue.use(VueCompositionAPI)
 
 import directives from '@/directives' // global directives
 Vue.use(directives)
-
-import '@/styles/index.scss' // global scss
 
 import './echarts.all' // tree-shaking echarts
 
