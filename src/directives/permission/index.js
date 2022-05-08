@@ -21,17 +21,11 @@ function checkPermission(el, binding) {
   }
 }
 
-const permission = {
-  install(Vue) {
-    Vue.directive('permission', {
-      inserted(el, binding) {
-        checkPermission(el, binding)
-      },
-      update(el, binding) {
-        checkPermission(el, binding)
-      },
-    })
+export default {
+  inserted(el, binding) {
+    checkPermission(el, binding)
+  },
+  update(el, binding) {
+    checkPermission(el, binding)
   },
 }
-
-export default permission

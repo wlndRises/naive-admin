@@ -1,16 +1,22 @@
-import Vue from 'vue'
 import animation from './animation'
-import lazy from './lazy'
 import permission from './permission'
 import resize from './resize'
+import screenfull from './screenfull'
 
-const plugins = [animation, permission, resize]
-
-plugins.forEach(plugin => Vue.use(plugin))
-
-Vue.use(lazy, {
-  lazySrc: '',
-})
+const directives = {
+  animation,
+  permission,
+  resize,
+  screenfull,
+}
+// 批量注册指令
+export default {
+  install(Vue) {
+    Object.keys(directives).forEach(key => {
+      Vue.directive(key, directives[key])
+    })
+  },
+}
 
 // 一个指令定义对象可以提供如下几个钩子函数 (均为可选)：
 // bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。

@@ -19,7 +19,7 @@ import '@/components' // global components
 
 import '@/assets/icons' // global icons
 
-import '@/plugins' // global plugins
+import '@/directives' // global directives
 
 import '@/router/permission' // permission control
 
