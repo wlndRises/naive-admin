@@ -25,8 +25,8 @@ import '@/assets/icons' // global icons
 
 import '@/router/permission' // permission control
 
-// 如果您不想使用mock-server 想用MockJs来模拟api 可以执行：mockXHR()
-// 目前，MockJs将用于生产环境 请在上线前删除它！！！
+// 如果您不想使用mock-server 想用MockJs来模拟api 可以执行 mockXHR()
+// 目前 MockJs将用于生产环境 请在上线前删除它
 if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('/mock')
   mockXHR()
