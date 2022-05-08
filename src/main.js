@@ -2,24 +2,26 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import router from './router'
-import VueCompositionAPI from '@vue/composition-api'
 
 import 'windi.css'
 
 import ElementUI from 'element-ui'
 import '@/styles/element-variables.scss'
+Vue.use(ElementUI)
 
-Vue.use(ElementUI).use(VueCompositionAPI)
+import VueCompositionAPI from '@vue/composition-api'
+Vue.use(VueCompositionAPI)
 
-import './echarts.all' // tree-shaking echarts
+import directives from '@/directives' // global directives
+Vue.use(directives)
 
 import '@/styles/index.scss' // global scss
+
+import './echarts.all' // tree-shaking echarts
 
 import '@/components' // global components
 
 import '@/assets/icons' // global icons
-
-import '@/directives' // global directives
 
 import '@/router/permission' // permission control
 
