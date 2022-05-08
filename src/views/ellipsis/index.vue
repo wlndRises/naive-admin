@@ -4,13 +4,11 @@
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px mt-80px">
-      我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
-      <br />
+    <n-ellipsis class="w-220px mt-80px" line-elips="2">
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px mt-80px" line-elips="2">
+    <n-ellipsis class="w-220px mt-80px" expand-trigger>
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 

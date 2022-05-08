@@ -7,10 +7,8 @@
     </template>
     <div
       class="n-ellipsis"
-      :class="{ 'ellipsis-line-clamp': lineClamp != 1 }"
       :style="{
         '-webkit-line-clamp': lineClamp,
-        textOverflow: lineClamp == 1 ? 'n-ellipsis' : '',
       }"
     >
       <slot></slot>
@@ -18,14 +16,11 @@
   </el-tooltip>
   <div
     v-else
-    class="n-ellipsis"
-    :class="{ 'ellipsis-line-clamp': lineClamp != 1 }"
+    class="n-ellipsis cursor-pointer"
     :style="{
       '-webkit-line-clamp': lineClamp,
-      textOverflow: lineClamp == 1 ? 'n-ellipsis' : '',
-      cursor: expandTrigger ? 'pointer' : '',
     }"
-    @click="expandTrigger && handleClick()"
+    @click="handleClick"
   >
     <slot></slot>
   </div>
@@ -47,7 +42,7 @@ export default {
   },
   data() {
     return {
-      lineClamp: undefined,
+      lineClamp: null,
     }
   },
   watch: {
@@ -61,7 +56,7 @@ export default {
   methods: {
     handleClick() {
       if (this.lineClamp) {
-        this.lineClamp = undefined
+        this.lineClamp = null
       } else {
         this.lineClamp = this.lineElips
       }
@@ -73,16 +68,7 @@ export default {
 <style scoped>
 .n-ellipsis {
   overflow: hidden;
-}
-
-.n-ellipsis:not(.ellipsis-line-clamp) {
-  display: inline-block;
-  white-space: nowrap;
-  vertical-align: bottom;
-}
-
-.n-ellipsis.ellipsis-line-clamp {
-  display: inline-box;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
 }
 </style>

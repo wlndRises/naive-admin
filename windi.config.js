@@ -7,6 +7,5 @@ export default defineConfig({
   // 工具类
   shortcuts: {
     'n-flex': 'flex justify-center items-center',
-    'n-ellipsis': 'overflow-hidden whitespace-nowrap overflow-ellipsis',
   },
 })
