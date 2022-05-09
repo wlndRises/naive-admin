@@ -11,13 +11,13 @@ const users = {
   'admin-token': {
     roles: ['admin'],
     introduction: 'I am a super administrator',
-    avatar: './icon.svg',
+    avatar: 'https://q1.qlogo.cn/g?b=qq&nk=190848757&s=640',
     name: 'Super Admin',
   },
   'editor-token': {
     roles: ['editor'],
     introduction: 'I am an editor',
-    avatar: './icon.svg',
+    avatar: 'https://q1.qlogo.cn/g?b=qq&nk=190848757&s=640',
     name: 'Normal Editor',
   },
 }

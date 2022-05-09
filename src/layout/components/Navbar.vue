@@ -6,13 +6,15 @@
       @toggle-click="toggleSideBar"
     />
 
-    <breadcrumb class="breadcrumb-container" />
+    <breadcrumb class="float-left" />
 
-    <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
-        <div class="avatar-wrapper">
-          <img :src="avatar + '?imageView2/1/w/80/h/80'" class="user-avatar" />
-          <i class="el-icon-caret-bottom" />
+    <div class="float-right h-full n-flex">
+      <el-tooltip content="全屏" placement="bottom">
+        <div v-screenfull.icon class="text-20px mx-5px"></div>
+      </el-tooltip>
+      <el-dropdown class="mx-5px cursor-pointer" trigger="click">
+        <div class="flex items-center">
+          <img :src="avatar" class="w-24px h-24px rounded-1/2" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <router-link to="/">
@@ -26,7 +28,17 @@
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+      <el-tooltip content="系统设置" placement="bottom">
+        <i
+          class="el-icon-setting text-20px ml-5px mr-40px cursor-pointer"
+          @click="setting = true"
+        />
+      </el-tooltip>
     </div>
+
+    <el-drawer title="系统设置" append-to-body :visible.sync="setting" direction="rtl">
+      <Settings />
+    </el-drawer>
   </div>
 </template>
 
@@ -34,11 +46,18 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import Settings from './Settings.vue'
 
 export default {
   components: {
     Breadcrumb,
     Hamburger,
+    Settings,
+  },
+  data() {
+    return {
+      setting: false,
+    }
   },
   computed: {
     ...mapGetters(['sidebar', 'avatar']),
@@ -73,62 +92,6 @@ export default {
 
     &:hover {
       background: rgba(0, 0, 0, 0.025);
-    }
-  }
-
-  .breadcrumb-container {
-    float: left;
-  }
-
-  .right-menu {
-    float: right;
-    height: 100%;
-    line-height: 50px;
-
-    &:focus {
-      outline: none;
-    }
-
-    .right-menu-item {
-      display: inline-block;
-      padding: 0 8px;
-      height: 100%;
-      font-size: 18px;
-      color: #5a5e66;
-      vertical-align: text-bottom;
-
-      &.hover-effect {
-        cursor: pointer;
-        transition: background 0.3s;
-
-        &:hover {
-          background: rgba(0, 0, 0, 0.025);
-        }
-      }
-    }
-
-    .avatar-container {
-      margin-right: 30px;
-
-      .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
-
-        .user-avatar {
-          cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-        }
-
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
-        }
-      }
     }
   }
 }
