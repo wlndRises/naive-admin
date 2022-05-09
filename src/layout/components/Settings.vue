@@ -1,8 +1,6 @@
 <template>
   <div class="drawer-container">
     <div>
-      <h3 class="drawer-title">Page style setting</h3>
-
       <div class="drawer-item">
         <span>Theme Color</span>
         <theme-picker class="float-right h-26px -mt-3px mr-8px" @change="themeChange" />

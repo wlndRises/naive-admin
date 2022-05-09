@@ -9,7 +9,7 @@
     <breadcrumb class="float-left" />
 
     <div class="float-right h-full n-flex">
-      <el-tooltip content="全屏" placement="bottom">
+      <el-tooltip content="Screenfull" placement="bottom">
         <div v-screenfull.icon class="text-20px mx-5px"></div>
       </el-tooltip>
       <el-dropdown class="mx-5px cursor-pointer" trigger="click">
@@ -28,7 +28,7 @@
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <el-tooltip content="系统设置" placement="bottom">
+      <el-tooltip content="System Setting" placement="bottom">
         <i
           class="el-icon-setting text-20px ml-5px mr-40px cursor-pointer"
           @click="setting = true"
@@ -36,7 +36,7 @@
       </el-tooltip>
     </div>
 
-    <el-drawer title="系统设置" append-to-body :visible.sync="setting" direction="rtl">
+    <el-drawer title="System Setting" append-to-body :visible.sync="setting" direction="rtl">
       <Settings />
     </el-drawer>
   </div>
