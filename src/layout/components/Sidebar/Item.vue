@@ -8,8 +8,8 @@ export default ({ props }) => {
         ) : (
           <svg-icon icon-class={props.icon} />
         ))}
-      <span class="inline-block max-w-112px n-ellipsis">{props.title}</span>
-      {props.badge && <el-badge class="absolute top-0 right-20px" {...{ attrs: props.badge }} />}
+      <span class="inline-block max-w-112px truncate">{props.title}</span>
+      {props.badge && <el-badge {...{ attrs: props.badge }} />}
     </div>
   )
 }

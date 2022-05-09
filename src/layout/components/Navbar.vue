@@ -13,9 +13,7 @@
         <div v-screenfull.icon class="text-20px mx-5px"></div>
       </el-tooltip>
       <el-dropdown class="mx-5px cursor-pointer" trigger="click">
-        <div class="flex items-center">
-          <img :src="avatar" class="w-24px h-24px rounded-1/2" />
-        </div>
+        <img :src="avatar" class="w-24px h-24px rounded-1/2" />
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <router-link to="/">
             <el-dropdown-item>Home</el-dropdown-item>
