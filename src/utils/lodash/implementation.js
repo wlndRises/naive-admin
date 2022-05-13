@@ -4,7 +4,7 @@
  * @Autor: wind
  * @Date: 2022-04-30 11:56:48
  * @LastEditors: wind
- * @LastEditTime: 2022-04-30 11:58:10
+ * @LastEditTime: 2022-05-13 18:42:14
  */
 import { isDate, isJson, isObject } from './is'
 
@@ -48,7 +48,7 @@ export const throttle = (fn, delay) => {
 
 /**
  * 深拷贝
- * json对象：键必须加双引号 value不可以是方法函数、undefined以及NAN
+ * json对象：属性名称必须是双引号括起来的字符串 最后一个属性后不能有逗号
  */
 export const cloneDeep = function (val) {
   if (val === null) return null
