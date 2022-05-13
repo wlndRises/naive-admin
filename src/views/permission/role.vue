@@ -183,7 +183,7 @@ export default {
           this.rolesList.splice($index, 1)
           this.$message({
             type: 'success',
-            message: 'Delete succed!',
+            message: 'Delete succeed!',
           })
         })
         .catch(err => {

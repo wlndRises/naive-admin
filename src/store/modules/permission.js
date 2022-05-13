@@ -56,7 +56,7 @@ const actions = {
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
       }
       commit('SET_ROUTES', accessedRoutes)
-      dispatch('menuBadge/updataMenuBadgesView', undefined, { root: true })
+      dispatch('menuBadge/updateMenuBadgesView', undefined, { root: true })
       resolve(accessedRoutes)
     })
   },

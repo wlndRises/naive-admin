@@ -1,5 +1,5 @@
 const rules = {
-  intall(App) {
+  install(App) {
     App.mixin({
       created() {
         const _rules = this.$options.rules

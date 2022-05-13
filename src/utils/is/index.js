@@ -4,7 +4,7 @@
  * @Autor: wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: wind
- * @LastEditTime: 2022-04-30 11:47:18
+ * @LastEditTime: 2022-05-14 01:31:03
  */
 import _ from 'lodash'
 const toString = Object.prototype.toString
@@ -163,7 +163,7 @@ export const isSafari = window.navigator.userAgent.toLowerCase().indexOf('safari
  * @returns {boolean}
  */
 export const isVisibleInViewport = (el, isFullyVisible) => {
-  const { top, left, right, bottom } = el.getBoundingClienRect()
+  const { top, left, right, bottom } = el.getBoundingClientRect()
   const { innerHeight, innerWidth } = window
   return isFullyVisible
     ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&

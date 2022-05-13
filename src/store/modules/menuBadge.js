@@ -50,7 +50,7 @@ const mutations = {
     state.menuBadges = []
     Storage.remove('menuBadges')
   },
-  UPDATA_MENU_BADGES_VIEW(state, routes) {
+  UPDATE_MENU_BADGES_VIEW(state, routes) {
     // fix menuBadges is empty no update
     if (!state.menuBadges.length) {
       resetMenuBadge(routes)
@@ -65,18 +65,18 @@ const mutations = {
 const actions = {
   addMenuBadge({ commit, rootState }, badge) {
     commit('ADD_MENU_BADGE', badge)
-    commit('UPDATA_MENU_BADGES_VIEW', rootState.permission.routes)
+    commit('UPDATE_MENU_BADGES_VIEW', rootState.permission.routes)
   },
   dleMenuBadge({ commit, rootState }, badge) {
     commit('DLE_MENU_BADGE', badge)
-    commit('UPDATA_MENU_BADGES_VIEW', rootState.permission.routes)
+    commit('UPDATE_MENU_BADGES_VIEW', rootState.permission.routes)
   },
   dleMenuBadges({ commit, rootState }) {
     commit('DLE_MENU_BADGES')
-    commit('UPDATA_MENU_BADGES_VIEW', rootState.permission.routes)
+    commit('UPDATE_MENU_BADGES_VIEW', rootState.permission.routes)
   },
-  updataMenuBadgesView({ commit, rootState }) {
-    commit('UPDATA_MENU_BADGES_VIEW', rootState.permission.routes)
+  updateMenuBadgesView({ commit, rootState }) {
+    commit('UPDATE_MENU_BADGES_VIEW', rootState.permission.routes)
   },
 }
 

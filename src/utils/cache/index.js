@@ -1,7 +1,7 @@
 import { createStorage } from './storage'
 
-export const createSessionStorage = prefixkey => {
-  return createStorage(sessionStorage, prefixkey)
+export const createSessionStorage = prefixKey => {
+  return createStorage(sessionStorage, prefixKey)
 }
 
 export const createLocalStorage = prefixKey => {

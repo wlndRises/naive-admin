@@ -8,7 +8,7 @@ add 增加
 remove 删除
 
 create 创建
-destory 移除
+destroy 移除
 
 start 启动
 stop 停止
