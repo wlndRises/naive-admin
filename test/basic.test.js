@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 // 如果要使用别名 需要新建vite.config.js 配置alias
-import { capitalize, toHump, toLine } from '../utils/letter'
+import { capitalize, toHump, toLine } from './src/utils/letter'
 
 describe('utils', () => {
   it('toLine', () => {
