@@ -23,8 +23,6 @@ refactor 重构
 
 revert 撤销修改
 
-delete 删除无用的代码
-
 test 测试相关
 
 mod 不确定分类的修改
