@@ -1,5 +1,5 @@
 <template>
-  <div class="p-20px">
+  <div class="p-5">
     <n-chart
       class="h-500px"
       autoresize

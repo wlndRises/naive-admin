@@ -54,7 +54,7 @@
       <el-button
         :loading="loading"
         type="primary"
-        style="width: 100%; margin-bottom: 30px"
+        class="w-full mb-8"
         @click.native.prevent="handleLogin"
       >
         Login

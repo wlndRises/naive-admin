@@ -1,5 +1,5 @@
 <template>
-  <div class="p-20px">
+  <div class="p-5">
     <el-button type="primary" @click="handleClick1">在线图片下载</el-button>
     <el-button type="primary" @click="handleClick2">在线图片预览</el-button>
   </div>

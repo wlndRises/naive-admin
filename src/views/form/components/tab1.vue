@@ -1,5 +1,5 @@
 <template>
-  <div class="p-20px">
+  <div class="p-5">
     <el-form ref="ruleForm" :model="ruleForm" :rules="rules" label-width="100px">
       <el-form-item label="活动名称" prop="name">
         <el-input v-model="ruleForm.name"></el-input>

@@ -1,5 +1,5 @@
 <template>
-  <div v-waterMarker="waterMarker" class="h-220px p-20px">
+  <div v-waterMarker="waterMarker" class="h-55 p-5">
     <el-button v-animation.dblclick v-copy.dblclick="text">双击复制</el-button>
     <el-button v-color="['red', 'green']">color text</el-button>
     <el-button v-animation v-screenfull.icon>全屏</el-button>

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-20px">
+  <div class="p-5">
     <span>Hi~ {{ name }}</span>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container p-20px">
+  <div class="app-container p-5">
     <el-button type="primary" @click="handleAddRole">New Role</el-button>
 
     <el-table :data="rolesList" class="w-full mt-30px" border>

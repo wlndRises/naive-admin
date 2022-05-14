@@ -1,22 +1,22 @@
 <template>
-  <div class="flex flex-col p-20px pl-100px">
-    <n-ellipsis class="w-220px">
+  <div class="flex flex-col p-5 p-25">
+    <n-ellipsis class="w-55">
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px mt-80px" line-elips="2">
+    <n-ellipsis class="w-55 mt-20" line-elips="2">
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px mt-80px" expand-trigger>
+    <n-ellipsis class="w-55 mt-20" expand-trigger>
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px mt-80px" line-elips="2" expand-trigger>
+    <n-ellipsis class="w-55 mt-20" line-elips="2" expand-trigger>
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
     </n-ellipsis>
 
-    <n-ellipsis class="w-220px mt-80px">
+    <n-ellipsis class="w-55 mt-20">
       我曾难自拔于世界之大 也沉溺于其中梦话 不得真假 不做挣扎 不惧笑话
       <template #tooltip>
         <div class="text-center">

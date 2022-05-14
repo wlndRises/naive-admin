@@ -1,5 +1,5 @@
 <template>
-  <div class="p-20px">
+  <div class="p-5">
     <Form
       :form-data-list="formDataList"
       :form-value="formValue"
