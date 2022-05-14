@@ -1,13 +1,15 @@
-import animation from './animation'
 import permission from './permission'
 import resize from './resize'
 import screenfull from './screenfull'
+import spring from './spring'
+import waves from './waves'
 
 const directives = {
-  animation,
   permission,
   resize,
   screenfull,
+  spring,
+  waves,
 }
 // 批量注册指令
 export default {

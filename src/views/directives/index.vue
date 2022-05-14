@@ -1,22 +1,21 @@
 <template>
   <div v-waterMarker="waterMarker" class="h-55 p-5">
-    <el-button v-animation.dblclick v-copy.dblclick="text">双击复制</el-button>
+    <el-button v-waves.dblclick v-copy.dblclick="text">双击复制</el-button>
     <el-button v-color="['red', 'green']">color text</el-button>
-    <el-button v-animation v-screenfull.icon>全屏</el-button>
-    <el-button v-animation v-clickOutSide="handleClickOutSide">clickOutSide</el-button>
-    <el-button v-animation v-longPress="handleLongPress">longPress</el-button>
-    <br />
-    <span v-tooltip="tooltip" class="inline-block"></span>
+    <el-button v-spring v-screenfull.icon>全屏</el-button>
+    <el-button v-waves v-clickOutSide="handleClickOutSide">clickOutSide</el-button>
+    <el-button v-spring v-longPress="handleLongPress">longPress</el-button>
+    <el-button v-waves>水波纹</el-button>
+    <el-button v-spring>回弹</el-button>
   </div>
 </template>
 
 <script>
-import { copy, color, tooltip, clickOutSide, longPress, waterMarker } from 'naive-directives'
+import { copy, color, clickOutSide, longPress, waterMarker } from 'naive-directives'
 export default {
   directives: {
     copy,
     color,
-    tooltip,
     clickOutSide,
     longPress,
     waterMarker,
