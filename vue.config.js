@@ -40,21 +40,8 @@ module.exports = {
       return args
     })
 
-    // 不从 bundle 中引用依赖
+    // 不从 bundle 中引用的依赖
     config.externals = cdn.externals
-
-    // 它可以提高首屏加载的速 建议打开 预加载
-    config.plugin('preload').tap(() => [
-      {
-        rel: 'preload',
-        // 忽略runtime.js
-        // https://github.com/vuejs/vue-cli/blob/dev/packages/@vue/cli-service/lib/config/app.js#L171
-        fileBlacklist: [/\.map$/, /hot-update\.js$/, /runtime\..*\.js$/],
-        include: 'initial',
-      },
-    ])
-
-    config.plugins.delete('prefetch')
 
     // set svg-sprite-loader
     config.module.rule('svg').exclude.add(resolve('src/assets/icons')).end()
@@ -71,36 +58,30 @@ module.exports = {
       .end()
 
     config.when(isPro, config => {
-      config
-        .plugin('ScriptExtHtmlWebpackPlugin')
-        .after('html')
-        .use('script-ext-html-webpack-plugin', [
-          {
-            // "runtime"必须与runtimeecchunk名称相同。默认是"runtime"
-            inline: /runtime\..*\.js$/,
-          },
-        ])
-        .end()
       config.optimization.splitChunks({
         chunks: 'all',
         cacheGroups: {
+          commons: {
+            name: 'chunk-commons',
+            test: resolve('src/components'),
+            // 表示要被提取的模块最小被引用次数
+            // 引用次数超过或等于minChunks值 才能被提取
+            minChunks: 3,
+            priority: 5,
+            // 如果当前要提取的模块 在已经在打包生成的js文件中存在 则将重用该模块
+            // 而不是把当前要提取的模块打包生成新的 js 文件
+            reuseExistingChunk: true,
+          },
           libs: {
+            chunks: 'initial',
             name: 'chunk-libs',
             test: /[\\/]node_modules[\\/]/,
             priority: 10,
-            chunks: 'initial', // 只打包最初依赖的第三方
           },
           elementUI: {
-            name: 'chunk-elementUI', // 将elementUI拆分为单个包
-            priority: 20, // 权重需要大于libs和app 否则它将被打包成libs或app
-            test: /[\\/]node_modules[\\/]_?element-ui(.*)/, // 为了适应CNPM
-          },
-          commons: {
-            name: 'chunk-commons',
-            test: resolve('src/components'), // 可以自定义规则
-            minChunks: 3, //  minimum common number
-            priority: 5,
-            reuseExistingChunk: true,
+            name: 'chunk-elementUI',
+            priority: 20, // 权重需要大于libs 否则它将被打包成chunk-libs
+            test: /[\\/]element-ui[\\/]/,
           },
         },
       })
@@ -114,7 +95,7 @@ module.exports = {
         return args
       })
 
-      // https:// webpack.js.org/configuration/optimization/#optimizationruntimechunk
+      // https://webpack.js.org/configuration/optimization/#optimizationruntimechunk
       config.optimization.runtimeChunk('single')
     })
   },
