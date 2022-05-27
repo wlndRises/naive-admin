@@ -20,10 +20,6 @@ export default {
   inserted(el, binding) {
     resize.handleAddListener(el, binding)
   },
-  update(el, binding) {
-    resize.handleRemoveListener(el)
-    resize.handleAddListener(el, binding)
-  },
   unbind(el) {
     resize.handleRemoveListener(el)
   },
