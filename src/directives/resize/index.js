@@ -5,7 +5,7 @@ import { addResizeListener, removeResizeListener } from '@/utils/event/resize'
 const resize = {
   handleAddListener(el, binding) {
     if (isFunction(binding.value)) {
-      el.__handleResize__ = throttle(binding.value, +(binding.arg || 200))
+      el.__handleResize__ = throttle(binding.value, 200)
       addResizeListener(el, el.__handleResize__)
     }
   },
