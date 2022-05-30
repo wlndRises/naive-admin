@@ -21,14 +21,12 @@
 </template>
 
 <script>
-import { Empty } from 'element-ui'
 import VChart from 'vue-echarts'
-import _ from 'lodash'
+import { merge } from '@/utils/lodash'
 export default {
   name: 'NChart',
   components: {
     VChart,
-    [Empty.name]: Empty,
   },
   inheritAttrs: false,
   props: {
@@ -77,7 +75,7 @@ export default {
       }
     },
     mergeOption() {
-      return _.merge({}, this.defineOption(), this.option)
+      return merge({}, this.defineOption(), this.option)
     },
     mergeUpdateOptions() {
       return Object.assign({}, this.updateOptions, {
