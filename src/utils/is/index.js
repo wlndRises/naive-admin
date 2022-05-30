@@ -4,7 +4,7 @@
  * @Autor: wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: wind
- * @LastEditTime: 2022-05-30 12:08:36
+ * @LastEditTime: 2022-05-30 15:02:05
  */
 import _ from 'lodash'
 const toString = Object.prototype.toString
@@ -47,8 +47,9 @@ export function isWindow(val) {
   return typeof window !== 'undefined' && is(val, 'Window')
 }
 
-// tip：与lodash的 isEmpty 的区别
-// lodash判断的依据是 是否有枚举属性 Boolean Number 返回true
+// 扩展lodash的 isEmpty
+// lodash isEmpty 用于判断一个对象是否为空 判断的依据是 是否有枚举属性
+// 传入基本类型如 Boolean Number 也会返回true
 export function isEmpty(val) {
   if (isArray(val) || isString(val)) {
     return val.length === 0
@@ -67,29 +68,16 @@ export function isEmpty(val) {
 
 export const isEqual = _.isEqual
 
-// tip：与lodash的 isNumber 的区别
-// NaN 可以通过lodash.isNumber
-// 此方法等价于isFinite https://www.lodashjs.com/docs/lodash.isFinite#_isfinitevalue
 export function isNumber(val) {
-  if (!is(val, 'Number')) {
-    return false
-  }
-  if (!_.isNaN(val)) {
-    return true
-  } else {
-    return false
-  }
+  return is(val, 'Number')
 }
+
+export const isFinite = _.isFinite
 
 export const isInteger = _.isInteger
 
-export function isNumOrNumStr(val) {
-  // isNaN(undefined);
-  // => true
-
-  // _.isNaN(undefined);
-  // => false
-  return isNumber(val) || !_.isNaN(Number(val))
+export function canToNumberString(val) {
+  return isString(val) && !isNaN(Number(val))
 }
 
 export function isString(val) {
@@ -147,10 +135,6 @@ export const isServer = typeof window === 'undefined'
 export const isClient = !isServer
 
 export const isBrowser = !isServer
-
-export const isChrome = window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
-
-export const isSafari = window.navigator.userAgent.toLowerCase().indexOf('safari') > -1
 
 /**
  * @description element是否在视口范围
