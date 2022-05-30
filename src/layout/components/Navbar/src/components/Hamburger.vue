@@ -1,8 +1,8 @@
 <template>
-  <div class="px-15px hamburger" @click="toggleClick">
+  <div class="px-4 hamburger" @click="toggleClick">
     <svg
       :class="{ 'is-active': isActive }"
-      class="inline-block align-middle w-20px h-20px"
+      class="inline-block align-middle w-5 h-5"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
       width="64"

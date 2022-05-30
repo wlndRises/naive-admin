@@ -1,14 +1,14 @@
 <template>
   <div class="p-5">
     <n-chart
-      class="h-500px"
+      class="h-125"
       autoresize
       :define-option="defineHeatOption"
       :option="heatOption"
     ></n-chart>
-    <n-chart class="h-600px mt-40px" autoresize :define-option="defineBarOption"></n-chart>
+    <n-chart class="h-150 mt-10" autoresize :define-option="defineBarOption"></n-chart>
     <n-chart
-      class="h-500px mt-40px"
+      class="h-125 mt-10"
       autoresize
       :define-option="definePieOption"
       :option="pieOption"

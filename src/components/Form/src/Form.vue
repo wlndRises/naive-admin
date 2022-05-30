@@ -13,7 +13,7 @@
   >
     <el-row>
       <el-col v-for="(formData, index) in formDataList" :key="index" :span="formData.span || 12">
-        <el-form-item class="px-30px" :prop="formData.code">
+        <el-form-item class="px-8" :prop="formData.code">
           <template #label>
             <slot :name="`${formData.code}_label`" :data="formData">
               {{ formData.formLabel }}

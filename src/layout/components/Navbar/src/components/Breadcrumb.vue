@@ -4,7 +4,7 @@
       <el-breadcrumb-item
         v-for="(item, index) in levelList"
         :key="item.path"
-        class="inline-block text-14px leading-50px ml-8px"
+        class="inline-block text-14px leading-12 ml-2"
       >
         <span
           v-if="item.redirect === 'noRedirect' || index == levelList.length - 1"

@@ -1,7 +1,7 @@
 <template>
   <div class="app-container p-5">
     <switch-roles @change="handleRolesChange" />
-    <div :key="key" class="mt-30px">
+    <div :key="key" class="mt-8">
       <div>
         <span v-permission="['admin']" class="permission-alert">
           Only
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div :key="'checkPermission' + key" class="mt-60px">
+    <div :key="'checkPermission' + key" class="mt-15">
       <aside>
         In some cases, using v-permission will have no effect. For example: Element-UI's Tab
         component or el-table-column and other scenes that dynamically render dom. You can only do
@@ -47,7 +47,7 @@
         e.g.
       </aside>
 
-      <el-tabs type="border-card" class="w-550px">
+      <el-tabs type="border-card" class="w-138">
         <el-tab-pane v-if="checkPermission(['admin'])" label="Admin">
           Admin can see this
           <el-tag class="permission-sourceCode" type="info">

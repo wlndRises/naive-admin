@@ -2,11 +2,11 @@
   <div class="sidebar-logo-container" :class="{ collapse: collapse }">
     <transition name="sidebarLogoFade">
       <div v-if="collapse" key="collapse" class="h-full flex items-center justify-center">
-        <svg-icon class="w-24px h-24px text-blue-300" :icon-class="logo" />
+        <svg-icon class="w-6 h-6 text-blue-300" :icon-class="logo" />
       </div>
       <div v-else key="expand" class="h-full flex items-center justify-between">
-        <svg-icon class="w-24px h-24px text-blue-300" :icon-class="logo" />
-        <h1 class="sidebar-title mr-30px">{{ title }}</h1>
+        <svg-icon class="w-6 h-6 text-blue-300" :icon-class="logo" />
+        <h1 class="sidebar-title mr-8">{{ title }}</h1>
       </div>
     </transition>
   </div>
