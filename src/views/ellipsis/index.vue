@@ -34,11 +34,11 @@
 </template>
 
 <script>
-import Ellipsis from '@/components/Ellipsis'
+import NEllipsis from '@/components/NEllipsis'
 export default {
   name: 'Ellipsis',
   components: {
-    NEllipsis: Ellipsis,
+    NEllipsis,
   },
 }
 </script>

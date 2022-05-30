@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: 'Ellipsis',
+  name: 'NEllipsis',
   props: {
     lineElips: {
       type: [String, Number],
