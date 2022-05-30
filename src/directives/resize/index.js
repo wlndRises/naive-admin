@@ -17,9 +17,14 @@ const resize = {
 }
 
 export default {
-  inserted(el, binding) {
+  bind(el, binding) {
     resize.handleAddListener(el, binding)
   },
+  // 静态绑定函数时无需考虑
+  // componentUpdated(el, binding) {
+  //   resize.handleRemoveListener(el)
+  //   resize.handleAddListener(el, binding)
+  // },
   unbind(el) {
     resize.handleRemoveListener(el)
   },
