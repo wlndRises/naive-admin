@@ -5,7 +5,7 @@
 </template>
 
 <script>
-//props - > methods - > data - > computed - > watch
+// props - > methods - > data - > computed - > watch
 export default {
   name: 'App',
 }
