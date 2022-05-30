@@ -15,7 +15,7 @@
       :is-empty="isPieEmpty"
     >
       <template #image>
-        <i class="el-icon-chat-dot-square text-50px" />
+        <i class="el-icon-chat-dot-square text-48px" />
       </template>
       <template #text>暂时没有数据哦</template>
       <template #default>

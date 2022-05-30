@@ -32,7 +32,7 @@ export default {
         effect: 'dark',
         content: 'Top Left 提示文字',
         placement: 'top-start',
-        className: ['text-6', 'leading-10', 'text-yellow-500'],
+        className: ['text-24px', 'leading-10', 'text-yellow-500'],
       },
     }
   },

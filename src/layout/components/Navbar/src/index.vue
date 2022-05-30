@@ -8,12 +8,12 @@
 
     <breadcrumb class="float-left" />
 
-    <div class="float-right h-full n-flex">
+    <div class="float-right h-full n-flex mr-5">
       <el-tooltip content="Screenfull" placement="bottom">
-        <div v-screenfull.icon class="text-5 mx-1"></div>
+        <div v-screenfull.icon class="text-24px mx-1"></div>
       </el-tooltip>
       <el-dropdown class="mx-1 cursor-pointer" trigger="click">
-        <img :src="avatar" class="w-6 h-4 rounded-1/2" />
+        <img :src="avatar" class="w-6 h-6 rounded-1/2" />
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <router-link to="/">
             <el-dropdown-item>Home</el-dropdown-item>
@@ -27,7 +27,7 @@
         </el-dropdown-menu>
       </el-dropdown>
       <el-tooltip content="System Setting" placement="bottom">
-        <i class="el-icon-setting text-5 ml-1 mr-10 cursor-pointer" @click="setting = true" />
+        <i class="el-icon-setting text-24px mx-1 cursor-pointer" @click="setting = true" />
       </el-tooltip>
     </div>
 
