@@ -1,4 +1,4 @@
-export default [
+const formData = [
   {
     code: 'input',
     formLabel: '输入框',
@@ -102,3 +102,17 @@ export default [
     span: 24,
   },
 ]
+
+const formValue = {
+  input: '',
+  select: '',
+  customLabel: '',
+  customForm: '',
+  radio: '',
+  checkbox: [],
+  treeSelect: [],
+  switch: false,
+  textarea: '',
+}
+
+export { formData, formValue }

@@ -21,7 +21,7 @@
             ></el-date-picker>
           </el-form-item>
         </el-col>
-        <el-col class="line" :span="2">-</el-col>
+        <el-col class="text-center" :span="2">-</el-col>
         <el-col :span="11">
           <el-form-item prop="date2">
             <el-time-picker
@@ -126,9 +126,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.line {
-  text-align: center;
-}
-</style>

@@ -21,7 +21,7 @@
           </template>
           <template #default>
             <slot :name="formData.code" :data="formData">
-              <form-item :form-value="FormValue" :form-data="formData"></form-item>
+              <n-form-item :form-value="FormValue" :form-data="formData"></n-form-item>
             </slot>
           </template>
         </el-form-item>
@@ -39,11 +39,11 @@
 </template>
 
 <script>
-import FormItem from './FormItem.vue'
+import NFormItem from './NFormItem.vue'
 
 export default {
   components: {
-    FormItem,
+    NFormItem,
   },
   props: {
     rules: {

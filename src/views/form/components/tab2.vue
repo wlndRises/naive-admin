@@ -1,7 +1,7 @@
 <template>
   <div class="p-5">
-    <Form
-      :form-data-list="formDataList"
+    <n-form
+      :form-data-list="formData"
       :form-value="formValue"
       :rules="rules"
       @submit-form="submitForm"
@@ -11,32 +11,24 @@
       <template #customForm="{ data }">
         <el-input v-model="formValue[data.code]" placeholder="自定义表单"></el-input>
       </template>
-    </Form>
+    </n-form>
     {{ formValue }}
   </div>
 </template>
 
 <script>
-import Form from '@/components/Form'
-import formDataList from '../options/formDataList'
+import NForm from '@/components/NForm'
+import { formData, formValue } from '../options/formData'
+import { isNull } from '@/utils/is'
+
 export default {
   components: {
-    Form,
+    NForm,
   },
   data() {
     return {
-      formDataList,
-      formValue: {
-        input: '',
-        select: '',
-        customLabel: '',
-        customForm: '',
-        radio: '',
-        checkbox: [],
-        treeSelect: [],
-        switch: false,
-        textarea: '',
-      },
+      formData,
+      formValue,
       rules: {
         input: [
           {
@@ -56,8 +48,12 @@ export default {
     }
   },
   methods: {
-    submitForm(newVal) {
-      console.log(newVal)
+    submitForm(error) {
+      if (isNull(error)) {
+        // 校验规则通过
+      } else {
+        // 未通过
+      }
     },
     resetForm() {},
   },
