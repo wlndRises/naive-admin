@@ -1,5 +1,6 @@
-export { default as AppMain } from './AppMain.vue'
-export { default as Navbar } from './Navbar.vue'
-export { default as Sidebar } from './Sidebar/index.vue'
-export { default as Settings } from './Settings.vue'
-export { default as TagsView } from './TagsView/index.vue'
+import AppMain from './AppMain'
+import Navbar from './Navbar'
+import Sidebar from './Sidebar'
+import TagsView from './TagsView'
+
+export { AppMain, Navbar, Sidebar, TagsView }

@@ -40,14 +40,12 @@
 <script>
 import path from 'path'
 import { isExternal } from '@/utils/is'
-import Item from './Item'
-import AppLink from './Link'
-import FixiOSBug from './FixiOSBug'
+import Item from './Item.vue'
+import AppLink from './Link.vue'
 
 export default {
   name: 'SidebarItem',
   components: { Item, AppLink },
-  mixins: [FixiOSBug],
   props: {
     // route object
     item: {
