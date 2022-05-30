@@ -42,6 +42,7 @@
 import NFormItem from './NFormItem.vue'
 
 export default {
+  name: 'NForm',
   components: {
     NFormItem,
   },
