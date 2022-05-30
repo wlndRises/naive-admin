@@ -4,7 +4,7 @@
  * @Autor: wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: wind
- * @LastEditTime: 2022-05-14 01:31:03
+ * @LastEditTime: 2022-05-30 12:08:36
  */
 import _ from 'lodash'
 const toString = Object.prototype.toString
@@ -25,6 +25,10 @@ export function isNull(val) {
   return val === null
 }
 
+export function isNil(val) {
+  return isUnDef(val) || isNull(val)
+}
+
 export function isObject(val) {
   return !isNull(val) && is(val, 'Object')
 }
@@ -39,8 +43,8 @@ export function isFunction(val) {
   return typeof val === 'function'
 }
 
-export function isNil(val) {
-  return isUnDef(val) || isNull(val)
+export function isWindow(val) {
+  return typeof window !== 'undefined' && is(val, 'Window')
 }
 
 // tip：与lodash的 isEmpty 的区别
@@ -134,23 +138,15 @@ export function isExternal(path) {
   return /^(https?:|mailto:|tel:)/.test(path)
 }
 
-export function isWindow(val) {
-  return typeof window !== 'undefined' && is(val, 'Window')
-}
-
 export function isElement(val) {
   return isObject(val) && !!val.tagName
-}
-
-export function isUrl(path) {
-  const reg =
-    /(((^https?:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[\w]*))?)$/
-  return reg.test(path)
 }
 
 export const isServer = typeof window === 'undefined'
 
 export const isClient = !isServer
+
+export const isBrowser = !isServer
 
 export const isChrome = window.navigator.userAgent.toLowerCase().indexOf('chrome') > -1
 
