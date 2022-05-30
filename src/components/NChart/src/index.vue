@@ -38,7 +38,7 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    // 为了绕过vue的响应式系统，这里强制传入一个返回对象的function
+    // 为了绕过vue的响应式系统 这里强制传入一个返回对象的function
     // 这样则无需在data声明一个被Object.freeze冻结的对象
     defineOption: {
       type: Function,
@@ -91,7 +91,7 @@ export default {
 
       const updateOptions = this.mergeUpdateOptions()
 
-      // tip: 'setOption' methods init use this.updateOptions,
+      // setOption methods init use this.updateOptions
       // but update use this.mergeUpdateOptions
       chart.setOption(option, updateOptions)
     },
