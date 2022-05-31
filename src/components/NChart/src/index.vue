@@ -12,7 +12,7 @@
   </el-empty>
   <v-chart
     v-else
-    ref="Nchart"
+    ref="NChart"
     v-bind="$attrs"
     :update-options="updateOptions"
     manual-update
@@ -54,7 +54,7 @@ export default {
       async handler(val) {
         if (!val) {
           await this.$nextTick()
-          this.updateChartView()
+          this.updateChartView() // NChart must exist
         }
       },
       immediate: true,
@@ -67,32 +67,31 @@ export default {
     },
   },
   methods: {
-    getInstance() {
-      if (this.isEmpty) {
-        return null
-      } else {
-        return this.$refs.Nchart
-      }
+    getNChartInstance() {
+      if (this.isEmpty) return null
+      else return this.$refs.NChart
     },
     mergeOption() {
       return merge({}, this.defineOption(), this.option)
     },
-    mergeUpdateOptions() {
-      return Object.assign({}, this.updateOptions, {
+    getUpdateOptions() {
+      return {
+        ...this.updateOptions,
         notMerge: true,
-      })
+      }
     },
     updateChartView() {
-      const chart = this.getInstance()
+      const chart = this.getNChartInstance()
 
       if (!chart) return
 
       const option = this.mergeOption()
 
-      const updateOptions = this.mergeUpdateOptions()
+      const updateOptions = this.getUpdateOptions()
 
       // setOption methods init use this.updateOptions
-      // but update use this.mergeUpdateOptions
+
+      // but update use this.getUpdateOptions
       chart.setOption(option, updateOptions)
     },
   },
