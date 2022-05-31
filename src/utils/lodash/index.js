@@ -1,6 +1,5 @@
-// https://www.lodashjs.com
 // babel-plugin-lodash 按需引入
-// 在你需要使用lodash时 在这里添加抛出 就不会打整包
+// 在你需要使用lodash时 在这里添加并抛出 则不会打整包
 import _ from 'lodash'
 
 export const cloneDeep = _.cloneDeep
@@ -34,9 +33,6 @@ export const sum = _.sum
 // 还可以设置最大值最小值都为浮点数 结果也会返回浮点数
 export const random = _.random
 
-// 去空值
-export const filterEmpty = list => list.filter(Boolean)
-
 export const size = _.size
 
 // 创建一个返回 value 的函数
@@ -45,4 +41,14 @@ export const constant = _.constant
 // 这个方法返回 undefined
 export const noop = _.noop
 
-export const times = _.times
+export const toPairs = _.toPairs // aliases entries
+
+export const fromPairs = _.fromPairs
+
+export const pick = _.pick
+
+export const pickBy = _.pickBy
+
+export const omit = _.omit
+
+export const omitBy = _.omitBy

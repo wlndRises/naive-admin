@@ -7,7 +7,8 @@
  * @LastEditTime: 2022-05-30 15:02:05
  */
 import _ from 'lodash'
-const toString = Object.prototype.toString
+
+export const toString = Object.prototype.toString
 
 export function is(val, type) {
   return toString.call(val) === `[object ${type}]`

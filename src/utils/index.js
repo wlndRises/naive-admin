@@ -1,10 +1,12 @@
 // 放一些不确定分类的工具
-import { isString, isDef } from './is'
+import { isEmpty, isArray, isObject, isString, isDef } from './is'
+import { omitBy } from '@/utils/lodash'
 
-/**
- * @description: 字符串、数组的reverse 这个方法不会改变原数组
- * @author: wind
- */
+export const filterEmpty = (v, fn = isEmpty) => {
+  if (isArray(v)) v => v.filter(fn)
+  if (isObject(v)) omitBy(v, fn)
+}
+
 export function reverse(source) {
   if (isString) {
     return source.split('').reverse().join('')
@@ -18,10 +20,6 @@ export function reverse(source) {
   }
 }
 
-/**
- * @description: 软绑定的bind
- * @author: wind
- */
 export const softBind = function (fn, obj) {
   const curried = Array.prototype.slice.call(arguments, 2)
   const bound = function () {
