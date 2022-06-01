@@ -25,6 +25,7 @@ describe('lodash utils', () => {
     expect(CanEnumerated({})).toEqual(true)
     expect(CanEnumerated(new Set())).toEqual(true)
     expect(CanEnumerated(new Map())).toEqual(true)
+    expect(CanEnumerated(new WeakMap())).toEqual(true)
   })
   it('isEmpty', () => {
     expect(isEmpty(null)).toEqual(true)
@@ -36,5 +37,7 @@ describe('lodash utils', () => {
     expect(isEmpty({})).toEqual(true)
     expect(isEmpty(new Set())).toEqual(true)
     expect(isEmpty(new Map())).toEqual(true)
+    // TODO implement this function
+    expect(isEmpty(new WeakMap())).toEqual(false)
   })
 })
