@@ -4,7 +4,7 @@
  * @Autor: wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: wind
- * @LastEditTime: 2022-05-30 15:02:05
+ * @LastEditTime: 2022-06-01 09:46:08
  */
 import _ from 'lodash'
 
@@ -38,6 +38,10 @@ export const isArray = Array.isArray
 
 export function isMap(val) {
   return is(val, 'Map')
+}
+
+export function isWeakMap(val) {
+  return is(val, 'WeakMap')
 }
 
 export function isFunction(val) {
