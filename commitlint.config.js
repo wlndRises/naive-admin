@@ -18,6 +18,7 @@ module.exports = {
         'test',
         'workflow', // 工作流改进
         'wip', // 开发中
+        'terse', // 删除 dead code
         'mod', // 不确定分类的修改
       ],
     ],
