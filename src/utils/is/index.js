@@ -4,7 +4,7 @@
  * @Autor: wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: wind
- * @LastEditTime: 2022-06-01 09:46:08
+ * @LastEditTime: 2022-06-01 09:52:20
  */
 import _ from 'lodash'
 
@@ -56,17 +56,11 @@ export function isWindow(val) {
 // lodash isEmpty 用于判断一个对象是否为空 判断的依据是 是否有枚举属性
 // 传入基本类型如 Boolean Number 也会返回true
 export function isEmpty(val) {
-  if (isArray(val) || isString(val)) {
-    return val.length === 0
-  }
+  if (isArray(val) || isString(val)) return val.length === 0
 
-  if (val instanceof Map || val instanceof Set) {
-    return val.size === 0
-  }
+  if (val instanceof Map || val instanceof Set) return val.size === 0
 
-  if (isObject(val)) {
-    return Object.keys(val).length === 0
-  }
+  if (isObject(val)) return Object.keys(val).length === 0
 
   return isNil(val)
 }
