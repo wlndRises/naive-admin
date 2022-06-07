@@ -15,9 +15,17 @@ export function checkPermission(value) {
   }
 }
 
-export default function (el, { value }) {
-  const hasPermission = checkPermission(value)
-  if (!hasPermission) {
-    el.parentNode && el.parentNode.removeChild(el)
-  }
+export default {
+  inserted(el, { value }) {
+    const hasPermission = checkPermission(value)
+    if (!hasPermission) {
+      el.parentNode && el.parentNode.removeChild(el)
+    }
+  },
+  update(el, { value }) {
+    const hasPermission = checkPermission(value)
+    if (!hasPermission) {
+      el.parentNode && el.parentNode.removeChild(el)
+    }
+  },
 }
