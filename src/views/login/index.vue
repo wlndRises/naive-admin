@@ -64,13 +64,12 @@
 </template>
 
 <script>
-import { validUsername } from '@/utils/auth'
-
 export default {
   name: 'Login',
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
+      const valid_map = ['admin', 'editor']
+      if (valid_map.indexOf(value.trim()) === -1) {
         callback(new Error('Please enter the correct user name'))
       } else {
         callback()

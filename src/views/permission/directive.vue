@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import checkPermission from '@/utils/auth' // 权限判断函数
+import { checkPermission } from '@/directives/permission' // 权限判断函数
 import SwitchRoles from './components/SwitchRoles'
 
 export default {
