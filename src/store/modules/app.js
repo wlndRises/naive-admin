@@ -1,8 +1,10 @@
-import Cookies from 'js-cookie'
+import { createLocalStorage, nonNull } from '@/utils/cache'
+
+const Storage = createLocalStorage()
 
 const state = {
   sidebar: {
-    opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
+    opened: nonNull(Storage.get('sidebarStatus'), true),
     withoutAnimation: false,
   },
   device: 'desktop',
@@ -13,13 +15,13 @@ const mutations = {
     state.sidebar.opened = !state.sidebar.opened
     state.sidebar.withoutAnimation = false
     if (state.sidebar.opened) {
-      Cookies.set('sidebarStatus', 1)
+      Storage.set('sidebarStatus', true)
     } else {
-      Cookies.set('sidebarStatus', 0)
+      Storage.set('sidebarStatus', false)
     }
   },
   CLOSE_SIDEBAR: (state, withoutAnimation) => {
-    Cookies.set('sidebarStatus', 0)
+    Storage.set('sidebarStatus', false)
     state.sidebar.opened = false
     state.sidebar.withoutAnimation = withoutAnimation
   },

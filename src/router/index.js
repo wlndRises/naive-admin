@@ -69,9 +69,6 @@ export const constantRoutes = [
           title: 'Dashboard',
           icon: 'dashboard',
           affix: true,
-          badge: {
-            value: 12,
-          },
         },
       },
     ],

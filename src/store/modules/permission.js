@@ -47,7 +47,7 @@ const mutations = {
 }
 
 const actions = {
-  generateRoutes({ commit, dispatch }, roles) {
+  generateRoutes({ commit }, roles) {
     return new Promise(resolve => {
       let accessedRoutes
       if (roles.includes('admin')) {
@@ -56,7 +56,7 @@ const actions = {
         accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
       }
       commit('SET_ROUTES', accessedRoutes)
-      dispatch('menuBadge/updateMenuBadgesView', undefined, { root: true })
+
       resolve(accessedRoutes)
     })
   },
