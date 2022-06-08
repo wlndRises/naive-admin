@@ -69,6 +69,7 @@ export const constantRoutes = [
           title: 'Dashboard',
           icon: 'dashboard',
           affix: true,
+          badge: null, // must define
         },
       },
     ],

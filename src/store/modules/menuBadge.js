@@ -60,13 +60,14 @@ export default {
 }
 
 export function setMenuBadge(routes, badge) {
-  routes.find(route => {
+  return routes.find(route => {
     if (route.name === badge.name) {
       route.meta.badge = badge
       return true
     }
+
     if (route.children?.length) {
-      setMenuBadge(route.children, badge)
+      return setMenuBadge(route.children, badge)
     }
   })
 }
@@ -74,8 +75,9 @@ export function setMenuBadge(routes, badge) {
 export function resetMenuBadge(routes) {
   routes.forEach(route => {
     if (route?.meta?.badge) {
-      route.meta.badge = Object.create(null)
+      route.meta.badge = null
     }
+
     if (route.children?.length) {
       resetMenuBadge(route.children)
     }
