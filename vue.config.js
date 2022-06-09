@@ -78,9 +78,14 @@ module.exports = {
             test: /[\\/]node_modules[\\/]/,
             priority: 10,
           },
+          Echarts: {
+            name: 'chunk-Echarts',
+            priority: 20,
+            test: /[\\/]echarts[\\/]/,
+          },
           elementUI: {
             name: 'chunk-elementUI',
-            priority: 20, // 权重需要大于libs 否则它将被打包成chunk-libs
+            priority: 20,
             test: /[\\/]element-ui[\\/]/,
           },
         },
