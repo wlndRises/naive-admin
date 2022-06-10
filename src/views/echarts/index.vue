@@ -27,22 +27,16 @@
 
 <script>
 import NChart from '@/components/NChart'
-import BAR_OPTION from './options/bar_option'
-import HEAT_OPTION from './options/heat_option'
-import PIE_OPTION from './options/pie_option'
+import defineBarOption from './options/bar_option'
+import defineHeatOption from './options/heat_option'
+import definePieOption from './options/pie_option'
 import { isNumber } from '@/utils/is'
 export default {
   name: 'Echarts',
   components: { NChart },
   data() {
     return {
-      // 柱状图
-      defineBarOption: BAR_OPTION,
-      // 热力图
-      defineHeatOption: HEAT_OPTION,
       heatOption: {},
-      // 饼图
-      definePieOption: PIE_OPTION,
       pieOption: {},
     }
   },
@@ -56,6 +50,9 @@ export default {
     this.getHeatSeriesData()
   },
   methods: {
+    defineBarOption,
+    defineHeatOption,
+    definePieOption,
     getHeatSeriesData() {
       const hours = [
         '12a',
