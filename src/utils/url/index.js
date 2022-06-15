@@ -1,6 +1,6 @@
 import qs from 'qs'
 
-export const getUrlQuery = url => {
+export function getUrlQuery(url) {
   return qs.parse(url.split('?')[1])
 }
 

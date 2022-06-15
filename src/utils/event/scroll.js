@@ -41,7 +41,8 @@ export function scrollTo(end, duration = 500, callback) {
     body.parentNode.scrollTop = amount
     body.scrollTop = amount
   }
-  const animateScroll = () => {
+  animateScroll()
+  function animateScroll() {
     // increment the time
     currentTime += increment
     // find the value with the quadratic in-out easing function
@@ -55,5 +56,4 @@ export function scrollTo(end, duration = 500, callback) {
       isFunction(callback) && callback()
     }
   }
-  animateScroll()
 }

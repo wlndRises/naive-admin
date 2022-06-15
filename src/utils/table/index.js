@@ -12,7 +12,7 @@
  *  colspan: _col,
  * };
  */
-export const getColumnMergeNum = function (data, contentList) {
+export function getColumnMergeNum(data, contentList) {
   // 单个字段转为数组
   !Array.isArray(contentList) && (contentList = [contentList])
   // 每次都清空之前存储的 保证遍历的数据是最新的数据。以免造成数据渲染混乱
