@@ -4,7 +4,7 @@
  * @Autor: Wind
  * @Date: 2022-04-30 11:56:48
  * @LastEditors: Wind
- * @LastEditTime: 2022-05-13 18:42:14
+ * @LastEditTime: 2022-06-15 11:59:49
  */
 import { isDate, isJson, isObject } from './is'
 
@@ -27,7 +27,7 @@ export const debounce = (fn, delay) => {
 
 /**
  * 节流函数(间隔时间内只会触发一次)
- * 例如 避免在scroll、resize时过分的更新
+ * 例如 避免在scroll、resize 时过于频繁的更新
  */
 export const throttle = (fn, delay) => {
   let canRun = true // 通过闭包保存一个标记
