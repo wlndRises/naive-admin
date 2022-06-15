@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isFinite, isEmpty as CanEnumerated } from 'lodash'
+import { isFinite, isEmpty as CanEnumerated } from 'lodash-es'
 import { isNumber, canToNumberString, isEmpty } from './src/utils/is'
 
 describe('lodash utils', () => {

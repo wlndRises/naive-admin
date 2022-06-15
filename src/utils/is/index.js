@@ -1,12 +1,12 @@
 /*
  * @Description: is/can/has
  * @Version: 1.0
- * @Autor: wind
+ * @Autor: Wind
  * @Date: 2021-12-23 16:50:01
- * @LastEditors: wind
- * @LastEditTime: 2022-06-01 09:52:20
+ * @LastEditors: Wind
+ * @LastEditTime: 2022-06-15 11:45:57
  */
-import _ from 'lodash'
+export { isEqual, isFinite, isInteger } from 'lodash-es'
 
 export const toString = Object.prototype.toString
 
@@ -65,15 +65,9 @@ export function isEmpty(val) {
   return isNil(val)
 }
 
-export const isEqual = _.isEqual
-
 export function isNumber(val) {
   return is(val, 'Number')
 }
-
-export const isFinite = _.isFinite
-
-export const isInteger = _.isInteger
 
 export function canToNumberString(val) {
   return isString(val) && !isNaN(Number(val))

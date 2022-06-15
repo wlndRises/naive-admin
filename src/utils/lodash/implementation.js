@@ -1,9 +1,9 @@
 /*
  * @Description: 手写实现lodash的实用函数
  * @Version: 1.0
- * @Autor: wind
+ * @Autor: Wind
  * @Date: 2022-04-30 11:56:48
- * @LastEditors: wind
+ * @LastEditors: Wind
  * @LastEditTime: 2022-05-13 18:42:14
  */
 import { isDate, isJson, isObject } from './is'

@@ -1,5 +1,5 @@
 import { isVisibleInViewport } from '@/utils/is'
-import { throttle } from '@/utils/lodash'
+import { throttle } from 'lodash-es'
 const lazy = {
   // install方法
   install(Vue, options) {

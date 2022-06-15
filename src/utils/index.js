@@ -1,6 +1,6 @@
 // 放一些不确定分类的工具
 import { isEmpty, isArray, isObject, isString, isDef } from './is'
-import { omitBy } from '@/utils/lodash'
+import { omitBy } from 'lodash-es'
 
 export const filterEmpty = (v, fn = isEmpty) => {
   if (isArray(v)) v => v.filter(fn)

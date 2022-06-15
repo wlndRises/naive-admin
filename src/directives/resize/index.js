@@ -1,5 +1,5 @@
 import { isFunction } from '@/utils/is'
-import { throttle } from '@/utils/lodash'
+import { throttle } from 'lodash-es'
 import { addResizeListener, removeResizeListener } from '@/utils/event/resize'
 
 const resize = {

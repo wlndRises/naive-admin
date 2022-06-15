@@ -110,7 +110,7 @@ export function hackCss(attr, value) {
   const prefix = ['webkit', 'Moz', 'ms', 'OT']
 
   const styleObj = {}
-  // upperFirst 字符串首字母转大写
+  // capitalize 字符串首字母转大写
   prefix.forEach(item => {
     capitalize
     styleObj[`${item}${capitalize(attr)}`] = value
@@ -124,7 +124,7 @@ export function hackCss(attr, value) {
  * @description: 获取ui挂载节点 没有父节点选择body
  * @param {HTMLElement} element
  * @return {HTMLElement}
- * @author: wind
+ * @author: Wind
  */
 export function getPopupContainer(element) {
   return element?.parentNode ?? document.body

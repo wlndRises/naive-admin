@@ -20,7 +20,7 @@
  */
 import validatorJs from 'validator'
 import dayjs from 'dayjs'
-import { isNumber } from '@/utils/lodash'
+import { isNumber } from '@/utils/is'
 
 class Validator {
   constructor() {

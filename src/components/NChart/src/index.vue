@@ -22,7 +22,7 @@
 
 <script>
 import VChart from 'vue-echarts'
-import { merge } from '@/utils/lodash'
+import { merge } from 'lodash-es'
 export default {
   name: 'NChart',
   components: {
