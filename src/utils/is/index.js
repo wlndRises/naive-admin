@@ -4,7 +4,7 @@
  * @Autor: Wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-15 11:45:57
+ * @LastEditTime: 2022-06-15 19:19:28
  */
 export { isEqual, isFinite, isInteger } from 'lodash-es'
 
@@ -135,7 +135,7 @@ export const isBrowser = !isServer
  * @param {boolean} isFullyVisible 是否判断 是否完全在视口范围
  * @returns {boolean}
  */
-export const isVisibleInViewport = (el, isFullyVisible) => {
+export function isVisibleInViewport(el, isFullyVisible) {
   const { top, left, right, bottom } = el.getBoundingClientRect()
   const { innerHeight, innerWidth } = window
   return isFullyVisible
@@ -149,7 +149,7 @@ export const isVisibleInViewport = (el, isFullyVisible) => {
  * @param {HTMLElement} el
  * @returns {boolean}
  */
-export const isEllipsis = el => {
+export function isEllipsis(el) {
   if (!el) return
   const cloneDom = el.cloneNode()
   const { style } = cloneDom
