@@ -4,7 +4,7 @@
  * @Autor: Wind
  * @Date: 2022-04-30 11:56:48
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-15 19:14:38
+ * @LastEditTime: 2022-06-15 19:21:47
  */
 import { isDate, isJson, isObject } from '@/utils/is'
 
@@ -12,7 +12,7 @@ import { isDate, isJson, isObject } from '@/utils/is'
  * 防抖函数(间隔时间内的持续触发只会触发最后一次，持续触发等于永远不会触发)
  * 例如 百度输入框一直输入时不会出现返回的列表数据
  */
-export const debounce = (fn, delay) => {
+export function debounce(fn, delay) {
   let timeout = null // 创建一个标记用来存放定时器的返回值
   // tip: 注意不能返回箭头函数 apply call bind无法改变箭头函数的this
   return function () {
@@ -29,7 +29,7 @@ export const debounce = (fn, delay) => {
  * 节流函数(间隔时间内只会触发一次)
  * 例如 避免在scroll、resize 时过于频繁的更新
  */
-export const throttle = (fn, delay) => {
+export function throttle(fn, delay) {
   let canRun = true // 通过闭包保存一个标记
   // 小知识: 箭头函数没有arguments 只能(...arg) => arg
   return function () {
@@ -50,7 +50,7 @@ export const throttle = (fn, delay) => {
  * 深拷贝
  * json对象：属性名称必须是双引号括起来的字符串 最后一个属性后不能有逗号
  */
-export const cloneDeep = function (val) {
+export function cloneDeep(val) {
   if (val === null) return null
   if (isJson(val)) return JSON.parse(JSON.stringify(val))
   if (isDate(val)) return new Date(val)
