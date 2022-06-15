@@ -1,10 +1,26 @@
-// 放一些不确定分类的工具
-import { isEmpty, isArray, isObject, isString, isDef } from './is'
+// 放一些不确定分类的实用函数
 import { omitBy } from 'lodash-es'
+import { isEmpty, isArray, isObject, isString, isDef } from './is'
 
 export const filterEmpty = (v, fn = isEmpty) => {
   if (isArray(v)) v => v.filter(fn)
   if (isObject(v)) omitBy(v, fn)
+}
+
+export function softBind(fn, obj) {
+  const curried = Array.prototype.slice.call(arguments, 2)
+  const bound = function () {
+    return fn.apply(
+      !this || this === (window || global) ? obj : this,
+      Array.prototype.concat.apply(curried, arguments)
+    )
+  }
+  bound.prototype = Object.create(fn.prototype)
+  return bound
+}
+
+export function cloneFunc(func) {
+  return new Function('return ' + func.toString())()
 }
 
 export function reverse(source) {
@@ -20,30 +36,25 @@ export function reverse(source) {
   }
 }
 
-export const softBind = function (fn, obj) {
-  const curried = Array.prototype.slice.call(arguments, 2)
-  const bound = function () {
-    return fn.apply(
-      !this || this === (window || global) ? obj : this,
-      Array.prototype.concat.apply(curried, arguments)
-    )
-  }
-  bound.prototype = Object.create(fn.prototype)
-  return bound
-}
-
-export const cloneFunc = function (func) {
-  return new Function('return ' + func.toString())()
-}
-
-export const merge = function (target) {
+export function mergeDeep(target) {
   for (let i = 1, j = arguments.length; i < j; i++) {
     const source = arguments[i] || {}
     for (const prop in source) {
       if (Object.prototype.hasOwnProperty.call(source, prop)) {
-        const value = source[prop]
-        if (isDef(value)) {
-          target[prop] = value
+        let targetVal = target[prop]
+        const sourceVal = source[prop]
+        if (isObject(targetVal) && isObject(sourceVal)) {
+          mergeDeep(targetVal, sourceVal)
+        } else if (isArray(targetVal) && isArray(sourceVal)) {
+          if (sourceVal.length > targetVal.length) {
+            targetVal = sourceVal
+          } else {
+            for (let i = 0; i < sourceVal.length; i++) {
+              targetVal[i] = sourceVal[i]
+            }
+          }
+        } else if (isDef(sourceVal)) {
+          target[prop] = sourceVal
         }
       }
     }
