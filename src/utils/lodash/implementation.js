@@ -4,9 +4,9 @@
  * @Autor: Wind
  * @Date: 2022-04-30 11:56:48
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-15 11:59:49
+ * @LastEditTime: 2022-06-15 19:14:38
  */
-import { isDate, isJson, isObject } from './is'
+import { isDate, isJson, isObject } from '@/utils/is'
 
 /**
  * 防抖函数(间隔时间内的持续触发只会触发最后一次，持续触发等于永远不会触发)
@@ -53,12 +53,12 @@ export const throttle = (fn, delay) => {
 export const cloneDeep = function (val) {
   if (val === null) return null
   if (isJson(val)) return JSON.parse(JSON.stringify(val))
-  if (!isObject(val)) return val
   if (isDate(val)) return new Date(val)
+  if (!isObject(val)) return val
   const newVal = new val.constructor() //保持继承链
   for (const key in val) {
     if (Object.prototype.hasOwnProperty.call(val, key)) {
-      //不遍历其原型链上的属性
+      // 不遍历其原型链上的属性
       const element = val[key]
       newVal[key] = isObject(element) ? arguments.callee(val) : val // 使用arguments.callee解除与函数名的耦合
     }
