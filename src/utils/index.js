@@ -3,8 +3,8 @@ import { omitBy } from 'lodash-es'
 import { isEmpty, isArray, isObject, isString, isDef } from './is'
 
 export const filterEmpty = (v, fn = isEmpty) => {
-  if (isArray(v)) v => v.filter(fn)
-  if (isObject(v)) omitBy(v, fn)
+  if (isArray(v)) return v.filter(fn)
+  if (isObject(v)) return omitBy(v, fn)
 }
 
 export function softBind(fn, obj) {
