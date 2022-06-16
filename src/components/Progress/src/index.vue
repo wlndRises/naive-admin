@@ -2,7 +2,7 @@
   <el-progress :percentage="displayValue" v-bind="$attrs" />
 </template>
 <script>
-import { requestAnimationFrame, cancelAnimationFrame } from '@/utils/animation'
+import { requestAnimationFrame, cancelAnimationFrame } from '@/utils/motion'
 export default {
   name: 'Progress',
   props: {
