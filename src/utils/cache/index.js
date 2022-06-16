@@ -1,3 +1,5 @@
+export { getToken, setToken, removeToken } from './token'
+
 import { isNull } from '@/utils/is'
 import { createStorage } from './storage'
 

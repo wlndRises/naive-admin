@@ -28,10 +28,7 @@ export function removeResizeListener(element, fn) {
   }
 }
 
-/**
- * 触发 window.resize
- */
-export function triggerWindowResize() {
+export function triggerResize() {
   const event = document.createEvent('HTMLEvents')
   event.initEvent('resize', true, true)
   event.eventType = 'message'

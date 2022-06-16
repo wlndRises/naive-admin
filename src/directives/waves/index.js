@@ -1,4 +1,4 @@
-import { on } from '@/utils/event'
+import { on } from '@/utils/dom'
 import { isObject, isDef } from '@/utils/is'
 import './waves.scss'
 

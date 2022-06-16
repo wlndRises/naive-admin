@@ -1,7 +1,6 @@
-import { isFunction } from '@/utils/is'
 import { requestAnimationFrame } from '@/utils/animation/requestAnimationFrame'
 
-export function addScrollWatch(callback) {
+export function addScrollListener(callback) {
   let beforeScrollTop = window.pageYOffset
   window.addScrollListener(() => {
     let direction = 'up'
@@ -11,7 +10,7 @@ export function addScrollWatch(callback) {
       return false
     }
     direction = delta > 0 ? 'down' : 'up'
-    isFunction(callback) && callback(direction)
+    callback(direction)
     beforeScrollTop = afterScrollTop
   })
 }
@@ -53,7 +52,7 @@ export function scrollTo(end, duration = 500, callback) {
     if (currentTime < duration) {
       requestAnimationFrame(animateScroll)
     } else {
-      isFunction(callback) && callback()
+      callback()
     }
   }
 }

@@ -1,4 +1,4 @@
-import { on } from '@/utils/event'
+import { on } from '@/utils/dom'
 
 export default {
   inserted: (el, binding) => {

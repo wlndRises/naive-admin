@@ -4,6 +4,28 @@ function trim(string) {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
 }
 
+export function on(element, event, handler) {
+  if (element && event && handler) {
+    element.addEventListener(event, handler, false)
+  }
+}
+
+export function off(element, event, handler) {
+  if (element && event && handler) {
+    element.removeEventListener(event, handler, false)
+  }
+}
+
+export function once(el, event, fn) {
+  const listener = function (self, ...args) {
+    if (fn) {
+      fn.apply(self, args)
+    }
+    off(el, event, listener)
+  }
+  on(el, event, listener)
+}
+
 export function hasClass(el, cls) {
   if (!el || !cls) return false
   if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.')
@@ -54,11 +76,17 @@ export function removeClass(el, cls) {
   }
 }
 
-export function getBoundingClientRect(element) {
-  if (!element || !element.getBoundingClientRect) {
-    return 0
+export function hackCss(attr, value) {
+  const prefix = ['webkit', 'Moz', 'ms', 'OT']
+
+  const styleObj = Object.create(null)
+  prefix.forEach(item => {
+    styleObj[`${item}${capitalize(attr)}`] = value
+  })
+  return {
+    ...styleObj,
+    [attr]: value,
   }
-  return element.getBoundingClientRect()
 }
 
 /**
@@ -72,7 +100,7 @@ export function getBoundingClientRect(element) {
  * @returns bottomIncludeBody: 元素的顶部和文档底部之间的距离
  */
 export function getViewportOffset(element) {
-  const doc = document.documentElement
+  const doc = window.document.documentElement
 
   const docScrollLeft = doc.scrollLeft
   const docScrollTop = doc.scrollTop
@@ -94,8 +122,8 @@ export function getViewportOffset(element) {
   const left = offsetLeft - scrollLeft
   const top = offsetTop - scrollTop
 
-  const clientWidth = window.document.documentElement.clientWidth
-  const clientHeight = window.document.documentElement.clientHeight
+  const clientWidth = doc.clientWidth
+  const clientHeight = doc.clientHeight
   return {
     left: left,
     top: top,
@@ -106,26 +134,9 @@ export function getViewportOffset(element) {
   }
 }
 
-export function hackCss(attr, value) {
-  const prefix = ['webkit', 'Moz', 'ms', 'OT']
-
-  const styleObj = {}
-  // capitalize 字符串首字母转大写
-  prefix.forEach(item => {
-    capitalize
-    styleObj[`${item}${capitalize(attr)}`] = value
-  })
-  return {
-    ...styleObj,
-    [attr]: value,
+export function getBoundingClientRect(element) {
+  if (!element || !element.getBoundingClientRect) {
+    return 0
   }
-}
-/**
- * @description: 获取ui挂载节点 没有父节点选择body
- * @param {HTMLElement} element
- * @return {HTMLElement}
- * @author: Wind
- */
-export function getPopupContainer(element) {
-  return element?.parentNode ?? document.body
+  return element.getBoundingClientRect()
 }

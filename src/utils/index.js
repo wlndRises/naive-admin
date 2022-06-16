@@ -38,6 +38,26 @@ export function reverse(source) {
 }
 
 /**
+ * @description: 错误处理
+ * eg:
+ * let [err, res] = await errorCapture(asyncFunc)
+ * if (err) {
+ *   ... capture the error
+ * }
+ * 如果你想在出现错误时什么也不做 那么你可以
+ * const res = await asyncFunc().catch(noop)
+ * if (!res) return
+ */
+export const errorCapture = async asyncFunc => {
+  try {
+    const res = await asyncFunc()
+    return [null, res]
+  } catch (err) {
+    return [err, null]
+  }
+}
+
+/**
  * @description: 纵向合并单元格
  * @param {Array} 表格数据
  * @param {Array | String} 需要纵向合并列 依据的字段组成的数组 也可传单个字段字符串
