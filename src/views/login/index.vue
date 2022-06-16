@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import { noop } from 'lodash-es'
 export default {
   name: 'Login',
   data() {
@@ -145,7 +146,7 @@ export default {
           this.$store
             .dispatch('user/login', this.loginForm)
             .then(() => {
-              this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+              this.$router.push({ path: this.redirect || '/', query: this.otherQuery }).catch(noop)
               this.loading = false
             })
             .catch(() => {
