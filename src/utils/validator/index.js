@@ -61,8 +61,7 @@ export function number(trigger = 'blur') {
     message: `请输入正确的数字`,
     trigger,
     transform(value) {
-      value = value === '' ? null : Number(value)
-      return value
+      return value === '' ? null : Number(value)
     },
   }
 }
@@ -76,8 +75,7 @@ export function integer(trigger = 'blur') {
     message: `请输入整数`,
     trigger,
     transform(value) {
-      value = value === '' ? null : Number(value)
-      return value
+      return value === '' ? null : Number(value)
     },
   }
 }
@@ -91,8 +89,7 @@ export function float(trigger = 'blur') {
     message: `请输入正确的浮点数`,
     trigger,
     transform(value) {
-      value = value === '' ? null : Number(value)
-      return value
+      return value === '' ? null : Number(value)
     },
   }
 }
@@ -106,13 +103,11 @@ export function positiveNumber(trigger = 'blur') {
     message: `请输入一个正数`,
     trigger,
     transform(value) {
-      value = value === '' ? null : Number(value)
-      return value
+      return value === '' ? null : Number(value)
     },
-    validator(rule, value, callback) {
+    validator(_, value, callback) {
       if (value === null) {
-        callback()
-        return
+        return callback()
       }
       if (!isNumber(value)) {
         callback(new Error())
@@ -136,10 +131,9 @@ export function negativeNumber(trigger = 'blur') {
     message: `请输入一个负数`,
     trigger,
     transform(value) {
-      value = value === '' ? null : Number(value)
-      return value
+      return value === '' ? null : Number(value)
     },
-    validator(rule, value, callback) {
+    validator(_, value, callback) {
       if (value === null) {
         callback()
         return
@@ -263,7 +257,7 @@ export function isFQDN(trigger = 'blur') {
     type: 'string',
     message: '请输入正确域名（例如：baidu.com）',
     trigger,
-    validator(rule, value, callback) {
+    validator(_, value, callback) {
       if (value === '') {
         callback()
         return
@@ -317,10 +311,9 @@ export function isAfter(startDate, trigger = 'blur') {
     type: 'date',
     message: '结束日期不能在起始日期之前',
     trigger,
-    validator(rule, value, callback) {
+    validator(_, value, callback) {
       if (value === '' || startDate === '') {
-        callback()
-        return
+        return callback()
       }
 
       if (dayjs(value).isAfter(dayjs(startDate))) {
@@ -340,10 +333,9 @@ export function isBefore(endDate, trigger = 'blur') {
     type: 'date',
     message: '起始日期不能在结束日期之后',
     trigger,
-    validator(rule, value, callback) {
+    validator(_, value, callback) {
       if (value === '' || endDate === '') {
-        callback()
-        return
+        return callback()
       }
 
       if (dayjs(value).isBefore(endDate)) {

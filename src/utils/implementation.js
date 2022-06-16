@@ -4,9 +4,9 @@
  * @Autor: Wind
  * @Date: 2022-04-30 11:56:48
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-15 19:21:47
+ * @LastEditTime: 2022-06-16 11:17:53
  */
-import { isDate, isJson, isObject } from '@/utils/is'
+import { isDate, isJson, isObject, isArray, isDef } from './is'
 
 /**
  * 防抖函数(间隔时间内的持续触发只会触发最后一次，持续触发等于永远不会触发)
@@ -64,4 +64,35 @@ export function cloneDeep(val) {
     }
   }
   return newVal
+}
+
+export function merge(target) {
+  for (let i = 1, j = arguments.length; i < j; i++) {
+    const source = arguments[i] || {}
+    for (const prop in source) {
+      if (Object.prototype.hasOwnProperty.call(source, prop)) {
+        let targetVal = target[prop]
+        const sourceVal = source[prop]
+        if (isObject(targetVal) && isObject(sourceVal)) {
+          merge(targetVal, sourceVal)
+        } else if (isArray(targetVal) && isArray(sourceVal)) {
+          mergeArray(targetVal, sourceVal)
+        } else if (isDef(sourceVal)) {
+          target[prop] = sourceVal
+        }
+      }
+    }
+  }
+
+  function mergeArray(target, source) {
+    if (source.length > target.length) {
+      target = source
+    } else {
+      for (let i = 0; i < source.length; i++) {
+        target[i] = source[i]
+      }
+    }
+  }
+
+  return target
 }

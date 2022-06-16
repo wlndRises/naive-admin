@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { isFinite, isEmpty as CanEnumerated } from 'lodash-es'
+import { isFinite, isEmpty as CanEnumerated, merge as mergeDeep } from 'lodash-es'
 import { isNumber, canToNumberString, isEmpty } from './src/utils/is'
+import { merge } from './src/utils/implementation'
 
 describe('lodash utils', () => {
   it('isFinite', () => {
@@ -39,5 +40,121 @@ describe('lodash utils', () => {
     expect(isEmpty(new Map())).toEqual(true)
     // TODO implement this function
     expect(isEmpty(new WeakMap())).toEqual(false)
+  })
+  it('mergeDeep', () => {
+    expect(
+      mergeDeep(
+        {
+          name: '',
+          obj: {
+            name: '',
+            age: 18,
+          },
+        },
+        {}
+      )
+    ).toEqual({
+      name: '',
+      obj: {
+        name: '',
+        age: 18,
+      },
+    })
+    expect(
+      mergeDeep(
+        {
+          name: '',
+          obj: {
+            name: '',
+            age: 18,
+          },
+        },
+        {
+          name: 'Wind',
+          obj: {
+            name: 'Wind',
+          },
+        }
+      )
+    ).toEqual({
+      name: 'Wind',
+      obj: {
+        name: 'Wind',
+        age: 18,
+      },
+    })
+    expect(
+      mergeDeep(
+        {
+          name: '',
+          arr: [1, 2],
+        },
+        {
+          name: 'Wind',
+          arr: [2],
+        }
+      )
+    ).toEqual({
+      name: 'Wind',
+      arr: [2, 2],
+    })
+  })
+  it('merge', () => {
+    expect(
+      merge(
+        {
+          name: '',
+          obj: {
+            name: '',
+            age: 18,
+          },
+        },
+        {}
+      )
+    ).toEqual({
+      name: '',
+      obj: {
+        name: '',
+        age: 18,
+      },
+    })
+    expect(
+      merge(
+        {
+          name: '',
+          obj: {
+            name: '',
+            age: 18,
+          },
+        },
+        {
+          name: 'Wind',
+          obj: {
+            name: 'Wind',
+          },
+        }
+      )
+    ).toEqual({
+      name: 'Wind',
+      obj: {
+        name: 'Wind',
+        age: 18,
+      },
+    })
+    expect(
+      merge(
+        {
+          name: '',
+          arr: [1, 2],
+        },
+        {
+          name: 'Wind',
+          arr: [2],
+        }
+      )
+    ).toEqual({
+      name: 'Wind',
+      arr: [2, 2],
+    })
   })
 })
