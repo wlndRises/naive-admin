@@ -4,9 +4,17 @@
  * @Autor: Wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-15 19:19:28
+ * @LastEditTime: 2022-06-16 10:18:07
  */
 export { isEqual, isFinite, isInteger } from 'lodash-es'
+
+export const isServer = typeof window === 'undefined'
+
+export const isClient = !isServer
+
+export const isBrowser = !isServer
+
+export const isArray = Array.isArray
 
 export const toString = Object.prototype.toString
 
@@ -33,8 +41,6 @@ export function isNil(val) {
 export function isObject(val) {
   return !isNull(val) && is(val, 'Object')
 }
-
-export const isArray = Array.isArray
 
 export function isMap(val) {
   return is(val, 'Map')
@@ -123,16 +129,10 @@ export function isElement(val) {
   return isObject(val) && !!val.tagName
 }
 
-export const isServer = typeof window === 'undefined'
-
-export const isClient = !isServer
-
-export const isBrowser = !isServer
-
 /**
  * @description element是否在视口范围
  * @param {HTMLElement} el
- * @param {boolean} isFullyVisible 是否判断 是否完全在视口范围
+ * @param {boolean} isFullyVisible 是否 判断完全在视口范围内
  * @returns {boolean}
  */
 export function isVisibleInViewport(el, isFullyVisible) {
@@ -142,26 +142,4 @@ export function isVisibleInViewport(el, isFullyVisible) {
     ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
         ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
     : top > 0 && left > 0 && bottom < innerHeight && right < innerWidth
-}
-
-/**
- * @description 判断dom文本是否显示省略号 （是否能在一行展示完成）
- * @param {HTMLElement} el
- * @returns {boolean}
- */
-export function isEllipsis(el) {
-  if (!el) return
-  const cloneDom = el.cloneNode()
-  const { style } = cloneDom
-  style.whiteSpace = 'nowrap'
-  style.overflow = 'auto'
-  style.position = 'relative'
-  style.zIndex = -9999
-  style.opacity = 0
-
-  const { offsetWidth, parentNode } = el
-  parentNode.appendChild(cloneDom)
-  const { scrollWidth } = cloneDom
-  parentNode.removeChild(cloneDom)
-  return scrollWidth > offsetWidth
 }
