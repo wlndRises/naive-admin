@@ -1,4 +1,7 @@
-export const createStorage = (storage = sessionStorage, prefixKey = 'naive') => {
+// TODO Implement encryption and decryption
+export function createStorage(storage) {
+  const prefixKey = 'naive'
+
   class Storage {
     static localInstance
     static sessionInstance
