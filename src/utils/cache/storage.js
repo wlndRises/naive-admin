@@ -1,6 +1,24 @@
 export const createStorage = (storage = sessionStorage, prefixKey = 'naive') => {
   class Storage {
+    static localInstance
+    static sessionInstance
+
     constructor() {}
+
+    static getInstance() {
+      if (storage === localStorage) {
+        if (!this.localInstance) {
+          this.localInstance = new Storage()
+        }
+        return this.localInstance
+      }
+      if (storage === sessionStorage) {
+        if (!this.sessionInstance) {
+          this.sessionInstance = new Storage()
+        }
+        return this.sessionInstance
+      }
+    }
 
     // 存数据前处理
     _getInputData(data, options) {
@@ -118,5 +136,5 @@ export const createStorage = (storage = sessionStorage, prefixKey = 'naive') => 
     }
   }
 
-  return new Storage()
+  return Storage.getInstance()
 }
