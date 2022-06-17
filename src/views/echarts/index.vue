@@ -1,18 +1,13 @@
 <template>
   <div class="p-5">
-    <n-chart
-      class="h-125"
-      autoresize
-      :define-option="defineHeatOption"
-      :option="heatOption"
-    ></n-chart>
-    <n-chart class="h-150 mt-10" autoresize :define-option="defineBarOption"></n-chart>
+    <n-chart class="h-150 mt-10" :option="barOption" />
+    <n-chart class="h-125" :define-option="defineHeatOption" :option="heatOption" />
+    <n-chart class="h-150 mt-10" :define-option="defineBarOption" />
     <n-chart
       class="h-125 mt-10"
-      autoresize
+      :is-empty="isEmptyPie"
       :define-option="definePieOption"
       :option="pieOption"
-      :is-empty="isPieEmpty"
     >
       <template #image>
         <i class="el-icon-chat-dot-square text-48px" />
@@ -30,19 +25,28 @@ import NChart from '@/components/NChart'
 import defineBarOption from './options/bar_option'
 import defineHeatOption from './options/heat_option'
 import definePieOption from './options/pie_option'
+import { option as barOption } from './options/bar_option'
 import { isNumber } from '@/utils/is'
+
 export default {
   name: 'Echarts',
   components: { NChart },
   data() {
     return {
       heatOption: {},
-      pieOption: {},
+      barOption,
+      pieOption: {
+        series: [
+          {
+            data: [],
+          },
+        ],
+      },
     }
   },
   computed: {
-    isPieEmpty() {
-      const seriesData = this.pieOption.series ? this.pieOption.series[0].data : []
+    isEmptyPie() {
+      const seriesData = this.pieOption.series[0].data
       return !seriesData.length || seriesData.every(item => !item.value)
     },
   },
@@ -281,16 +285,10 @@ export default {
       }
     },
     getPieSeriesData() {
-      this.pieOption = {
-        series: [
-          {
-            data: [
-              { value: 1048, name: '待执行' },
-              { value: 735, name: '已完成' },
-            ],
-          },
-        ],
-      }
+      this.pieOption.series[0].data = [
+        { value: 1048, name: '待执行' },
+        { value: 735, name: '已完成' },
+      ]
     },
   },
 }

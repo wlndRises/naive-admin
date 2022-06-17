@@ -21,7 +21,7 @@
           </template>
           <template #default>
             <slot :name="formData.code" :data="formData">
-              <n-form-item :form-value="FormValue" :form-data="formData"></n-form-item>
+              <n-form-item :form-value="realFormValue" :form-data="formData"></n-form-item>
             </slot>
           </template>
         </el-form-item>
@@ -40,6 +40,7 @@
 
 <script>
 import NFormItem from './NFormItem.vue'
+import { isEmpty, constant } from 'lodash-es'
 
 export default {
   name: 'NForm',
@@ -49,7 +50,7 @@ export default {
   props: {
     rules: {
       type: Object,
-      default: null,
+      default: constant({}),
     },
     inline: {
       type: Boolean,
@@ -79,15 +80,13 @@ export default {
       type: String,
       default: 'left',
     },
-    // --------------------------------------------------------------
     formDataList: {
       type: Array,
-      require: true,
-      default: () => [],
+      required: true,
     },
     formValue: {
       type: Object,
-      default: () => ({}),
+      required: true,
     },
     submitText: {
       type: String,
@@ -103,14 +102,13 @@ export default {
     },
   },
   computed: {
-    FormValue() {
+    realFormValue() {
       return this.formValue
     },
   },
   methods: {
     submitForm() {
-      // 没有传入校验规则时
-      if (!this.rules) {
+      if (isEmpty(this.rules)) {
         this.$emit('submit-form', null)
       } else {
         this.$refs.ruleForm.validate((valid, error) => {

@@ -1,4 +1,4 @@
-const option = {
+export const option = {
   tooltip: {
     trigger: 'axis',
     formatter: '{a}:{c}',

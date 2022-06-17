@@ -22,7 +22,8 @@
 
 <script>
 import VChart from 'vue-echarts'
-import { merge } from 'lodash-es'
+import { constant, merge } from 'lodash-es'
+
 export default {
   name: 'NChart',
   components: {
@@ -36,25 +37,25 @@ export default {
     },
     updateOptions: {
       type: Object,
-      default: () => ({}),
+      default: constant({}),
     },
-    // 为了绕过vue的响应式系统 这里强制传入一个返回对象的function
-    // 这样则无需在data声明一个被Object.freeze冻结的对象
+    // 绕过vue的响应式系统 无需创建freeze对象
     defineOption: {
       type: Function,
-      default: () => ({}),
+      default: constant({}),
     },
     option: {
       type: Object,
-      default: () => ({}),
+      default: constant({}),
     },
   },
   watch: {
     isEmpty: {
-      async handler(val) {
+      handler(val) {
         if (!val) {
-          await this.$nextTick()
-          this.updateChartView() // NChart must exist
+          this.$nextTick(() => {
+            this.updateChartView()
+          })
         }
       },
       immediate: true,
@@ -68,8 +69,11 @@ export default {
   },
   methods: {
     getNChartInstance() {
-      if (this.isEmpty) return null
-      else return this.$refs.NChart
+      if (this.isEmpty) {
+        return null
+      } else {
+        return this.$refs.NChart
+      }
     },
     mergeOption() {
       return merge({}, this.defineOption(), this.option)
@@ -89,9 +93,6 @@ export default {
 
       const updateOptions = this.getUpdateOptions()
 
-      // setOption methods init use this.updateOptions
-
-      // but update use this.getUpdateOptions
       chart.setOption(option, updateOptions)
     },
   },
