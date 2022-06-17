@@ -11,14 +11,15 @@
 </template>
 
 <script>
-import { copy, color, clickOutSide, longPress, waterMarker } from 'naive-directives'
+import clickOutSide from 'element-ui/src/utils/clickoutside'
+import { copy, color, longPress, waterMarker } from 'naive-directives'
 export default {
   directives: {
     copy,
     color,
-    clickOutSide,
     longPress,
     waterMarker,
+    clickOutSide,
   },
   data() {
     return {

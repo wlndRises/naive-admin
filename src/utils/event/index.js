@@ -1,3 +1,3 @@
-export { addResizeListener, removeResizeListener, triggerResize } from './resize'
+export { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event'
 
 export { addScrollListener } from './scroll'
