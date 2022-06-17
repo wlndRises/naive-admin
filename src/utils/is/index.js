@@ -1,10 +1,10 @@
 /*
- * @Description: is/can/has
+ * @Description: is
  * @Version: 1.0
  * @Autor: Wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-16 20:20:24
+ * @LastEditTime: 2022-06-17 15:35:37
  */
 export { isEqual, isFinite, isInteger } from 'lodash-es'
 
@@ -46,7 +46,7 @@ export function isNumber(val) {
   return is(val, 'Number')
 }
 
-export function canToNumStr(val) {
+export function isNumString(val) {
   return isString(val) && !isNaN(Number(val))
 }
 

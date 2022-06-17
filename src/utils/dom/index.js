@@ -1,4 +1,4 @@
-import { capitalize } from '@/utils/letter'
+import { upperFirst } from 'lodash-es'
 
 function trim(string) {
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
@@ -81,7 +81,7 @@ export function hackCss(attr, value) {
 
   const styleObj = Object.create(null)
   prefix.forEach(item => {
-    styleObj[`${item}${capitalize(attr)}`] = value
+    styleObj[`${item}${upperFirst(attr)}`] = value
   })
   return {
     ...styleObj,

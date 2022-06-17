@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { isFinite, isEmpty as CanEnumerated, merge as mergeDeep } from 'lodash-es'
-import { isNumber, canToNumStr, isEmpty } from './src/utils/is'
+import { isNumber, isNumString, isEmpty } from './src/utils/is'
 import { merge } from './src/utils/implementation'
 
 describe('lodash utils', () => {
@@ -12,9 +12,9 @@ describe('lodash utils', () => {
     expect(isNumber(NaN)).toEqual(true)
     expect(isNumber(Infinity)).toEqual(true)
   })
-  it('canToNumStr', () => {
-    expect(canToNumStr('19.87')).toEqual(true)
-    expect(canToNumStr('19-87')).toEqual(false)
+  it('isNumString', () => {
+    expect(isNumString('19.87')).toEqual(true)
+    expect(isNumString('19-87')).toEqual(false)
   })
   it('CanEnumerated', () => {
     expect(CanEnumerated(null)).toEqual(true)
