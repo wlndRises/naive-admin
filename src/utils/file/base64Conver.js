@@ -1,8 +1,5 @@
 /**
  * @description: base64 to blob
- * @param {String} base64Buf
- * @return {Blob}
- * @author: Wind
  */
 export function base64ToBlob(base64Buf) {
   const arr = base64Buf.split(',')
@@ -19,10 +16,6 @@ export function base64ToBlob(base64Buf) {
 
 /**
  * @description: img url to base64
- * @param {String} url
- * @param {String} mineType MDN
- * @return {Promise<string>}
- * @author: Wind
  */
 export function urlToBase64(url, mineType) {
   return new Promise((resolve, reject) => {

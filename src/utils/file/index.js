@@ -2,12 +2,6 @@ import { base64ToBlob, urlToBase64 } from './base64Conver'
 
 /**
  * @description: 在线Url下载 存在跨域问题时 先解决跨域
- * @param {String} url
- * @param {String} filename
- * @param {String} mime
- * @param {Blob} bom
- * @return {void}
- * @author: Wind
  */
 export function downloadByOnlineUrl(url, filename, mime, bom) {
   urlToBase64(url).then(base64 => {
@@ -17,12 +11,6 @@ export function downloadByOnlineUrl(url, filename, mime, bom) {
 
 /**
  * @description: 下载基于base64的图片
- * @param {String} buf
- * @param {String} filename
- * @param {String} mime
- * @param {Blob} bom
- * @return {void}
- * @author: Wind
  */
 export function downloadByBase64(buf, filename, mime, bom) {
   const base64Buf = base64ToBlob(buf)
@@ -31,12 +19,6 @@ export function downloadByBase64(buf, filename, mime, bom) {
 
 /**
  * @description: 根据后台界面文件流下载
- * @param {Blob} data
- * @param {String} filename
- * @param {String} mime MDN 设置文件格式
- * @param {Blob} bom
- * @return {void}
- * @author: Wind
  */
 export function downloadByBlob(data, filename, mime, bom) {
   const blobData = typeof bom !== 'undefined' ? [bom, data] : [data]
@@ -52,11 +34,6 @@ export function downloadByBlob(data, filename, mime, bom) {
 
 /**
  * @description: 根据文件地址下载或预览文件
- * @param {String} url
- * @param {String} target _self: 在当前页面打开 相当于下载 _blank: 在一个新的窗口打开 相当于预览
- * @param {String} filename
- * @return {Boolean}
- * @author: Wind
  */
 export function downloadByUrl(url, filename, target = '_blank') {
   const link = document.createElement('a')
