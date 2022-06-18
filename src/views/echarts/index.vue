@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import NChart from '@/components/NChart'
+import { NChart } from 'naive-echarts'
 import defineBarOption from './options/bar_option'
 import defineHeatOption from './options/heat_option'
 import definePieOption from './options/pie_option'
