@@ -39,11 +39,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import screenfull from '@/directives/screenfull'
 import Breadcrumb from './components/Breadcrumb.vue'
 import Hamburger from './components/Hamburger.vue'
 import Settings from './components/Settings.vue'
 
 export default {
+  directives: {
+    screenfull,
+  },
   components: {
     Breadcrumb,
     Hamburger,
