@@ -1,9 +1,8 @@
 <template>
   <div v-waterMarker="waterMarker" class="h-55 p-5">
-    <el-button v-waves.dblclick v-copy.dblclick="text">双击复制</el-button>
-    <el-button v-color="['red', 'green']">color text</el-button>
-    <el-button v-spring v-screenfull.icon>全屏</el-button>
     <el-button v-waves v-clickOutSide="handleClickOutSide">clickOutSide</el-button>
+    <el-button v-color="['red', 'green']">color text</el-button>
+    <el-button v-expandClick>元素向外扩展10px</el-button>
     <el-button v-spring v-longPress="handleLongPress">longPress</el-button>
     <el-button v-waves>水波纹</el-button>
     <el-button v-spring>回弹</el-button>
@@ -11,15 +10,14 @@
 </template>
 
 <script>
-import clickOutSide from 'element-ui/src/utils/clickoutside'
-import { copy, color, longPress, waterMarker } from 'naive-directives'
+import { clickOutSide, color, expandClick, longPress, waterMarker } from 'naive-directives'
 export default {
   directives: {
-    copy,
     color,
+    expandClick,
+    clickOutSide,
     longPress,
     waterMarker,
-    clickOutSide,
   },
   data() {
     return {
@@ -28,12 +26,6 @@ export default {
         text: 'naive-directives',
         textColor: '#7232dd',
         font: '20px Fire Code',
-      },
-      tooltip: {
-        effect: 'dark',
-        content: 'Top Left 提示文字',
-        placement: 'top-start',
-        className: ['text-24px', 'leading-10', 'text-yellow-500'],
       },
     }
   },

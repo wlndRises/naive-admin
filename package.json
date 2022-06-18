@@ -33,7 +33,7 @@
     "element-ui": "^2.15.6",
     "js-cookie": "2.2.0",
     "lodash-es": "^4.17.21",
-    "naive-directives": "^1.0.2",
+    "naive-directives": "^1.1.0",
     "naive-echarts": "^1.1.0",
     "nprogress": "0.2.0",
     "path-to-regexp": "2.4.0",
