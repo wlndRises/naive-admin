@@ -12,10 +12,7 @@
       <template #image>
         <i class="el-icon-chat-dot-square text-48px" />
       </template>
-      <template #text>暂时没有数据哦</template>
-      <template #default>
-        <el-button type="primary" @click="getPieSeriesData">来点数据</el-button>
-      </template>
+      <el-button type="primary" @click="getPieSeriesData">来点数据</el-button>
     </n-chart>
   </div>
 </template>
