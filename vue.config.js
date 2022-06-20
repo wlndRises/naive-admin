@@ -91,7 +91,7 @@ module.exports = {
         },
       })
 
-      // Webpack4.0 默认使用 terser-webpack-plugin 压缩插件
+      // terser-webpack-plugin
       // https://github.com/terser/terser#compress-options
       config.optimization.minimizer('terser').tap(args => {
         Object.assign(args[0].terserOptions.compress, {
@@ -99,14 +99,11 @@ module.exports = {
         })
         return args
       })
-
-      // https://webpack.js.org/configuration/optimization/#optimizationruntimechunk
-      config.optimization.runtimeChunk('single')
     })
   },
   // 默认情况下 babel-loader 会忽略所有 node_modules 中的文件
   // 如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来
-  // transpileDependencies: [],
+  transpileDependencies: [],
   configureWebpack() {
     if (isGZIP) {
       return {
