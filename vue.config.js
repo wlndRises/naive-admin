@@ -4,11 +4,10 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const isDev = process.env.NODE_ENV == 'development'
-const isPro = !isDev
+const isPro = process.env.NODE_ENV === 'production'
 
 // cdn
-const cdn = require('./config/cdn.js')
+const cdn = require('./config/cdn')
 
 // gzip
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -34,17 +33,16 @@ module.exports = {
   chainWebpack(config) {
     config.resolve.alias.set('#', resolve('src/views'))
 
-    // inject cdn
+    // html-webpack-plugin
     config.plugin('html').tap(args => {
       args[0].cdn = cdn.cdnConfig
       return args
     })
-
     // 从输出的 bundle 中排除依赖
     config.externals = cdn.externals
 
-    // set svg-sprite-loader
     config.module.rule('svg').exclude.add(resolve('src/assets/icons')).end()
+    // add icons rule use svg-sprite-loader
     config.module
       .rule('icons')
       .test(/\.svg$/)
@@ -58,43 +56,35 @@ module.exports = {
       .end()
 
     config.when(isPro, config => {
+      // https://webpack.docschina.org/plugins/split-chunks-plugin
       config.optimization.splitChunks({
         chunks: 'all',
         cacheGroups: {
-          commons: {
-            name: 'chunk-commons',
-            test: resolve('src/components'),
-            // 表示要被提取的模块最小被引用次数
-            // 引用次数超过或等于minChunks值 才能被提取
-            minChunks: 3,
-            priority: 5,
-            // 如果当前要提取的模块 在已经在打包生成的js文件中存在 则将重用该模块
-            // 而不是把当前要提取的模块打包生成新的 js 文件
-            reuseExistingChunk: true,
-          },
-          libs: {
-            chunks: 'initial',
-            name: 'chunk-libs',
-            test: /[\\/]node_modules[\\/]/,
-            priority: 10,
-          },
           Echarts: {
             name: 'chunk-Echarts',
-            priority: 20,
             test: /[\\/]echarts[\\/]/,
+            priority: 20,
           },
           elementUI: {
             name: 'chunk-elementUI',
-            priority: 20,
             test: /[\\/]element-ui[\\/]/,
+            priority: 10,
+          },
+          commons: {
+            name: 'chunk-commons',
+            test: resolve('src/components'),
+            minChunks: 2,
+            priority: 0,
+            reuseExistingChunk: true,
           },
         },
       })
 
-      // terser-webpack-plugin
+      // Vue Cli 使用 terser-webpack-plugin 覆盖默认压缩工具(minimizer)
       // https://github.com/terser/terser#compress-options
       config.optimization.minimizer('terser').tap(args => {
         Object.assign(args[0].terserOptions.compress, {
+          // drop_console: true,
           pure_funcs: ['console.log'],
         })
         return args

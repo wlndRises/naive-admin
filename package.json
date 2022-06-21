@@ -18,8 +18,8 @@
     "lintfix:js": "eslint --ext \".{js,vue}\" --fix  \"**/*.{js,vue}\"",
     "lintfix:prettier": "prettier --write **/*.{html,scss,js,vue,md}",
     "prepare": "husky install",
-    "preview": "node build/index.js --preview",
-    "report": "npm run preview -- --report",
+    "preview": "node script/index.js --preview",
+    "report": "node script/index.js --preview --report",
     "start": "vue-cli-service serve",
     "svgo": "svgo -f src/assets/icons/svg",
     "test": "vitest",
@@ -87,8 +87,5 @@
     "*.*": [
       "prettier --write --ignore-unknown"
     ]
-  },
-  "sideEffects": [
-    "*.scss"
-  ]
+  }
 }
