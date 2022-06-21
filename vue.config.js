@@ -14,7 +14,7 @@ const cdn = require('./config/cdn.js')
 const CompressionPlugin = require('compression-webpack-plugin')
 const isGZIP = process.env.VUE_APP_GZIP == 'ON'
 
-const port = process.env.port || process.env.npm_config_port || 4396 // dev port
+const port = process.env.npm_config_port || 4396 // dev port
 
 module.exports = {
   publicPath: '/',
