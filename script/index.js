@@ -13,8 +13,8 @@ if (process.env.npm_config_preview || rawArgv.includes('--preview')) {
   const port = 2200
   const publicPath = config.publicPath
 
-  let connect = require('connect')
-  let serveStatic = require('serve-static')
+  const connect = require('connect')
+  const serveStatic = require('serve-static')
   const app = connect()
 
   app.use(

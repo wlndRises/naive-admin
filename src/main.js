@@ -9,14 +9,15 @@ import ElementUI from 'element-ui'
 import '@/styles/element-variables.scss'
 Vue.use(ElementUI)
 
-import '@/styles/index.scss' // global scss
+import components from '@/components' // global components
+Vue.use(components)
 
 import directives from '@/directives' // global directives
 Vue.use(directives)
 
-import './echarts.all' // global echarts
+import '@/styles/index.scss' // global scss
 
-import '@/components' // global components
+import './echarts.all' // global echarts
 
 import '@/assets/icons' // global icons
 

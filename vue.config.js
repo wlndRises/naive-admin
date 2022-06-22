@@ -38,8 +38,6 @@ module.exports = {
       args[0].cdn = cdn.cdnConfig
       return args
     })
-    // 从输出的 bundle 中排除依赖
-    config.externals = cdn.externals
 
     config.module.rule('svg').exclude.add(resolve('src/assets/icons')).end()
     // add icons rule use svg-sprite-loader
@@ -59,23 +57,39 @@ module.exports = {
       // https://webpack.docschina.org/plugins/split-chunks-plugin
       config.optimization.splitChunks({
         chunks: 'all',
+        minSize: 20000,
+        maxSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        automaticNameDelimiter: '~',
         cacheGroups: {
-          Echarts: {
-            name: 'chunk-Echarts',
-            test: /[\\/]echarts[\\/]/,
-            priority: 20,
-          },
-          elementUI: {
-            name: 'chunk-elementUI',
-            test: /[\\/]element-ui[\\/]/,
-            priority: 10,
-          },
           commons: {
             name: 'chunk-commons',
-            test: resolve('src/components'),
             minChunks: 2,
             priority: 0,
             reuseExistingChunk: true,
+          },
+          libs: {
+            name: 'chunk-libs',
+            test: /[\\/]node_modules[\\/]/,
+            priority: 10,
+            chunks: 'initial',
+          },
+          echarts: {
+            name: 'chunk-echarts',
+            test: /[\\/]node_modules[\\/](echarts|zrender)[\\/]/,
+            priority: 15,
+          },
+          element: {
+            name: 'chunk-element',
+            test: /[\\/]node_modules[\\/]element-ui[\\/]/,
+            priority: 20,
+          },
+          mockjs: {
+            name: 'chunk-mockjs',
+            test: /[\\/]node_modules[\\/]mockjs[\\/]/,
+            priority: 25,
           },
         },
       })
@@ -91,22 +105,26 @@ module.exports = {
       })
     })
   },
-  // 默认情况下 babel-loader 会忽略所有 node_modules 中的文件
-  // 如果你想要通过 Babel 显式转译一个依赖，可以在这个选项中列出来
-  transpileDependencies: [],
+  // TODO 为什么没有正常工作？
+  // https://cli.vuejs.org/zh/config/#transpiledependencies
+  // transpileDependencies: ['naive-echarts', 'naive-directives'],
   configureWebpack() {
-    if (isGZIP) {
-      return {
-        plugins: [
-          new CompressionPlugin({
-            algorithm: 'gzip',
-            test: /\.(js|css)$/, // 匹配文件名
-            threshold: 10240, // 对超过10k的数据压缩
-            deleteOriginalAssets: false, // 不删除源文件
-            minRatio: 0.8, // 压缩比
-          }),
-        ],
-      }
+    const config = {
+      // https://webpack.js.org/configuration/externals/#externals
+      externals: cdn.externals,
+      plugins: [],
     }
+    if (isGZIP) {
+      config.plugins.push(
+        new CompressionPlugin({
+          algorithm: 'gzip',
+          test: /\.(js|css)$/, // 匹配文件名
+          threshold: 10240, // 对超过10k的数据压缩
+          deleteOriginalAssets: false, // 不删除源文件
+          minRatio: 0.8, // 压缩比
+        })
+      )
+    }
+    return config
   },
 }
