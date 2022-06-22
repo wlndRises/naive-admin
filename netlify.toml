@@ -4,7 +4,7 @@
 
 [build]
   publish = "dist"
-  command = "npm run bootstrap && npm run build"
+  command = "npm install && npm run build"
 
 [[redirects]]
   from = "/*"

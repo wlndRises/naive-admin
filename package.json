@@ -6,7 +6,6 @@
   "scripts": {
     "build": "vue-cli-service build",
     "lint": "npm run lint:js && npm run lint:prettier",
-    "bootstrap": "npm install --registry=https://registry.npm.taobao.org",
     "build:stage": "vue-cli-service build --mode staging",
     "dev": "vue-cli-service serve",
     "inspect": "vue inspect > output.js",
@@ -84,7 +83,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.*": [
+    "*.{scss,md}": [
       "prettier --write --ignore-unknown"
     ]
   }

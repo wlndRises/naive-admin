@@ -7,7 +7,7 @@ function resolve(dir) {
 const isPro = process.env.NODE_ENV === 'production'
 
 // cdn
-const cdn = require('./config/cdn')
+const { jsConfig, externalConfig } = require('./config/cdn')
 
 // gzip
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -35,7 +35,7 @@ module.exports = {
 
     // html-webpack-plugin
     config.plugin('html').tap(args => {
-      args[0].cdn = cdn.cdnConfig
+      args[0].jsConfig = jsConfig
       return args
     })
 
@@ -111,7 +111,7 @@ module.exports = {
   configureWebpack() {
     const config = {
       // https://webpack.js.org/configuration/externals/#externals
-      externals: cdn.externals,
+      externals: externalConfig,
       plugins: [],
     }
     if (isGZIP) {
