@@ -4,8 +4,8 @@ const components = { SvgIcon }
 
 export default {
   install(Vue) {
-    Object.keys(components).forEach((_, component) => {
-      Vue.directive(component.name, component)
+    Object.values(components).forEach(component => {
+      Vue.component(component.name, component)
     })
   },
 }
