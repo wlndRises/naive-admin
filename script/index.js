@@ -4,7 +4,7 @@ const config = require('../vue.config.js')
 const rawArgv = process.argv.slice(2)
 const args = rawArgv.join(' ')
 
-// npm run dev --preview=true <=> process.env.npm_config_preview = true
+// pnpm run dev --preview=true <=> process.env.npm_config_preview = true
 if (process.env.npm_config_preview || rawArgv.includes('--preview')) {
   const report = process.env.npm_config_report || rawArgv.includes('--report')
 

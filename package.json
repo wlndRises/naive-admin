@@ -5,7 +5,7 @@
   "author": "Wind",
   "scripts": {
     "build": "vue-cli-service build",
-    "lint": "npm run lint:js && npm run lint:prettier",
+    "lint": "pnpm run lint:js && pnpm run lint:prettier",
     "build:stage": "vue-cli-service build --mode staging",
     "dev": "vue-cli-service serve",
     "inspect": "vue inspect > output.js",
@@ -13,7 +13,7 @@
     "lint-staged": "lint-staged",
     "lint:js": "eslint --ext \".{js,vue}\"  \"**/*.{js,vue}\"",
     "lint:prettier": "prettier --check **/*.{html,scss,js,vue,md}",
-    "lintfix": "npm run lintfix:js && npm run lintfix:prettier",
+    "lintfix": "pnpm run lintfix:js && pnpm run lintfix:prettier",
     "lintfix:js": "eslint --ext \".{js,vue}\" --fix  \"**/*.{js,vue}\"",
     "lintfix:prettier": "prettier --write **/*.{html,scss,js,vue,md}",
     "prepare": "husky install",
@@ -41,7 +41,8 @@
     "screenfull": "^5.2.0",
     "vue": "^2.6.14",
     "vue-router": "^3.5.3",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "webpack": "4.46.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
