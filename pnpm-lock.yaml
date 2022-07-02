@@ -26,8 +26,8 @@ specifiers:
   lint-staged: ^12.1.2
   lodash-es: ^4.17.21
   mockjs: ^1.1.0
-  naive-directives: ^1.1.0
-  naive-echarts: ^1.1.0
+  naive-directives: ^1.2.0
+  naive-echarts: ^1.2.1
   nprogress: 0.2.0
   path-to-regexp: 2.4.0
   prettier: ^2.5.1
@@ -56,8 +56,8 @@ dependencies:
   element-ui: 2.15.9_vue@2.6.14
   js-cookie: 2.2.0
   lodash-es: 4.17.21
-  naive-directives: 1.1.0
-  naive-echarts: 1.1.0
+  naive-directives: 1.2.0
+  naive-echarts: 1.2.1
   nprogress: 0.2.0
   path-to-regexp: 2.4.0
   screenfull: 5.2.0
@@ -3816,7 +3816,7 @@ packages:
       lodash: ^4.17.20
       marko: ^3.14.4
       mote: ^0.2.0
-      mustache: ^3.0.0
+      mustache: ^4.0.1
       nunjucks: ^3.2.2
       plates: ~0.4.11
       pug: ^3.0.0
@@ -4351,7 +4351,6 @@ packages:
 
   /de-indent/1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
-    dev: true
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -6260,7 +6259,6 @@ packages:
   /he/1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
-    dev: true
 
   /hex-color-regex/1.1.0:
     resolution: {integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==}
@@ -7806,15 +7804,16 @@ packages:
       thenify-all: 1.6.0
     dev: true
 
-  /naive-directives/1.1.0:
-    resolution: {integrity: sha512-fTDPdmQBjijgIiOLsq9s7rup0HU8dZSiZ+WPsf1PwFBnktoL0dEQZWwdCLvzdPVbLz+0RaUiblXJAKv82pyCGQ==}
+  /naive-directives/1.2.0:
+    resolution: {integrity: sha512-MYGjqn69Xbg3KaMFKeYrLb3NPjv8XcmM26UocdGrUiXRCxA0MEvQOGMYQZ+4ev4ctLlN+elJL7qoPzsklVI8LQ==}
     dev: false
 
-  /naive-echarts/1.1.0:
-    resolution: {integrity: sha512-oA45qzVkyBEIh3O5ItwNfUHhBxDdXjIFhLwbbElCasKOg39kmJ4sezUIogaCTKGOENXspVIC4y+UAV8s3zFOUQ==}
+  /naive-echarts/1.2.1:
+    resolution: {integrity: sha512-EIEOuSE7Ryh/YQCItYgETIctiMY6BnN4pSZaxsjRgyCrSrk4xMfvRNKg0X/I/h1r+3wp1qtN8DER4/xhdusnvQ==}
     dependencies:
       lodash-es: 4.17.21
       resize-observer-polyfill: 1.5.1
+      vue-template-compiler: 2.6.14
     dev: false
 
   /nan/2.16.0:
@@ -11173,7 +11172,6 @@ packages:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
-    dev: true
 
   /vue-template-es2015-compiler/1.9.1:
     resolution: {integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==}

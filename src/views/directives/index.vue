@@ -1,5 +1,6 @@
 <template>
   <div v-waterMarker="waterMarker" class="h-55 p-5">
+    <el-button v-waves.dblclick v-copy.dblclick="text">双击复制</el-button>
     <el-button v-waves v-clickOutSide="handleClickOutSide">clickOutSide</el-button>
     <el-button v-color="['red', 'green']">color text</el-button>
     <el-button v-expandClick>元素向外扩展10px</el-button>
@@ -10,10 +11,11 @@
 </template>
 
 <script>
-import { clickOutSide, color, expandClick, longPress, waterMarker } from 'naive-directives'
+import { clickOutSide, color, copy, expandClick, longPress, waterMarker } from 'naive-directives'
 export default {
   directives: {
     color,
+    copy,
     expandClick,
     clickOutSide,
     longPress,
