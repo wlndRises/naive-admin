@@ -1,7 +1,17 @@
-import { createStorage } from './storage'
+import { WebStorage } from './storage'
 
-export const createSessionStorage = () => createStorage(sessionStorage)
+export const defaultKey = 'naive'
 
-export const createLocalStorage = () => createStorage(localStorage)
+export function createStorage({ prefixKey = defaultKey, storage = localStorage }) {
+  return new WebStorage({ prefixKey, storage })
+}
+
+export function createLocalStorage(prefixKey = defaultKey) {
+  return createStorage({ prefixKey, storage: localStorage })
+}
+
+export function createSessionStorage(prefixKey = defaultKey) {
+  return createStorage({ prefixKey, storage: sessionStorage })
+}
 
 export { getToken, setToken, removeToken } from './token'
