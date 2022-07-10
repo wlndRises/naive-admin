@@ -27,18 +27,18 @@ export class WebStorage {
 
   // 获取_key的数据 => { data, keyInfo }
   _getData(_key) {
-    const _data = this.storage.getItem(_key)
+    const _data = this._storage.getItem(_key)
 
     return this._getOutputData(_data)
   }
 
   // 特殊处理key
   _getKey(key) {
-    return `__${this.prefixKey}_${key}__`
+    return `__${this._prefixKey}_${key}__`
   }
 
   _remove(_key) {
-    this.storage.removeItem(_key)
+    this._storage.removeItem(_key)
   }
 
   // 是否过期
@@ -88,7 +88,7 @@ export class WebStorage {
     const _key = this._getKey(key)
     const _data = this._getInputData(data, options)
 
-    this.storage.setItem(_key, _data)
+    this._storage.setItem(_key, _data)
   }
 
   remove(key) {
@@ -98,8 +98,8 @@ export class WebStorage {
   }
 
   each(callback) {
-    for (let i = this.storage.length - 1; i >= 0; i--) {
-      let key = this.storage.key(i)
+    for (let i = this._storage.length - 1; i >= 0; i--) {
+      let key = this._storage.key(i)
       callback(key, this.get(key))
     }
   }
@@ -114,10 +114,10 @@ export class WebStorage {
       })
     )
 
-    this.storage.setItem(_key, _data)
+    this._storage.setItem(_key, _data)
   }
 
   clearAll() {
-    return this.storage.clear()
+    return this._storage.clear()
   }
 }
