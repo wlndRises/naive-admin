@@ -79,12 +79,12 @@ export function createStorage(storage) {
       return !!isOnce
     }
 
-    get(key) {
+    get(key, def = null) {
       const _key = this._getKey(key)
       const _data = this._getData(_key)
 
       if (!_data) {
-        return null
+        return def
       }
 
       const isExpired = this._isExpired(_key)
@@ -95,7 +95,7 @@ export function createStorage(storage) {
         this._remove(_key)
       }
 
-      return isExpired ? null : _data.data
+      return isExpired ? def : _data.data
     }
 
     set(key, data, options = {}) {

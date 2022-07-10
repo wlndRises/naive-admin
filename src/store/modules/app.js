@@ -1,10 +1,10 @@
-import { createLocalStorage, nonNull } from '@/utils/cache'
+import { createLocalStorage } from '@/utils/cache'
 
 const Storage = createLocalStorage()
 
 const state = {
   sidebar: {
-    opened: nonNull(Storage.get('sidebarStatus'), true),
+    opened: Storage.get('sidebarStatus', true),
     withoutAnimation: false,
   },
   device: 'desktop',

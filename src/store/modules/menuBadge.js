@@ -1,9 +1,9 @@
-import { createSessionStorage, nonNull } from '@/utils/cache'
+import { createSessionStorage } from '@/utils/cache'
 
 const Storage = createSessionStorage()
 
 const state = {
-  menuBadges: nonNull(Storage.get('menuBadges'), []),
+  menuBadges: Storage.get('menuBadges', []),
 }
 
 const mutations = {
