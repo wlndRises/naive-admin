@@ -1,4 +1,4 @@
-import { WebStorage } from './storage'
+import { WebStorage } from './WebStorage'
 
 export const defaultKey = 'naive'
 
