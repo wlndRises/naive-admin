@@ -1,5 +1,7 @@
 // TODO Implement encryption and decryption
 
+import { startsWith } from 'lodash-es'
+
 export class WebStorage {
   constructor({ prefixKey, storage }) {
     this._prefixKey = prefixKey
@@ -91,19 +93,6 @@ export class WebStorage {
     this._storage.setItem(_key, _data)
   }
 
-  remove(key) {
-    const _key = this._getKey(key)
-
-    this._remove(_key)
-  }
-
-  each(callback) {
-    for (let i = this._storage.length - 1; i >= 0; i--) {
-      let key = this._storage.key(i)
-      callback(key, this.get(key))
-    }
-  }
-
   // 写入一个读取一次后删除的key
   once(key, data, options = {}) {
     const _key = this._getKey(key)
@@ -117,7 +106,34 @@ export class WebStorage {
     this._storage.setItem(_key, _data)
   }
 
+  remove(key) {
+    const _key = this._getKey(key)
+
+    this._remove(_key)
+  }
+
+  each(callbackfn) {
+    for (let i = this._storage.length - 1; i >= 0; i--) {
+      let _key = this._storage.key(i)
+
+      // 如果以`__${this.prefixKey}_`开头 说明键值对是当前实例创建的
+      if (startsWith(_key, `__${this.prefixKey}_`)) {
+        const key = _key.split[`__${this.prefixKey}_`][1]
+
+        callbackfn(key, this.get(key))
+      }
+    }
+  }
+
+  // 清除当前实例创建的键值对
+  clear() {
+    this.each(key => {
+      this.remove(key)
+    })
+  }
+
+  // 清除所有键值对 包括不是当前实例创建的
   clearAll() {
-    return this._storage.clear()
+    this._storage.clear()
   }
 }
