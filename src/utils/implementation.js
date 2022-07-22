@@ -4,7 +4,7 @@
  * @Autor: Wind
  * @Date: 2022-04-30 11:56:48
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-17 21:06:54
+ * @LastEditTime: 2022-07-22 13:10:06
  */
 import { isDate, isJson, isObject, isArray, isDef } from './is'
 
@@ -111,8 +111,8 @@ export function softBind(fn, obj) {
 
 /**
  * @description: 纵向合并单元格
- * @param {Array} 表格数据
- * @param {Array | String} 需要纵向合并列 依据的字段组成的数组 也可传单个字段字符串
+ * @param {Array} data 表格数据
+ * @param {Array | String} contentList 需要纵向合并列 依据的字段组成的数组 也可传单个字段字符串
  * @return {Array} 每行合并的格数组成的数组
  * @author: Wind
  * eg:

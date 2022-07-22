@@ -4,7 +4,7 @@
  * @Autor: Wind
  * @Date: 2021-12-23 16:50:01
  * @LastEditors: Wind
- * @LastEditTime: 2022-06-17 15:35:37
+ * @LastEditTime: 2022-07-22 13:15:23
  */
 export { isEqual, isFinite, isInteger } from 'lodash-es'
 
@@ -135,7 +135,7 @@ export function isEmpty(val) {
 
 /**
  * @description element是否在视口范围
- * isFullyVisible 是否 判断完全在视口范围内
+ * @param {Boolean} isFullyVisible 是否要判断完全在视口范围内
  */
 export function isVisibleInViewport(el, isFullyVisible) {
   const { top, left, right, bottom } = el.getBoundingClientRect()
