@@ -2,20 +2,20 @@ module.exports = {
   title: 'Naive Admin',
 
   /**
-   * @type {boolean} true | false
+   * @type {boolean}
    * @description Whether need tagsView
    */
   tagsView: true,
 
   /**
-   * @type {boolean} true | false
-   * @description 是否固定 header 不跟随滚动条滑动
+   * @type {boolean}
+   * @description Whether fixed header
    */
   fixedHeader: true,
 
   /**
-   * @type {boolean} true | false
-   * @description 是否在侧边栏显示 logo
+   * @type {boolean}
+   * @description Whether to display the logo in the sidebar
    */
   sidebarLogo: true,
 }
